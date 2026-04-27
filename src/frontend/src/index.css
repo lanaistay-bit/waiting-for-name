@@ -1,0 +1,582 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Playfair Display", serif;
+    --font-body: "Source Sans 3", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 0.625rem;
+
+    /* COEP Brand Palette */
+    --color-cobalt: #1648c8;
+    --color-deep-blue: #0f3499;
+    --color-midnight: #081e5c;
+    --color-gold: #e8c42a;
+
+    /* Semantic tokens — light mode */
+    --background: 1 0 0;
+    --foreground: 0.1 0 0;
+    --card: 1.0 0 0;
+    --card-foreground: 0.1 0 0;
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.1 0 0;
+
+    /* Primary = cobalt */
+    --primary: 0.35 0.18 260;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.97 0 0;
+    --secondary-foreground: 0.25 0 0;
+    --muted: 0.92 0 0;
+    --muted-foreground: 0.5 0 0;
+
+    /* Accent = cobalt (replaces old gold) */
+    --accent: 0.35 0.18 260;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0 0;
+    --input: 0.93 0 0;
+    --ring: 0.35 0.18 260;
+
+    --surface: 0.97 0 0;
+
+    --chart-1: 0.35 0.18 260;
+    --chart-2: 0.55 0.18 250;
+    --chart-3: 0.6 0.12 185;
+    --chart-4: 0.75 0.14 65;
+    --chart-5: 0.45 0.1 15;
+
+    --sidebar: 0.99 0 0;
+    --sidebar-foreground: 0.12 0 0;
+    --sidebar-primary: 0.35 0.18 260;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.93 0 0;
+    --sidebar-accent-foreground: 0.25 0 0;
+    --sidebar-border: 0.88 0 0;
+    --sidebar-ring: 0.35 0.18 260;
+  }
+
+  .dark {
+    --background: 0.12 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.165 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.22 0 0;
+    --popover-foreground: 0.95 0 0;
+
+    --primary: 0.55 0.18 260;
+    --primary-foreground: 0.12 0 0;
+
+    --secondary: 0.22 0 0;
+    --secondary-foreground: 0.85 0 0;
+    --muted: 0.22 0 0;
+    --muted-foreground: 0.55 0 0;
+
+    --accent: 0.55 0.18 260;
+    --accent-foreground: 0.12 0 0;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.12 0 0;
+
+    --border: 0.25 0 0;
+    --input: 0.22 0 0;
+    --ring: 0.55 0.18 260;
+
+    --surface: 0.18 0 0;
+
+    --chart-1: 0.55 0.18 260;
+    --chart-2: 0.65 0.18 250;
+    --chart-3: 0.7 0.15 185;
+    --chart-4: 0.72 0.16 65;
+    --chart-5: 0.55 0.12 15;
+
+    --sidebar: 0.165 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.55 0.18 260;
+    --sidebar-primary-foreground: 0.12 0 0;
+    --sidebar-accent: 0.22 0 0;
+    --sidebar-accent-foreground: 0.85 0 0;
+    --sidebar-border: 0.25 0 0;
+    --sidebar-ring: 0.55 0.18 260;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Source Sans 3", sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  /* Headings use Playfair Display */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-heading {
+    font-family: "Playfair Display", serif;
+    color: #0f3499;
+    line-height: 1.2;
+  }
+
+  /* Cobalt selection highlight */
+  ::selection {
+    background: #1648c8;
+    color: #fff;
+  }
+
+  /* Cobalt focus ring for accessibility */
+  :focus-visible {
+    outline: 2px solid #1648c8;
+    outline-offset: 2px;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f4f4f4;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(22, 72, 200, 0.4);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(22, 72, 200, 0.7);
+  }
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────── */
+/* Keyframes                                   */
+/* ─────────────────────────────────────────── */
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes revealScale {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tickerScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes carouselSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(32px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes carouselSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-32px) scale(0.96);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% center;
+  }
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulseCobalt {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes chatbotPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 72, 200, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(22, 72, 200, 0);
+  }
+}
+
+@keyframes recruiterScrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes recruiterScrollRight {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ─────────────────────────────────────────── */
+/* Utilities                                   */
+/* ─────────────────────────────────────────── */
+
+@layer utilities {
+  /* Typography */
+  .text-stats-xl {
+    font-size: clamp(2.75rem, 5.5vw, 4.25rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-family: "Playfair Display", serif;
+  }
+
+  .font-heading {
+    font-family: "Playfair Display", serif;
+  }
+
+  .font-body {
+    font-family: "Source Sans 3", sans-serif;
+  }
+
+  /* Cobalt accent utilities */
+  .text-cobalt {
+    color: #1648c8;
+  }
+
+  .bg-cobalt {
+    background-color: #1648c8;
+  }
+
+  .bg-cobalt-subtle {
+    background-color: rgba(22, 72, 200, 0.08);
+  }
+
+  .border-cobalt {
+    border-color: #1648c8;
+  }
+
+  .border-cobalt-subtle {
+    border-color: rgba(22, 72, 200, 0.2);
+  }
+
+  /* Deep blue */
+  .text-deep-blue {
+    color: #0f3499;
+  }
+
+  .bg-deep-blue {
+    background-color: #0f3499;
+  }
+
+  /* Midnight */
+  .bg-midnight {
+    background-color: #081e5c;
+  }
+
+  /* Gold — buttons and active nav ONLY */
+  .text-gold {
+    color: #e8c42a;
+  }
+
+  .bg-gold {
+    background-color: #e8c42a;
+  }
+
+  /* Legacy aliases (kept for backward compat) */
+  .text-accent-gold {
+    color: #e8c42a;
+  }
+  .bg-accent-gold {
+    background-color: #e8c42a;
+  }
+  .bg-accent-gold-subtle {
+    background-color: rgba(232, 196, 42, 0.1);
+  }
+  .border-accent-gold {
+    border-color: #e8c42a;
+  }
+  .border-accent-subtle {
+    border-color: rgba(232, 196, 42, 0.25);
+  }
+
+  /* Surface tokens */
+  .bg-surface {
+    background-color: #f7f8fa;
+  }
+
+  /* Shadows */
+  .shadow-premium {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .shadow-premium-hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+  }
+
+  .shadow-cobalt {
+    box-shadow: 0 4px 20px rgba(22, 72, 200, 0.25);
+  }
+
+  /* Legacy gold shadow alias */
+  .shadow-gold {
+    box-shadow: 0 4px 20px rgba(232, 196, 42, 0.25);
+  }
+
+  /* Transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-premium {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s
+      cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .fade-in-down {
+    animation: fadeInDown 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .fade-in-left {
+    animation: fadeInLeft 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .fade-in-right {
+    animation: fadeInRight 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-ticker {
+    animation: tickerScroll 28s linear infinite;
+    will-change: transform;
+  }
+
+  .animate-carousel-in {
+    animation: carouselSlideIn 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-cobalt {
+    animation: pulseCobalt 2s ease-in-out infinite;
+  }
+
+  /* Legacy alias */
+  .animate-pulse-gold {
+    animation: pulseCobalt 2s ease-in-out infinite;
+  }
+
+  .animate-image-reveal {
+    animation: imageReveal 0.8s ease-out forwards;
+  }
+
+  /* Carousel states */
+  .carousel-blur {
+    filter: blur(3px);
+    transform: scale(0.88);
+    opacity: 0.6;
+    transition: filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .carousel-active {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+    transition: filter 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    background: linear-gradient(90deg, #efefef 25%, #f8f8f8 50%, #efefef 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Cobalt gradient text */
+  .text-gradient-cobalt {
+    background: linear-gradient(135deg, #1648c8, #0f3499);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Legacy gold gradient alias */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #1648c8, #0f3499);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section divider */
+  .divider-cobalt {
+    height: 3px;
+    width: 48px;
+    background: #1648c8;
+    border-radius: 2px;
+  }
+
+  /* Legacy gold divider alias */
+  .divider-gold {
+    height: 3px;
+    width: 48px;
+    background: #1648c8;
+    border-radius: 2px;
+  }
+
+  /* LogoBar collapse */
+  .logo-bar-visible {
+    max-height: 80px;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
+  }
+
+  .logo-bar-hidden {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
+  }
+
+  /* Image animation */
+  .img-hover-zoom {
+    overflow: hidden;
+  }
+
+  .img-hover-zoom img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .img-hover-zoom:hover img {
+    transform: scale(1.05);
+  }
+}
