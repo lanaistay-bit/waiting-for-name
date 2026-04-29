@@ -375,8 +375,7 @@ const TIMELINE_PREVIEW = [
     description:
       "Founded by the British under Col. Francis Oliphant as Poona Civil Engineering College, one of the first engineering institutions in Asia.",
     color: "#1A237E",
-    imageUrl:
-      "https://www.coeptech.ac.in/wp-content/uploads/2022/09/COEP-Technological-University-Pune-Image.jpg",
+    imageUrl: "/assets/generated/timeline-1854-foundation.dim_800x500.jpg",
   },
   {
     year: "1911",
@@ -384,8 +383,7 @@ const TIMELINE_PREVIEW = [
     description:
       "Re-designated as the College of Engineering, Pune (COEP), marking a new era of expanded programs and modernized infrastructure.",
     color: "#0F3399",
-    imageUrl:
-      "https://www.coeptech.ac.in/wp-content/uploads/2022/09/college-of-engineering-pune-heritage-building.jpg",
+    imageUrl: "/assets/generated/timeline-1911-rename.dim_800x500.jpg",
   },
   {
     year: "1947",
@@ -393,8 +391,7 @@ const TIMELINE_PREVIEW = [
     description:
       "Following Indian independence, COEP expanded rapidly under the Maharashtra Government, becoming a premier institution for the nation's engineering workforce.",
     color: "#1A237E",
-    imageUrl:
-      "https://www.coeptech.ac.in/wp-content/uploads/2022/10/COEP-Tech-Campus.jpg",
+    imageUrl: "/assets/generated/timeline-1947-independence.dim_800x500.jpg",
   },
   {
     year: "2022",
@@ -402,8 +399,7 @@ const TIMELINE_PREVIEW = [
     description:
       "Elevated to COEP Technological University — a Unitary Public University of the Government of Maharashtra, with full academic and administrative autonomy.",
     color: "#1A237E",
-    imageUrl:
-      "https://www.coeptech.ac.in/wp-content/uploads/2023/01/coep-technological-university-pune.jpg",
+    imageUrl: "/assets/generated/timeline-2022-university.dim_800x500.jpg",
   },
 ];
 

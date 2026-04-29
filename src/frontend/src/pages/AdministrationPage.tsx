@@ -843,6 +843,19 @@ export default function AdministrationPage() {
                     src={CHANCELLOR.photoUrl}
                     alt={CHANCELLOR.name}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    onError={(e) => {
+                      const t = e.currentTarget;
+                      t.onerror = null;
+                      t.style.display = "none";
+                      const parent = t.parentElement;
+                      if (parent && !parent.querySelector(".img-fallback")) {
+                        const fb = document.createElement("div");
+                        fb.className = "img-fallback w-full h-full";
+                        fb.style.background =
+                          "linear-gradient(135deg, #1A237E 0%, #081E5C 100%)";
+                        parent.appendChild(fb);
+                      }
+                    }}
                   />
                 </div>
                 <div
@@ -908,6 +921,19 @@ export default function AdministrationPage() {
                     src={CHAIRMAN.photoUrl}
                     alt={CHAIRMAN.name}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    onError={(e) => {
+                      const t = e.currentTarget;
+                      t.onerror = null;
+                      t.style.display = "none";
+                      const parent = t.parentElement;
+                      if (parent && !parent.querySelector(".img-fallback")) {
+                        const fb = document.createElement("div");
+                        fb.className = "img-fallback w-full h-full";
+                        fb.style.background =
+                          "linear-gradient(135deg, #0F3399 0%, #081E5C 100%)";
+                        parent.appendChild(fb);
+                      }
+                    }}
                   />
                 </div>
                 <div
