@@ -6,6 +6,8 @@ import type { SubTab } from "../components/SubTabRibbon";
 import {
   ASSOCIATE_DEANS,
   type AdminProfile,
+  CHAIRMAN,
+  CHANCELLOR,
   DEANS,
   DIRECTORS,
   REGISTRAR,
@@ -18,6 +20,8 @@ const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 
 const ADMIN_TABS: SubTab[] = [
+  { id: "chancellor", label: "Chancellor" },
+  { id: "chairman", label: "Chairman" },
   { id: "vice-chancellor", label: "Vice Chancellor" },
   { id: "registrar", label: "Registrar" },
   { id: "directors", label: "Directors" },
@@ -645,12 +649,16 @@ function DeanCard({
 export default function AdministrationPage() {
   const [openDirector, setOpenDirector] = useState<AdminProfile | null>(null);
   const [openDean, setOpenDean] = useState<AdminProfile | null>(null);
-  const [activeTab, setActiveTab] = useState("vice-chancellor");
+  const [activeTab, setActiveTab] = useState("chancellor");
 
+  const chancellorRef = useScrollReveal<HTMLDivElement>(0.05);
+  const chairmanRef = useScrollReveal<HTMLDivElement>(0.05);
   const vcRef = useScrollReveal<HTMLDivElement>(0.05);
   const regRef = useScrollReveal<HTMLDivElement>(0.05);
 
   const sectionIds = [
+    "chancellor",
+    "chairman",
     "vice-chancellor",
     "registrar",
     "directors",
@@ -744,6 +752,230 @@ export default function AdministrationPage() {
         activeTab={activeTab}
         onTabChange={handleTabChange}
       />
+
+      {/* ── CHANCELLOR ── */}
+      <section
+        id="chancellor"
+        className="bg-white"
+        style={{ paddingTop: "96px", paddingBottom: "96px" }}
+        data-ocid="administration.chancellor_section"
+      >
+        <div className="max-w-6xl mx-auto px-6">
+          <div
+            ref={chancellorRef.ref}
+            className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center"
+            style={{
+              opacity: chancellorRef.visible ? 1 : 0,
+              transform: chancellorRef.visible
+                ? "translateY(0)"
+                : "translateY(40px)",
+              transition: "opacity 0.7s ease, transform 0.7s ease",
+            }}
+          >
+            <div>
+              <p className="typo-section-label mb-4" style={{ color: COBALT }}>
+                Chancellor
+              </p>
+              <h2
+                className="typo-hero-heading mb-3 leading-tight"
+                style={{ color: DEEP_BLUE }}
+              >
+                {CHANCELLOR.name}
+              </h2>
+              <p
+                className="typo-support mb-6 leading-relaxed"
+                style={{ color: "#4b5563" }}
+              >
+                {CHANCELLOR.designation}
+              </p>
+              <p className="typo-body mb-8" style={{ color: "#374151" }}>
+                {CHANCELLOR.brief}
+              </p>
+              <div className="flex flex-col gap-2 mb-8">
+                <a
+                  href={`mailto:${CHANCELLOR.email}`}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: COBALT }}
+                >
+                  <Mail className="w-4 h-4" />
+                  {CHANCELLOR.email}
+                </a>
+                <a
+                  href={`tel:${CHANCELLOR.phone}`}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: COBALT }}
+                >
+                  <Phone className="w-4 h-4" />
+                  {CHANCELLOR.phone}
+                </a>
+              </div>
+              <Link
+                to="/administration/$adminId"
+                params={{ adminId: "chancellor" }}
+                className="inline-flex items-center gap-2 typo-btn group"
+                style={{ color: COBALT }}
+                data-ocid="administration.chancellor_profile_button"
+              >
+                View Profile &amp; Message
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
+              </Link>
+            </div>
+
+            <div className="flex justify-end">
+              <div
+                className="relative"
+                style={{
+                  opacity: chancellorRef.visible ? 1 : 0,
+                  transform: chancellorRef.visible ? "scale(1)" : "scale(1.04)",
+                  transition:
+                    "opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s",
+                }}
+              >
+                <div
+                  className="overflow-hidden rounded-2xl shadow-2xl"
+                  style={{
+                    width: "320px",
+                    aspectRatio: "4/5",
+                    border: "2px solid rgba(26, 35, 126, 0.18)",
+                  }}
+                >
+                  <img
+                    src={CHANCELLOR.photoUrl}
+                    alt={CHANCELLOR.name}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+                <div
+                  className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full"
+                  style={{
+                    background: "rgba(26, 35, 126, 0.08)",
+                    border: "1px solid rgba(26, 35, 126, 0.12)",
+                  }}
+                />
+                <div
+                  className="absolute -top-4 -left-4 w-16 h-16 rounded-full"
+                  style={{ background: "rgba(232, 196, 42, 0.15)" }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* ── CHAIRMAN ── */}
+      <section
+        id="chairman"
+        style={{
+          background: "#fafbff",
+          paddingTop: "96px",
+          paddingBottom: "96px",
+        }}
+        data-ocid="administration.chairman_section"
+      >
+        <div className="max-w-6xl mx-auto px-6">
+          <div
+            ref={chairmanRef.ref}
+            className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center"
+            style={{
+              opacity: chairmanRef.visible ? 1 : 0,
+              transform: chairmanRef.visible
+                ? "translateY(0)"
+                : "translateY(40px)",
+              transition: "opacity 0.7s ease, transform 0.7s ease",
+            }}
+          >
+            <div className="flex justify-start order-2 md:order-1">
+              <div
+                className="relative"
+                style={{
+                  opacity: chairmanRef.visible ? 1 : 0,
+                  transform: chairmanRef.visible ? "scale(1)" : "scale(1.04)",
+                  transition:
+                    "opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s",
+                }}
+              >
+                <div
+                  className="overflow-hidden rounded-2xl shadow-2xl"
+                  style={{
+                    width: "300px",
+                    aspectRatio: "4/5",
+                    border: "2px solid rgba(15, 51, 153, 0.18)",
+                  }}
+                >
+                  <img
+                    src={CHAIRMAN.photoUrl}
+                    alt={CHAIRMAN.name}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+                <div
+                  className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full"
+                  style={{
+                    background: "rgba(15, 51, 153, 0.06)",
+                    border: "1px solid rgba(15, 51, 153, 0.1)",
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="order-1 md:order-2">
+              <p
+                className="typo-section-label mb-4"
+                style={{ color: DEEP_BLUE }}
+              >
+                Chairman, Board of Governance
+              </p>
+              <h2
+                className="typo-hero-heading mb-3 leading-tight"
+                style={{ color: DEEP_BLUE }}
+              >
+                {CHAIRMAN.name}
+              </h2>
+              <p
+                className="typo-support mb-6 leading-relaxed"
+                style={{ color: "#4b5563" }}
+              >
+                {CHAIRMAN.designation}
+              </p>
+              <p className="typo-body mb-8" style={{ color: "#374151" }}>
+                {CHAIRMAN.brief}
+              </p>
+              <div className="flex flex-col gap-2 mb-8">
+                <a
+                  href={`mailto:${CHAIRMAN.email}`}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: DEEP_BLUE }}
+                >
+                  <Mail className="w-4 h-4" />
+                  {CHAIRMAN.email}
+                </a>
+                <a
+                  href={`tel:${CHAIRMAN.phone}`}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: DEEP_BLUE }}
+                >
+                  <Phone className="w-4 h-4" />
+                  {CHAIRMAN.phone}
+                </a>
+              </div>
+              <Link
+                to="/administration/$adminId"
+                params={{ adminId: "chairman" }}
+                className="inline-flex items-center gap-2 typo-btn group"
+                style={{ color: DEEP_BLUE }}
+                data-ocid="administration.chairman_profile_button"
+              >
+                View Profile &amp; Message
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Divider />
 
       {/* ── VICE CHANCELLOR ── */}
       <section

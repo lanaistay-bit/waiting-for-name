@@ -131,12 +131,20 @@ function HeroSection() {
       className="relative w-full flex flex-col items-center justify-center text-center overflow-hidden"
       style={{
         background: `linear-gradient(135deg, ${DEEP_BLUE} 0%, ${COBALT} 45%, ${MIDNIGHT} 100%)`,
+        backgroundImage: `url('https://www.coeptech.ac.in/wp-content/uploads/2024/01/research-lab-coep.jpg'), linear-gradient(135deg, ${DEEP_BLUE} 0%, ${COBALT} 45%, ${MIDNIGHT} 100%)`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         minHeight: 420,
         paddingTop: "80px",
         paddingBottom: "80px",
       }}
       data-ocid="research.hero"
     >
+      {/* Dark overlay for readability */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ backgroundColor: "rgba(8, 30, 92, 0.62)", zIndex: 0 }}
+      />
       {/* Grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -144,6 +152,7 @@ function HeroSection() {
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
+          zIndex: 1,
         }}
       />
       {/* Radial glow */}
@@ -152,6 +161,7 @@ function HeroSection() {
         style={{
           background:
             "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(26, 35, 126, 0.18) 0%, transparent 70%)",
+          zIndex: 1,
         }}
       />
       <div className="relative z-10 px-4 max-w-4xl mx-auto">

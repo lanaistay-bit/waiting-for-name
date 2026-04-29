@@ -560,27 +560,36 @@ export default function AcademicsPage() {
         className="relative overflow-hidden flex flex-col items-center justify-center text-center"
         style={{
           background: `linear-gradient(135deg, ${MIDNIGHT} 0%, ${DEEP_BLUE} 45%, ${COBALT} 100%)`,
+          backgroundImage: `url('https://www.coeptech.ac.in/wp-content/uploads/2023/08/DSC_6471-scaled.jpg'), linear-gradient(135deg, ${MIDNIGHT} 0%, ${DEEP_BLUE} 45%, ${COBALT} 100%)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           minHeight: "320px",
           paddingTop: "64px",
           paddingBottom: "64px",
         }}
         data-ocid="academics.hero_section"
       >
+        {/* Dark overlay for readability */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ backgroundColor: "rgba(8, 30, 92, 0.62)", zIndex: 0 }}
+        />
         {/* Geometric pattern overlay */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundImage: `radial-gradient(circle at 20% 50%, ${COBALT}30 0%, transparent 50%), radial-gradient(circle at 80% 20%, ${GOLD}18 0%, transparent 40%)`,
+            zIndex: 1,
           }}
         />
         {/* Floating circles */}
         <div
           className="absolute top-0 right-0 w-96 h-96 rounded-full -translate-y-1/2 translate-x-1/3 opacity-10"
-          style={{ backgroundColor: GOLD }}
+          style={{ backgroundColor: GOLD, zIndex: 1 }}
         />
         <div
           className="absolute bottom-0 left-0 w-72 h-72 rounded-full translate-y-1/2 -translate-x-1/3 opacity-[0.07]"
-          style={{ backgroundColor: "#fff" }}
+          style={{ backgroundColor: "#fff", zIndex: 1 }}
         />
         {/* Dot grid */}
         <div
@@ -589,6 +598,7 @@ export default function AcademicsPage() {
             backgroundImage:
               "radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)",
             backgroundSize: "28px 28px",
+            zIndex: 1,
           }}
         />
 

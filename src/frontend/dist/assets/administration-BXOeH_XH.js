@@ -1,40 +1,16 @@
-// ─── Administration Data ───────────────────────────────────────────────────
-
-export interface AdminProfile {
-  slug: string;
-  name: string;
-  designation: string;
-  department?: string;
-  email: string;
-  phone: string;
-  photoUrl: string;
-  brief: string;
-  education: string[];
-  experience: string[];
-  research: string[];
-  achievements: string[];
-  board?: string;
-  specialization?: string;
-  message?: string;
-  role: "vc" | "registrar" | "director" | "dean" | "associate-dean";
-}
-
-// ─── Chancellor ────────────────────────────────────────────────────────────
-export const CHANCELLOR: AdminProfile = {
+const CHANCELLOR = {
   slug: "chancellor",
   name: "Shri Acharya Devvrat",
   designation: "Honorable Chancellor, COEP Technological University, Pune",
   email: "chancellor@coeptech.ac.in",
   phone: "+91 20 2550 7000",
-  photoUrl:
-    "https://www.coeptech.ac.in/wp-content/uploads/2023/09/chancellor.jpg",
-  brief:
-    "Shri Acharya Devvrat, Governor of Gujarat and Maharashtra, brings 45 years of experience in teaching and administration. Born on 18 January 1959, he is known for his transformative leadership in education, natural farming initiatives, and social welfare programs.",
+  photoUrl: "https://www.coeptech.ac.in/wp-content/uploads/2023/09/chancellor.jpg",
+  brief: "Shri Acharya Devvrat, Governor of Gujarat and Maharashtra, brings 45 years of experience in teaching and administration. Born on 18 January 1959, he is known for his transformative leadership in education, natural farming initiatives, and social welfare programs.",
   education: [
     "Graduate and Postgraduate in History and Hindi",
     "Bachelor of Education (B.Ed.)",
     "Diploma in Yoga Science",
-    "Doctor of Naturopathy and Yogic Science",
+    "Doctor of Naturopathy and Yogic Science"
   ],
   experience: [
     "Governor of Gujarat since 22 July 2019",
@@ -44,7 +20,7 @@ export const CHANCELLOR: AdminProfile = {
     "Chancellor of 24 universities maintained by the state government of Gujarat",
     "Chancellor, Gujarat Vidyapeeth, Ahmedabad",
     "President, Indian Red Cross Society, Gujarat",
-    "Visitor, Maharaja Sayajirao University, Vadodara",
+    "Visitor, Maharaja Sayajirao University, Vadodara"
   ],
   research: [],
   achievements: [
@@ -52,29 +28,23 @@ export const CHANCELLOR: AdminProfile = {
     "Championed 'Beti Bachao Beti Padhao' programs across Himachal Pradesh and Gujarat",
     "Extensive social programs on water conservation, tree plantation, and addiction eradication",
     "Former Principal, Gurukul Kurukshetra, Haryana — dedicated educator for over 45 years",
-    "Honored Arya Samaj pracharak and educationalist",
+    "Honored Arya Samaj pracharak and educationalist"
   ],
-  message:
-    "Education is the foundation of a progressive society. COEP Technological University stands as a beacon of excellence, nurturing not just engineers but visionary leaders who will shape the future of India.",
-  role: "vc",
+  message: "Education is the foundation of a progressive society. COEP Technological University stands as a beacon of excellence, nurturing not just engineers but visionary leaders who will shape the future of India.",
+  role: "vc"
 };
-
-// ─── Chairman ──────────────────────────────────────────────────────────────
-export const CHAIRMAN: AdminProfile = {
+const CHAIRMAN = {
   slug: "chairman",
   name: "Shri Vinayak Pai",
-  designation:
-    "Chairman – Board of Governance, COEP Technological University, Pune",
+  designation: "Chairman – Board of Governance, COEP Technological University, Pune",
   email: "chairman@coeptech.ac.in",
   phone: "+91 20 2550 7000",
-  photoUrl:
-    "https://www.coeptech.ac.in/wp-content/uploads/2023/09/chairman.jpg",
-  brief:
-    "Shri Vinayak Pai is the Managing Director & CEO of Tata Projects Limited (TPL), India's Sustainable Technology-led EPC company. A proud alumnus of the College of Engineering Pune, he brings decades of leadership in infrastructure and construction to COEP's governance.",
+  photoUrl: "https://www.coeptech.ac.in/wp-content/uploads/2023/09/chairman.jpg",
+  brief: "Shri Vinayak Pai is the Managing Director & CEO of Tata Projects Limited (TPL), India's Sustainable Technology-led EPC company. A proud alumnus of the College of Engineering Pune, he brings decades of leadership in infrastructure and construction to COEP's governance.",
   education: [
     "Bachelor of Engineering, College of Engineering Pune (COEP Alumnus)",
     "Postgraduate in Management, Symbiosis College, Pune",
-    "Executive MBA, IIT Bombay (Shailesh J. Mehta School of Management)",
+    "Executive MBA, IIT Bombay (Shailesh J. Mehta School of Management)"
   ],
   experience: [
     "Managing Director & CEO, Tata Projects Limited (TPL), Mumbai",
@@ -84,7 +54,7 @@ export const CHAIRMAN: AdminProfile = {
     "Board of Governors, CIDC (2023–25)",
     "President, Construction Federation of India (CFI)",
     "Former Commissioner, Energy Transition Commission, UK",
-    "Former Member, Executive Leader World 50",
+    "Former Member, Executive Leader World 50"
   ],
   research: [],
   achievements: [
@@ -92,33 +62,30 @@ export const CHAIRMAN: AdminProfile = {
     "HPCL Rajasthan Refinery Ltd., Tata Electronics factory, ISRO Trisonic Wind Tunnel, Chennai Metro",
     "Honoured with Honorary CEPM Fellowship at 33rd Global Symposium & 7th World Project Management Forum (WPMF)",
     "25+ years of association with Project Management since 1992",
-    "Distinguished career spanning over three decades in EPC and infrastructure",
+    "Distinguished career spanning over three decades in EPC and infrastructure"
   ],
-  message:
-    "As a proud alumnus of COEP, I am deeply committed to nurturing the next generation of engineers and innovators. COEP Technological University has a legacy of excellence that continues to inspire, and together we will build a future of outstanding achievement.",
-  role: "registrar",
+  message: "As a proud alumnus of COEP, I am deeply committed to nurturing the next generation of engineers and innovators. COEP Technological University has a legacy of excellence that continues to inspire, and together we will build a future of outstanding achievement.",
+  role: "registrar"
 };
-
-export const VICE_CHANCELLOR: AdminProfile = {
+const VICE_CHANCELLOR = {
   slug: "vice-chancellor",
   name: "Prof. Sunil G. Bhirud",
   designation: "Vice-Chancellor, COEP Technological University, Pune",
   email: "vc@coeptech.ac.in",
   phone: "020-25507001",
   photoUrl: "/assets/generated/vc-portrait-indian.dim_300x400.jpg",
-  brief:
-    "Professor of Computer Engineering with over 36 years of experience in academics, research, administration, and industry.",
+  brief: "Professor of Computer Engineering with over 36 years of experience in academics, research, administration, and industry.",
   education: [
     "Ph.D. Computer Engineering",
     "M.E. Computer Science",
-    "B.E. Computer Engineering",
+    "B.E. Computer Engineering"
   ],
   experience: [
     "Vice Chancellor, COEP Technological University (2024 – Present)",
     "Director (In-Charge), VJTI Mumbai (2022–2023)",
     "Registrar (Additional Charge), University of Mumbai (2022–2024)",
     "Advisor-I, AICTE New Delhi — Head of e-Governance, Legal, and CVO (2010–2015)",
-    "Professor, Computer Engineering Department, VJTI Mumbai (2000–Present)",
+    "Professor, Computer Engineering Department, VJTI Mumbai (2000–Present)"
   ],
   research: [
     "Image Processing",
@@ -126,51 +93,46 @@ export const VICE_CHANCELLOR: AdminProfile = {
     "Machine Learning",
     "Deep Fake Detection",
     "Social Media Analytics",
-    "Artificial Intelligence",
+    "Artificial Intelligence"
   ],
   achievements: [
     "Guided 19 PhD research scholars to successful completion",
     "Developed Centers of Excellence in Deep Fake Detection (Ministry of Home Affairs), Artificial Intelligence (Govt. of Maharashtra), and Machine Intelligence (AICTE)",
     "Spearheaded e-governance implementation across 10,000+ institutes at AICTE",
-    "Published numerous high-impact research papers in Image Processing and Machine Learning",
+    "Published numerous high-impact research papers in Image Processing and Machine Learning"
   ],
-  message:
-    "Dear Students, Faculty, and Staff, Welcome to COEP Technological University — a beacon of engineering excellence since 1854. As Vice-Chancellor, I am honoured to lead an institution that has shaped some of India's finest minds for over 170 years. COEP has been at the forefront of technological education, producing graduates who have made significant contributions to industries, academia, and public service worldwide.\n\nOur mission is to foster a culture of innovation, research excellence, and holistic development. We are committed to expanding our academic programs, strengthening industry partnerships, and building state-of-the-art research facilities. With a vision to grow to 10,000 students by 2030, we are investing in cutting-edge laboratories, international collaborations, and entrepreneurship ecosystems.\n\nI encourage every member of our community to embrace challenges, pursue knowledge with passion, and contribute to building a better tomorrow. COEP's legacy of excellence continues through each one of you. Together, we will write the next glorious chapter of this historic institution.",
-  role: "vc",
+  message: "Dear Students, Faculty, and Staff, Welcome to COEP Technological University — a beacon of engineering excellence since 1854. As Vice-Chancellor, I am honoured to lead an institution that has shaped some of India's finest minds for over 170 years. COEP has been at the forefront of technological education, producing graduates who have made significant contributions to industries, academia, and public service worldwide.\n\nOur mission is to foster a culture of innovation, research excellence, and holistic development. We are committed to expanding our academic programs, strengthening industry partnerships, and building state-of-the-art research facilities. With a vision to grow to 10,000 students by 2030, we are investing in cutting-edge laboratories, international collaborations, and entrepreneurship ecosystems.\n\nI encourage every member of our community to embrace challenges, pursue knowledge with passion, and contribute to building a better tomorrow. COEP's legacy of excellence continues through each one of you. Together, we will write the next glorious chapter of this historic institution.",
+  role: "vc"
 };
-
-export const REGISTRAR: AdminProfile = {
+const REGISTRAR = {
   slug: "registrar",
   name: "Dr. D. N. Sonawane",
-  designation:
-    "Associate Professor & Registrar (Additional Charge), COEP Tech. University, Pune",
+  designation: "Associate Professor & Registrar (Additional Charge), COEP Tech. University, Pune",
   email: "registrar@coeptech.ac.in",
   phone: "020-25507002",
   photoUrl: "/assets/generated/registrar-portrait-indian.dim_300x400.jpg",
-  brief:
-    "Senior academic administrator overseeing all academic records, examinations, and regulatory compliance of the university.",
+  brief: "Senior academic administrator overseeing all academic records, examinations, and regulatory compliance of the university.",
   education: [
     "Ph.D. from reputed institution",
     "M.E. Engineering",
-    "B.E. Engineering",
+    "B.E. Engineering"
   ],
   experience: [
-    "Associate Professor and Registrar (Additional Charge), COEP Technological University",
+    "Associate Professor and Registrar (Additional Charge), COEP Technological University"
   ],
   research: [
     "Engineering Sciences",
     "Academic Administration",
-    "Quality Assurance",
+    "Quality Assurance"
   ],
   achievements: [
     "Overseeing academic administration and regulatory compliance for COEP Technological University",
     "Member Secretary of various university committees including Academic Council",
-    "Significant contributions to academic governance and examination systems",
+    "Significant contributions to academic governance and examination systems"
   ],
-  role: "registrar",
+  role: "registrar"
 };
-
-export const DIRECTORS: AdminProfile[] = [
+const DIRECTORS = [
   {
     slug: "sp-mahajan",
     name: "Dr. S. P. Mahajan",
@@ -179,19 +141,17 @@ export const DIRECTORS: AdminProfile[] = [
     email: "director-research@coeptech.ac.in",
     phone: "020-25507177",
     photoUrl: "/assets/generated/director-sp-mahajan-portrait.dim_300x400.jpg",
-    brief:
-      "Leads research and innovation initiatives, incubation programs, and industry linkages at COEP Tech.",
-    specialization:
-      "Research Policy, Innovation Ecosystems, Industry-Academia Collaboration",
+    brief: "Leads research and innovation initiatives, incubation programs, and industry linkages at COEP Tech.",
+    specialization: "Research Policy, Innovation Ecosystems, Industry-Academia Collaboration",
     education: [],
     experience: [],
     research: [
       "Research Policy",
       "Innovation Ecosystems",
-      "Industry-Academia Collaboration",
+      "Industry-Academia Collaboration"
     ],
     achievements: [],
-    role: "director",
+    role: "director"
   },
   {
     slug: "yv-haribhakta",
@@ -202,19 +162,17 @@ export const DIRECTORS: AdminProfile[] = [
     email: "director.exam@coeptech.ac.in",
     phone: "020-25507313",
     photoUrl: "/assets/generated/director-female-portrait.dim_300x400.jpg",
-    brief:
-      "Oversees all examination and evaluation systems ensuring academic integrity and fairness across the university.",
-    specialization:
-      "Computer Engineering, Academic Evaluation, Examination Reform",
+    brief: "Oversees all examination and evaluation systems ensuring academic integrity and fairness across the university.",
+    specialization: "Computer Engineering, Academic Evaluation, Examination Reform",
     education: [],
     experience: [],
     research: [
       "Computer Engineering",
       "Academic Evaluation",
-      "Examination Reform",
+      "Examination Reform"
     ],
     achievements: [],
-    role: "director",
+    role: "director"
   },
   {
     slug: "mp-khond",
@@ -224,19 +182,17 @@ export const DIRECTORS: AdminProfile[] = [
     email: "director.students@coeptech.ac.in",
     phone: "020-25507912",
     photoUrl: "/assets/generated/director-mp-khond-portrait.dim_300x400.jpg",
-    brief:
-      "Dedicated to enhancing student experience, co-curricular activities, and overall holistic development of students.",
-    specialization:
-      "Student Affairs, Co-curricular Development, Student Support Systems",
+    brief: "Dedicated to enhancing student experience, co-curricular activities, and overall holistic development of students.",
+    specialization: "Student Affairs, Co-curricular Development, Student Support Systems",
     education: [],
     experience: [],
     research: [
       "Student Affairs",
       "Co-curricular Development",
-      "Student Support Systems",
+      "Student Support Systems"
     ],
     achievements: [],
-    role: "director",
+    role: "director"
   },
   {
     slug: "ag-thosar",
@@ -246,18 +202,16 @@ export const DIRECTORS: AdminProfile[] = [
     email: "director.krc@coeptech.ac.in",
     phone: "020-25507129",
     photoUrl: "/assets/generated/adean-kv-dalvi-portrait.dim_300x400.jpg",
-    brief:
-      "Manages the university's library and knowledge resources, digital access, and research support infrastructure.",
+    brief: "Manages the university's library and knowledge resources, digital access, and research support infrastructure.",
     specialization: "Library Sciences, Digital Resources, Knowledge Management",
     education: [],
     experience: [],
     research: ["Library Sciences", "Digital Resources", "Knowledge Management"],
     achievements: [],
-    role: "director",
-  },
+    role: "director"
+  }
 ];
-
-export const DEANS: AdminProfile[] = [
+const DEANS = [
   {
     slug: "pa-sadgir",
     name: "Dr. P. A. Sadgir",
@@ -266,62 +220,58 @@ export const DEANS: AdminProfile[] = [
     email: "dean.engineering@coeptech.ac.in",
     phone: "020-25507004",
     photoUrl: "/assets/generated/dean-pa-sadgir-portrait.dim_300x400.jpg",
-    brief:
-      "Environmental engineer and educator with 34+ years of experience. Expert in water treatment, wastewater treatment, and sustainable environmental technologies. Published 141+ research papers.",
+    brief: "Environmental engineer and educator with 34+ years of experience. Expert in water treatment, wastewater treatment, and sustainable environmental technologies. Published 141+ research papers.",
     education: [
       "Ph.D. Environmental Engineering",
       "M.E. Environmental Engineering, VJTI",
-      "B.E. Civil Engineering",
+      "B.E. Civil Engineering"
     ],
     experience: [
       "Professor & Dean, School of Engineering & Technology, COEP Tech University",
-      "34+ years in academics and research in environmental engineering",
+      "34+ years in academics and research in environmental engineering"
     ],
     research: [
       "Water Treatment",
       "Wastewater Treatment",
       "Integrated Solid Waste Management",
       "Environmental Risk Assessment",
-      "Sustainable Environmental Technologies",
+      "Sustainable Environmental Technologies"
     ],
     achievements: [
       "141+ research publications in reputed international journals and conferences",
       "Guided 5 PhD scholars and 24 M.Tech students",
-      "Lead Auditor ISO14001-2015 and ISO17025 certified",
+      "Lead Auditor ISO14001-2015 and ISO17025 certified"
     ],
-    role: "dean",
+    role: "dean"
   },
   {
     slug: "cy-patil",
     name: "Prof. C. Y. Patil",
-    designation:
-      "Professor & Dean, School of Multidisciplinary Science, Humanities and Management Studies",
+    designation: "Professor & Dean, School of Multidisciplinary Science, Humanities and Management Studies",
     department: "Instrumentation & Control Engineering",
     email: "dean.shm@coeptech.ac.in",
     phone: "020-25507005",
     photoUrl: "/assets/generated/dean-cy-patil-portrait.dim_300x400.jpg",
-    brief:
-      "Professor of Instrumentation and Control Engineering leading the interdisciplinary school combining sciences, humanities, and management.",
+    brief: "Professor of Instrumentation and Control Engineering leading the interdisciplinary school combining sciences, humanities, and management.",
     education: [
       "Ph.D. in Instrumentation Engineering",
       "M.E. in Instrumentation Engineering",
-      "B.E. in Instrumentation Engineering",
+      "B.E. in Instrumentation Engineering"
     ],
     experience: [
       "Professor & Dean, School of Multidisciplinary Sciences, Humanities and Management Studies, COEP Tech",
-      "Extensive experience in instrumentation and control systems research and teaching",
+      "Extensive experience in instrumentation and control systems research and teaching"
     ],
     research: ["Instrumentation", "Control Systems", "Signal Processing"],
     achievements: [
       "Leading SMHS school with interdisciplinary academic programs",
       "Significant contributions to instrumentation research",
-      "Contributions to multidisciplinary education at COEP Tech",
+      "Contributions to multidisciplinary education at COEP Tech"
     ],
-    role: "dean",
-  },
+    role: "dean"
+  }
 ];
-
-export const ASSOCIATE_DEANS: AdminProfile[] = [
+const ASSOCIATE_DEANS = [
   {
     slug: "pp-bartakke",
     name: "Dr. P. P. Bartakke",
@@ -330,23 +280,22 @@ export const ASSOCIATE_DEANS: AdminProfile[] = [
     email: "dean.ece@coeptech.ac.in",
     phone: "020-25507007",
     photoUrl: "/assets/generated/adean-pp-bartakke-portrait.dim_300x400.jpg",
-    brief:
-      "Expert in electronics and telecommunication engineering, contributing to academic administration and quality assurance.",
+    brief: "Expert in electronics and telecommunication engineering, contributing to academic administration and quality assurance.",
     education: [
       "Ph.D. in Electronics & Telecommunication Engineering",
       "M.E. in Electronics & Telecommunication Engineering",
-      "B.E. in Electronics & Telecommunication Engineering",
+      "B.E. in Electronics & Telecommunication Engineering"
     ],
     experience: [
       "Associate Professor & Associate Dean, COEP Technological University",
-      "Academic Council Member, COEP Tech",
+      "Academic Council Member, COEP Tech"
     ],
     research: ["Electronics", "Telecommunications", "Signal Processing"],
     achievements: [
       "Academic Council Member contributing to quality assurance",
-      "Contributions to administration and academic governance as Associate Dean",
+      "Contributions to administration and academic governance as Associate Dean"
     ],
-    role: "associate-dean",
+    role: "associate-dean"
   },
   {
     slug: "sa-meshram",
@@ -356,27 +305,26 @@ export const ASSOCIATE_DEANS: AdminProfile[] = [
     email: "adean.shm@coeptech.ac.in",
     phone: "020-25507006",
     photoUrl: "/assets/generated/adean-sa-meshram-portrait.dim_300x400.jpg",
-    brief:
-      "Civil engineering specialist serving as Associate Dean for the School of Multidisciplinary Sciences, with expertise in structural engineering and construction.",
+    brief: "Civil engineering specialist serving as Associate Dean for the School of Multidisciplinary Sciences, with expertise in structural engineering and construction.",
     education: [
       "Ph.D. in Civil Engineering",
       "M.E. in Civil Engineering",
-      "B.E. in Civil Engineering",
+      "B.E. in Civil Engineering"
     ],
     experience: [
       "Associate Professor & Associate Dean, COEP Technological University",
-      "Research and teaching in structural engineering and construction materials",
+      "Research and teaching in structural engineering and construction materials"
     ],
     research: [
       "Structural Engineering",
       "Construction Materials",
-      "Sustainable Infrastructure",
+      "Sustainable Infrastructure"
     ],
     achievements: [
       "Associate Dean academic administration contributions",
-      "Research contributions in structural engineering and construction",
+      "Research contributions in structural engineering and construction"
     ],
-    role: "associate-dean",
+    role: "associate-dean"
   },
   {
     slug: "kv-dalvi",
@@ -386,41 +334,47 @@ export const ASSOCIATE_DEANS: AdminProfile[] = [
     email: "kvd.maths@coeptech.ac.in",
     phone: "020-25507008",
     photoUrl: "/assets/generated/adean-kv-dalvi-portrait.dim_300x400.jpg",
-    brief:
-      "Mathematics specialist and Associate Dean contributing to curriculum development and academic excellence across all disciplines.",
+    brief: "Mathematics specialist and Associate Dean contributing to curriculum development and academic excellence across all disciplines.",
     education: [
       "Ph.D. in Mathematics",
       "M.Sc. in Mathematics",
-      "B.Sc. in Mathematics",
+      "B.Sc. in Mathematics"
     ],
     experience: [
       "Associate Professor & Associate Dean, COEP Technological University",
-      "Teaching excellence in applied mathematics across engineering disciplines",
+      "Teaching excellence in applied mathematics across engineering disciplines"
     ],
     research: [
       "Applied Mathematics",
       "Numerical Methods",
-      "Mathematical Modeling",
+      "Mathematical Modeling"
     ],
     achievements: [
       "Associate Dean administration and curriculum development",
-      "Teaching excellence awards in applied mathematics",
+      "Teaching excellence awards in applied mathematics"
     ],
-    role: "associate-dean",
-  },
+    role: "associate-dean"
+  }
 ];
-
-/** All profiles by slug for dynamic routing */
-export const ALL_ADMIN_PROFILES: AdminProfile[] = [
+const ALL_ADMIN_PROFILES = [
   CHANCELLOR,
   CHAIRMAN,
   VICE_CHANCELLOR,
   REGISTRAR,
   ...DIRECTORS,
   ...DEANS,
-  ...ASSOCIATE_DEANS,
+  ...ASSOCIATE_DEANS
 ];
-
-export function getAdminBySlug(slug: string): AdminProfile | undefined {
+function getAdminBySlug(slug) {
   return ALL_ADMIN_PROFILES.find((p) => p.slug === slug);
 }
+export {
+  ASSOCIATE_DEANS as A,
+  CHANCELLOR as C,
+  DIRECTORS as D,
+  REGISTRAR as R,
+  VICE_CHANCELLOR as V,
+  CHAIRMAN as a,
+  DEANS as b,
+  getAdminBySlug as g
+};

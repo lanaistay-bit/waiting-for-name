@@ -137,23 +137,32 @@ function HeroSection() {
       className="relative overflow-hidden"
       style={{
         background: `linear-gradient(135deg, ${MIDNIGHT} 0%, ${DEEP_BLUE} 40%, ${COBALT} 100%)`,
+        backgroundImage: `url('https://www.coeptech.ac.in/wp-content/uploads/2023/08/campus-life-coep.jpg'), linear-gradient(135deg, ${MIDNIGHT} 0%, ${DEEP_BLUE} 40%, ${COBALT} 100%)`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         minHeight: "480px",
       }}
       data-ocid="campus_life.hero"
     >
+      {/* Dark overlay for readability */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ backgroundColor: "rgba(8, 30, 92, 0.62)", zIndex: 0 }}
+      />
       {/* Decorative circles */}
       <div
         className="absolute -top-16 -right-16 w-80 h-80 rounded-full opacity-10"
-        style={{ background: GOLD }}
+        style={{ background: GOLD, zIndex: 1 }}
       />
       <div
         className="absolute -bottom-12 -left-12 w-56 h-56 rounded-full opacity-8"
-        style={{ background: COBALT, filter: "blur(40px)" }}
+        style={{ background: COBALT, filter: "blur(40px)", zIndex: 1 }}
       />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-5"
         style={{
           background: `radial-gradient(circle, ${GOLD}, transparent 70%)`,
+          zIndex: 1,
         }}
       />
 

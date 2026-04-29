@@ -104,11 +104,14 @@ function ContentCard({
   );
 }
 
-function roleLabel(role: string) {
+function roleLabel(role: string, slug?: string) {
+  if (slug === "chancellor") return "Chancellor, COEP Technological University";
+  if (slug === "chairman") return "Chairman, Board of Governance";
   if (role === "dean") return "Dean";
   if (role === "associate-dean") return "Associate Dean";
   if (role === "director") return "Director";
   if (role === "registrar") return "Registrar";
+  if (role === "vc") return "Vice Chancellor";
   return "Administration";
 }
 
@@ -152,7 +155,7 @@ export default function AdminProfilePage() {
     );
   }
 
-  const label = roleLabel(profile.role);
+  const label = roleLabel(profile.role, profile.slug);
   const accentColor = profile.role === "registrar" ? DEEP_BLUE : COBALT;
 
   return (
@@ -316,6 +319,89 @@ export default function AdminProfilePage() {
                     </p>
                   </div>
                 )}
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+      )}
+
+      {/* ── MESSAGE (for Chancellor, Chairman, VC) ── */}
+      {profile.message && (
+        <section
+          style={{
+            background: "#fafbff",
+            paddingTop: "72px",
+            paddingBottom: "72px",
+          }}
+          data-ocid="admin_profile.message_section"
+        >
+          <div className="max-w-6xl mx-auto px-6">
+            <AnimatedSection delay={0.1}>
+              <p
+                className="typo-section-label mb-3"
+                style={{ color: accentColor }}
+              >
+                Message
+              </p>
+              <h2
+                className="typo-section-heading mb-8"
+                style={{ color: DEEP_BLUE }}
+              >
+                Message from the {label}
+              </h2>
+              <div
+                className="relative rounded-2xl p-8 md:p-12"
+                style={{
+                  background: "rgba(26, 35, 126, 0.03)",
+                  border: "1px solid rgba(26, 35, 126, 0.1)",
+                  borderLeftWidth: "4px",
+                  borderLeftColor: accentColor,
+                }}
+              >
+                <div
+                  className="absolute top-6 left-8 leading-none select-none font-cinzel"
+                  style={{
+                    fontSize: "120px",
+                    color: accentColor,
+                    opacity: 0.06,
+                    lineHeight: 1,
+                  }}
+                >
+                  "
+                </div>
+                <div className="relative z-10">
+                  {profile.message.split("\n\n").map((para) => (
+                    <p
+                      key={para.slice(0, 40)}
+                      className="typo-body-lg italic mb-5 last:mb-0"
+                      style={{ color: "#374151", fontStyle: "italic" }}
+                    >
+                      {para}
+                    </p>
+                  ))}
+                </div>
+                <div
+                  className="flex items-center gap-4 mt-8 pt-6"
+                  style={{ borderTop: "1px solid rgba(26, 35, 126, 0.1)" }}
+                >
+                  <img
+                    src={profile.photoUrl}
+                    alt={profile.name}
+                    className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+                    style={{ border: "2px solid rgba(26, 35, 126, 0.2)" }}
+                  />
+                  <div>
+                    <p
+                      className="font-baskerville font-bold text-base"
+                      style={{ color: DEEP_BLUE }}
+                    >
+                      {profile.name}
+                    </p>
+                    <p className="typo-support" style={{ color: "#6b7280" }}>
+                      {label}, COEP Technological University
+                    </p>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>

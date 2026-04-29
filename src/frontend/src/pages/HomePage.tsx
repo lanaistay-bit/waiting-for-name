@@ -375,6 +375,8 @@ const TIMELINE_PREVIEW = [
     description:
       "Founded by the British under Col. Francis Oliphant as Poona Civil Engineering College, one of the first engineering institutions in Asia.",
     color: "#1A237E",
+    imageUrl:
+      "https://www.coeptech.ac.in/wp-content/uploads/2022/09/COEP-Technological-University-Pune-Image.jpg",
   },
   {
     year: "1911",
@@ -382,6 +384,8 @@ const TIMELINE_PREVIEW = [
     description:
       "Re-designated as the College of Engineering, Pune (COEP), marking a new era of expanded programs and modernized infrastructure.",
     color: "#0F3399",
+    imageUrl:
+      "https://www.coeptech.ac.in/wp-content/uploads/2022/09/college-of-engineering-pune-heritage-building.jpg",
   },
   {
     year: "1947",
@@ -389,6 +393,8 @@ const TIMELINE_PREVIEW = [
     description:
       "Following Indian independence, COEP expanded rapidly under the Maharashtra Government, becoming a premier institution for the nation's engineering workforce.",
     color: "#1A237E",
+    imageUrl:
+      "https://www.coeptech.ac.in/wp-content/uploads/2022/10/COEP-Tech-Campus.jpg",
   },
   {
     year: "2022",
@@ -396,6 +402,8 @@ const TIMELINE_PREVIEW = [
     description:
       "Elevated to COEP Technological University — a Unitary Public University of the Government of Maharashtra, with full academic and administrative autonomy.",
     color: "#1A237E",
+    imageUrl:
+      "https://www.coeptech.ac.in/wp-content/uploads/2023/01/coep-technological-university-pune.jpg",
   },
 ];
 
@@ -1446,26 +1454,53 @@ function TimelineCard({
   entry,
   align,
 }: { entry: (typeof TIMELINE_PREVIEW)[0]; align: "left" | "right" }) {
+  const [imgError, setImgError] = useState(false);
   return (
-    <div
-      className="bg-card border border-border p-6 shadow-premium inline-block max-w-sm w-full"
-      style={{ textAlign: align === "right" ? "right" : "left" }}
-    >
-      <span
-        className="typo-stat-number"
-        style={{ fontFamily: "var(--font-heading)", color: entry.color }}
+    <div className="bg-card border border-border shadow-premium inline-block max-w-sm w-full group overflow-hidden">
+      {/* Image slot — prominent at top with hover zoom */}
+      <div
+        className="relative overflow-hidden flex-shrink-0"
+        style={{ height: 180 }}
       >
-        {entry.year}
-      </span>
-      <h4 className="typo-card-title mt-1 mb-2" style={{ color: "#0F3399" }}>
-        {entry.title}
-      </h4>
-      <p
-        className="typo-body text-muted-foreground"
-        style={{ fontSize: "0.875rem" }}
+        {!imgError ? (
+          <img
+            src={entry.imageUrl}
+            alt={entry.title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div
+            className="w-full h-full"
+            style={{
+              background: `linear-gradient(135deg, ${entry.color} 0%, #081E5C 100%)`,
+            }}
+          />
+        )}
+        {/* Year badge overlay */}
+        <div
+          className="absolute top-3 left-3 px-3 py-1 text-white text-xs font-bold tracking-widest font-inter"
+          style={{ background: entry.color, opacity: 0.95 }}
+        >
+          {entry.year}
+        </div>
+      </div>
+      {/* Text content */}
+      <div
+        className="p-6"
+        style={{ textAlign: align === "right" ? "right" : "left" }}
       >
-        {entry.description}
-      </p>
+        <h4 className="typo-card-title mt-0 mb-2" style={{ color: "#0F3399" }}>
+          {entry.title}
+        </h4>
+        <p
+          className="typo-body text-muted-foreground"
+          style={{ fontSize: "0.875rem" }}
+        >
+          {entry.description}
+        </p>
+      </div>
     </div>
   );
 }
