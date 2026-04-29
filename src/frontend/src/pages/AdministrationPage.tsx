@@ -12,8 +12,8 @@ import {
   VICE_CHANCELLOR,
 } from "../data/administration";
 
-const COBALT = "#1648C8";
-const DEEP_BLUE = "#0F3499";
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
 const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 
@@ -26,7 +26,6 @@ const ADMIN_TABS: SubTab[] = [
   { id: "ombudsperson", label: "Ombudsperson for Students" },
 ];
 
-// ─── Scroll reveal hook ────────────────────────────────────────────────────
 function useScrollReveal<T extends HTMLElement>(threshold = 0.08) {
   const ref = useRef<T>(null);
   const [visible, setVisible] = useState(false);
@@ -48,14 +47,13 @@ function useScrollReveal<T extends HTMLElement>(threshold = 0.08) {
   return { ref, visible };
 }
 
-// ─── Thin horizontal rule divider ─────────────────────────────────────────
 function Divider() {
   return (
     <div
       className="mx-auto"
       style={{
         height: "1px",
-        background: "rgba(22,72,200,0.12)",
+        background: "rgba(26, 35, 126, 0.12)",
         maxWidth: "1152px",
         margin: "0 24px",
       }}
@@ -63,7 +61,7 @@ function Divider() {
   );
 }
 
-// ─── Director Modal ────────────────────────────────────────────────────────
+// ─── Director Modal ────────────────────────────────────────────────────────────
 function DirectorModal({
   director,
   onClose,
@@ -100,23 +98,21 @@ function DirectorModal({
           animation: "modalIn 0.28s cubic-bezier(0.34,1.56,0.64,1) both",
         }}
       >
-        {/* Header bar */}
         <div
           className="h-1.5 w-full"
           style={{
             background: `linear-gradient(90deg, ${COBALT}, ${DEEP_BLUE})`,
           }}
         />
-
         <div className="flex flex-col md:flex-row gap-0">
           {/* Photo */}
           <div
             className="md:w-52 flex-shrink-0 flex items-center justify-center p-8 md:p-6"
-            style={{ background: "rgba(22,72,200,0.04)" }}
+            style={{ background: "rgba(26, 35, 126, 0.04)" }}
           >
             <div
               className="w-32 h-32 md:w-36 md:h-44 rounded-xl overflow-hidden shadow-lg"
-              style={{ border: "3px solid rgba(22,72,200,0.2)" }}
+              style={{ border: "3px solid rgba(26, 35, 126, 0.2)" }}
             >
               <img
                 src={director.photoUrl}
@@ -125,7 +121,6 @@ function DirectorModal({
               />
             </div>
           </div>
-
           {/* Info */}
           <div className="flex-1 p-7 relative">
             <button
@@ -138,64 +133,33 @@ function DirectorModal({
             >
               <X className="w-4 h-4" />
             </button>
-
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-1"
-              style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-section-label mb-1" style={{ color: COBALT }}>
               Director
             </p>
-            <h2
-              className="text-2xl font-bold leading-tight mb-1"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
-            >
+            <h2 className="typo-card-title mb-1" style={{ color: DEEP_BLUE }}>
               {director.name}
             </h2>
             {director.board && (
-              <p
-                className="text-sm mb-5"
-                style={{
-                  color: "#4b5563",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-support mb-5" style={{ color: "#4b5563" }}>
                 {director.board}
               </p>
             )}
             <div
               className="h-px mb-5"
-              style={{ background: "rgba(22,72,200,0.1)" }}
+              style={{ background: "rgba(26, 35, 126, 0.1)" }}
             />
-            <p
-              className="text-sm leading-relaxed mb-5"
-              style={{
-                color: "#374151",
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
-            >
+            <p className="typo-body mb-5" style={{ color: "#374151" }}>
               {director.brief}
             </p>
             {director.specialization && (
               <div className="mb-5">
                 <p
-                  className="text-xs font-bold uppercase tracking-wider mb-1"
-                  style={{
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-section-label mb-1"
+                  style={{ color: COBALT }}
                 >
                   Specialization
                 </p>
-                <p
-                  className="text-sm"
-                  style={{
-                    color: "#4b5563",
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
-                >
+                <p className="typo-support" style={{ color: "#4b5563" }}>
                   {director.specialization}
                 </p>
               </div>
@@ -203,22 +167,16 @@ function DirectorModal({
             <div className="flex flex-col gap-1.5">
               <a
                 href={`mailto:${director.email}`}
-                className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                style={{ color: COBALT }}
               >
                 <Mail className="w-3.5 h-3.5 flex-shrink-0" />
                 {director.email}
               </a>
               <a
                 href={`tel:${director.phone}`}
-                className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                style={{ color: COBALT }}
               >
                 <Phone className="w-3.5 h-3.5 flex-shrink-0" />
                 {director.phone}
@@ -231,7 +189,7 @@ function DirectorModal({
   );
 }
 
-// ─── Director Card (editorial style) ──────────────────────────────────────
+// ─── Director Card ─────────────────────────────────────────────────────────────
 function DirectorCard({
   director,
   delay,
@@ -264,7 +222,7 @@ function DirectorCard({
           (e.currentTarget as HTMLButtonElement).style.transform =
             "translateY(-4px)";
           (e.currentTarget as HTMLButtonElement).style.boxShadow =
-            "0 12px 32px rgba(22,72,200,0.14)";
+            "0 12px 32px rgba(26, 35, 126, 0.14)";
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLButtonElement).style.transform =
@@ -275,10 +233,9 @@ function DirectorCard({
         onClick={onOpen}
         data-ocid={`admin.director_card.${director.slug}`}
       >
-        {/* Photo area */}
         <div
           className="relative overflow-hidden"
-          style={{ aspectRatio: "3/4", background: "rgba(22,72,200,0.06)" }}
+          style={{ aspectRatio: "3/4", background: "rgba(26, 35, 126, 0.06)" }}
         >
           <img
             src={director.photoUrl}
@@ -289,44 +246,32 @@ function DirectorCard({
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to top, rgba(8,30,92,0.25) 0%, transparent 50%)",
+                "linear-gradient(to top, rgba(8, 30, 92, 0.25) 0%, transparent 50%)",
             }}
           />
         </div>
-
-        {/* Text */}
         <div className="p-5">
-          <p
-            className="text-xs font-bold uppercase tracking-widest mb-1"
-            style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
-          >
+          <p className="typo-section-label mb-1" style={{ color: COBALT }}>
             Director
           </p>
           <h3
-            className="text-lg font-bold leading-snug mb-1"
-            style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+            className="typo-card-title mb-1 leading-snug"
+            style={{ color: DEEP_BLUE }}
           >
             {director.name}
           </h3>
           {director.board && (
             <p
-              className="text-sm leading-snug mb-4"
-              style={{
-                color: "#6b7280",
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
+              className="typo-support mb-4 leading-snug"
+              style={{ color: "#6b7280" }}
             >
               {director.board}
             </p>
           )}
           <div className="h-px mb-4" style={{ background: "#e5e7eb" }} />
           <span
-            className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors group-hover:gap-2.5"
-            style={{
-              color: COBALT,
-              fontFamily: "Source Sans 3, sans-serif",
-              transition: "gap 0.25s ease",
-            }}
+            className="inline-flex items-center gap-1.5 typo-btn transition-colors group-hover:gap-2.5"
+            style={{ color: COBALT, transition: "gap 0.25s ease" }}
           >
             View Details
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -337,7 +282,7 @@ function DirectorCard({
   );
 }
 
-// ─── Leadership Person Card (editorial style) ──────────────────────────────
+// ─── Leadership Person Card ────────────────────────────────────────────────────
 function LeadershipPersonCard({
   person,
   delay,
@@ -369,7 +314,7 @@ function LeadershipPersonCard({
           (e.currentTarget as HTMLDivElement).style.transform =
             "translateY(-3px)";
           (e.currentTarget as HTMLDivElement).style.boxShadow =
-            "0 8px 24px rgba(22,72,200,0.1)";
+            "0 8px 24px rgba(26, 35, 126, 0.1)";
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
@@ -377,10 +322,9 @@ function LeadershipPersonCard({
             "0 1px 6px rgba(0,0,0,0.04)";
         }}
       >
-        {/* Avatar */}
         <div
           className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0"
-          style={{ border: "2px solid rgba(22,72,200,0.25)" }}
+          style={{ border: "2px solid rgba(26, 35, 126, 0.25)" }}
         >
           <img
             src={person.photoUrl}
@@ -388,43 +332,33 @@ function LeadershipPersonCard({
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
-
-        {/* Info */}
         <div className="flex-1 min-w-0">
-          <p
-            className="text-xs font-bold uppercase tracking-wider mb-0.5"
-            style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
-          >
+          <p className="typo-section-label mb-0.5" style={{ color: COBALT }}>
             {label}
           </p>
           <Link
             to="/administration/$adminId"
             params={{ adminId: person.slug }}
-            className="block font-bold text-base leading-snug hover:underline underline-offset-2"
-            style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+            className="block typo-card-title text-base leading-snug hover:underline underline-offset-2"
+            style={{ color: DEEP_BLUE }}
             data-ocid={`admin.leadership_name_link.${person.slug}`}
           >
             {person.name}
           </Link>
           {person.department && (
             <p
-              className="text-sm mt-0.5 truncate"
-              style={{
-                color: "#6b7280",
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
+              className="typo-support mt-0.5 truncate"
+              style={{ color: "#6b7280" }}
             >
               {person.department}
             </p>
           )}
         </div>
-
-        {/* Arrow link */}
         <Link
           to="/administration/$adminId"
           params={{ adminId: person.slug }}
-          className="flex-shrink-0 flex items-center gap-1 text-sm font-semibold whitespace-nowrap"
-          style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
+          className="flex-shrink-0 flex items-center gap-1 typo-btn whitespace-nowrap"
+          style={{ color: COBALT }}
           data-ocid={`admin.leadership_view_button.${person.slug}`}
         >
           <ArrowRight className="w-4 h-4" />
@@ -434,7 +368,7 @@ function LeadershipPersonCard({
   );
 }
 
-// ─── Section Label + Title component ──────────────────────────────────────
+// ─── Section Heading ───────────────────────────────────────────────────────────
 function SectionHeading({
   label,
   title,
@@ -452,16 +386,13 @@ function SectionHeading({
       }}
     >
       {label && (
-        <p
-          className="text-xs font-bold uppercase tracking-widest mb-2"
-          style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-section-label mb-2" style={{ color: COBALT }}>
           {label}
         </p>
       )}
       <h2
-        className="text-3xl md:text-4xl font-bold leading-tight"
-        style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+        className="typo-section-heading leading-tight"
+        style={{ color: DEEP_BLUE }}
       >
         {title}
       </h2>
@@ -470,10 +401,7 @@ function SectionHeading({
         style={{ width: "48px", height: "3px", background: COBALT }}
       />
       {subtitle && (
-        <p
-          className="mt-3 text-base"
-          style={{ color: "#6b7280", fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-body mt-3" style={{ color: "#6b7280" }}>
           {subtitle}
         </p>
       )}
@@ -481,7 +409,7 @@ function SectionHeading({
   );
 }
 
-// ─── Dean Modal (reuses DirectorModal structure, relabelled) ──────────────
+// ─── Dean Modal ────────────────────────────────────────────────────────────────
 function DeanModal({
   dean,
   onClose,
@@ -525,14 +453,13 @@ function DeanModal({
           }}
         />
         <div className="flex flex-col md:flex-row gap-0">
-          {/* Photo */}
           <div
             className="md:w-52 flex-shrink-0 flex items-center justify-center p-8 md:p-6"
-            style={{ background: "rgba(22,72,200,0.04)" }}
+            style={{ background: "rgba(26,35,126,0.04)" }}
           >
             <div
               className="w-32 h-32 md:w-36 md:h-44 rounded-xl overflow-hidden shadow-lg"
-              style={{ border: "3px solid rgba(22,72,200,0.2)" }}
+              style={{ border: "3px solid rgba(26,35,126,0.2)" }}
             >
               <img
                 src={dean.photoUrl}
@@ -541,7 +468,6 @@ function DeanModal({
               />
             </div>
           </div>
-          {/* Info */}
           <div className="flex-1 p-7 relative">
             <button
               type="button"
@@ -553,63 +479,33 @@ function DeanModal({
             >
               <X className="w-4 h-4" />
             </button>
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-1"
-              style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-section-label mb-1" style={{ color: COBALT }}>
               Dean
             </p>
-            <h2
-              className="text-2xl font-bold leading-tight mb-1"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
-            >
+            <h2 className="typo-card-title mb-1" style={{ color: DEEP_BLUE }}>
               {dean.name}
             </h2>
             {dean.department && (
-              <p
-                className="text-sm mb-5"
-                style={{
-                  color: "#4b5563",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-support mb-5" style={{ color: "#4b5563" }}>
                 {dean.department}
               </p>
             )}
             <div
               className="h-px mb-5"
-              style={{ background: "rgba(22,72,200,0.1)" }}
+              style={{ background: "rgba(26, 35, 126, 0.1)" }}
             />
-            <p
-              className="text-sm leading-relaxed mb-5"
-              style={{
-                color: "#374151",
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
-            >
+            <p className="typo-body mb-5" style={{ color: "#374151" }}>
               {dean.brief}
             </p>
             {dean.specialization && (
               <div className="mb-5">
                 <p
-                  className="text-xs font-bold uppercase tracking-wider mb-1"
-                  style={{
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-section-label mb-1"
+                  style={{ color: COBALT }}
                 >
                   Specialization
                 </p>
-                <p
-                  className="text-sm"
-                  style={{
-                    color: "#4b5563",
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
-                >
+                <p className="typo-support" style={{ color: "#4b5563" }}>
                   {dean.specialization}
                 </p>
               </div>
@@ -617,22 +513,16 @@ function DeanModal({
             <div className="flex flex-col gap-1.5">
               <a
                 href={`mailto:${dean.email}`}
-                className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                style={{ color: COBALT }}
               >
                 <Mail className="w-3.5 h-3.5 flex-shrink-0" />
                 {dean.email}
               </a>
               <a
                 href={`tel:${dean.phone}`}
-                className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                style={{ color: COBALT }}
               >
                 <Phone className="w-3.5 h-3.5 flex-shrink-0" />
                 {dean.phone}
@@ -642,11 +532,8 @@ function DeanModal({
               <Link
                 to="/administration/$adminId"
                 params={{ adminId: dean.slug }}
-                className="inline-flex items-center gap-1.5 text-sm font-semibold"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="inline-flex items-center gap-1.5 typo-btn"
+                style={{ color: COBALT }}
                 onClick={onClose}
                 data-ocid={`admin.dean_profile_link.${dean.slug}`}
               >
@@ -661,7 +548,7 @@ function DeanModal({
   );
 }
 
-// ─── Dean Card (portrait card, matches DirectorCard style) ─────────────────
+// ─── Dean Card ─────────────────────────────────────────────────────────────────
 function DeanCard({
   dean,
   delay,
@@ -694,7 +581,7 @@ function DeanCard({
           (e.currentTarget as HTMLButtonElement).style.transform =
             "translateY(-4px)";
           (e.currentTarget as HTMLButtonElement).style.boxShadow =
-            "0 12px 32px rgba(22,72,200,0.14)";
+            "0 12px 32px rgba(26, 35, 126, 0.14)";
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLButtonElement).style.transform =
@@ -705,10 +592,9 @@ function DeanCard({
         onClick={onOpen}
         data-ocid={`admin.dean_card.${dean.slug}`}
       >
-        {/* Photo area */}
         <div
           className="relative overflow-hidden"
-          style={{ aspectRatio: "3/4", background: "rgba(22,72,200,0.06)" }}
+          style={{ aspectRatio: "3/4", background: "rgba(26, 35, 126, 0.06)" }}
         >
           <img
             src={dean.photoUrl}
@@ -719,43 +605,32 @@ function DeanCard({
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to top, rgba(8,30,92,0.25) 0%, transparent 50%)",
+                "linear-gradient(to top, rgba(8, 30, 92, 0.25) 0%, transparent 50%)",
             }}
           />
         </div>
-        {/* Text */}
         <div className="p-5">
-          <p
-            className="text-xs font-bold uppercase tracking-widest mb-1"
-            style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
-          >
+          <p className="typo-section-label mb-1" style={{ color: COBALT }}>
             Dean
           </p>
           <h3
-            className="text-lg font-bold leading-snug mb-1"
-            style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+            className="typo-card-title mb-1 leading-snug"
+            style={{ color: DEEP_BLUE }}
           >
             {dean.name}
           </h3>
           {dean.department && (
             <p
-              className="text-sm leading-snug mb-4"
-              style={{
-                color: "#6b7280",
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
+              className="typo-support mb-4 leading-snug"
+              style={{ color: "#6b7280" }}
             >
               {dean.department}
             </p>
           )}
           <div className="h-px mb-4" style={{ background: "#e5e7eb" }} />
           <span
-            className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors group-hover:gap-2.5"
-            style={{
-              color: COBALT,
-              fontFamily: "Source Sans 3, sans-serif",
-              transition: "gap 0.25s ease",
-            }}
+            className="inline-flex items-center gap-1.5 typo-btn transition-colors group-hover:gap-2.5"
+            style={{ color: COBALT, transition: "gap 0.25s ease" }}
           >
             View Details
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -766,7 +641,7 @@ function DeanCard({
   );
 }
 
-// ─── Main Page ─────────────────────────────────────────────────────────────
+// ─── Main Page ─────────────────────────────────────────────────────────────────
 export default function AdministrationPage() {
   const [openDirector, setOpenDirector] = useState<AdminProfile | null>(null);
   const [openDean, setOpenDean] = useState<AdminProfile | null>(null);
@@ -815,7 +690,7 @@ export default function AdministrationPage() {
   }
 
   return (
-    <main style={{ fontFamily: "Source Sans 3, sans-serif" }}>
+    <main className="font-source">
       {/* ── EDITORIAL HERO ── */}
       <section
         className="bg-white"
@@ -823,13 +698,9 @@ export default function AdministrationPage() {
         data-ocid="administration.hero"
       >
         <div className="max-w-6xl mx-auto px-6 pb-10">
-          {/* Breadcrumb */}
           <nav
-            className="flex items-center gap-2 text-xs mb-10"
-            style={{
-              color: "#9ca3af",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="flex items-center gap-2 typo-support mb-10"
+            style={{ color: "#9ca3af" }}
             aria-label="Breadcrumb"
             data-ocid="administration.breadcrumb"
           >
@@ -844,46 +715,30 @@ export default function AdministrationPage() {
             <span>Administration</span>
           </nav>
 
-          {/* Large editorial title */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <p
-                className="text-xs font-bold uppercase tracking-widest mb-3"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-section-label mb-3" style={{ color: COBALT }}>
                 COEP Technological University
               </p>
               <h1
-                className="text-5xl md:text-7xl font-bold leading-none tracking-tight"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
+                className="typo-hero-heading leading-none tracking-tight"
+                style={{ color: DEEP_BLUE }}
               >
                 Administration
               </h1>
             </div>
             <p
-              className="text-base max-w-md leading-relaxed pb-1"
-              style={{
-                color: "#6b7280",
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
+              className="typo-body max-w-md leading-relaxed pb-1"
+              style={{ color: "#6b7280" }}
             >
               Leadership and governance of COEP Technological University, Pune —
               shaping excellence since 1854.
             </p>
           </div>
         </div>
-
-        {/* Cobalt rule */}
         <div style={{ height: "3px", background: COBALT }} />
       </section>
 
-      {/* ── SUB-TAB RIBBON ── */}
       <SubTabRibbon
         tabs={ADMIN_TABS}
         activeTab={activeTab}
@@ -907,63 +762,38 @@ export default function AdministrationPage() {
               transition: "opacity 0.7s ease, transform 0.7s ease",
             }}
           >
-            {/* LEFT: Text */}
             <div>
-              <p
-                className="text-xs font-bold uppercase tracking-widest mb-4"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-section-label mb-4" style={{ color: COBALT }}>
                 Vice Chancellor
               </p>
               <h2
-                className="text-4xl md:text-5xl font-bold leading-tight mb-3"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
+                className="typo-hero-heading mb-3 leading-tight"
+                style={{ color: DEEP_BLUE }}
               >
                 {VICE_CHANCELLOR.name}
               </h2>
               <p
-                className="text-base mb-6 leading-relaxed"
-                style={{
-                  color: "#4b5563",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-support mb-6 leading-relaxed"
+                style={{ color: "#4b5563" }}
               >
                 {VICE_CHANCELLOR.designation}
               </p>
-              <p
-                className="text-base leading-relaxed mb-8"
-                style={{
-                  color: "#374151",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-body mb-8" style={{ color: "#374151" }}>
                 {VICE_CHANCELLOR.brief}
               </p>
               <div className="flex flex-col gap-2 mb-8">
                 <a
                   href={`mailto:${VICE_CHANCELLOR.email}`}
-                  className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                  style={{
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: COBALT }}
                 >
                   <Mail className="w-4 h-4" />
                   {VICE_CHANCELLOR.email}
                 </a>
                 <a
                   href={`tel:${VICE_CHANCELLOR.phone}`}
-                  className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                  style={{
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: COBALT }}
                 >
                   <Phone className="w-4 h-4" />
                   {VICE_CHANCELLOR.phone}
@@ -971,11 +801,8 @@ export default function AdministrationPage() {
               </div>
               <Link
                 to="/administration/vice-chancellor"
-                className="inline-flex items-center gap-2 text-base font-semibold group"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="inline-flex items-center gap-2 typo-btn group"
+                style={{ color: COBALT }}
                 data-ocid="administration.vc_profile_button"
               >
                 View Profile &amp; Message
@@ -983,7 +810,6 @@ export default function AdministrationPage() {
               </Link>
             </div>
 
-            {/* RIGHT: Photo */}
             <div className="flex justify-end">
               <div
                 className="relative"
@@ -999,7 +825,7 @@ export default function AdministrationPage() {
                   style={{
                     width: "320px",
                     aspectRatio: "4/5",
-                    border: "2px solid rgba(22,72,200,0.18)",
+                    border: "2px solid rgba(26, 35, 126, 0.18)",
                   }}
                 >
                   <img
@@ -1009,15 +835,15 @@ export default function AdministrationPage() {
                   />
                 </div>
                 <div
-                  className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full flex items-center justify-center"
+                  className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full"
                   style={{
-                    background: "rgba(22,72,200,0.08)",
-                    border: "1px solid rgba(22,72,200,0.12)",
+                    background: "rgba(26, 35, 126, 0.08)",
+                    border: "1px solid rgba(26, 35, 126, 0.12)",
                   }}
                 />
                 <div
                   className="absolute -top-4 -left-4 w-16 h-16 rounded-full"
-                  style={{ background: "rgba(232,196,42,0.15)" }}
+                  style={{ background: "rgba(232, 196, 42, 0.15)" }}
                 />
               </div>
             </div>
@@ -1047,7 +873,6 @@ export default function AdministrationPage() {
               transition: "opacity 0.7s ease, transform 0.7s ease",
             }}
           >
-            {/* LEFT: Photo (alternating) */}
             <div className="flex justify-start order-2 md:order-1">
               <div
                 className="relative"
@@ -1063,7 +888,7 @@ export default function AdministrationPage() {
                   style={{
                     width: "300px",
                     aspectRatio: "4/5",
-                    border: "2px solid rgba(15,52,153,0.18)",
+                    border: "2px solid rgba(15, 51, 153, 0.18)",
                   }}
                 >
                   <img
@@ -1075,70 +900,48 @@ export default function AdministrationPage() {
                 <div
                   className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full"
                   style={{
-                    background: "rgba(15,52,153,0.06)",
-                    border: "1px solid rgba(15,52,153,0.1)",
+                    background: "rgba(15, 51, 153, 0.06)",
+                    border: "1px solid rgba(15, 51, 153, 0.1)",
                   }}
                 />
               </div>
             </div>
 
-            {/* RIGHT: Text */}
             <div className="order-1 md:order-2">
               <p
-                className="text-xs font-bold uppercase tracking-widest mb-4"
-                style={{
-                  color: DEEP_BLUE,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-section-label mb-4"
+                style={{ color: DEEP_BLUE }}
               >
                 Registrar
               </p>
               <h2
-                className="text-4xl md:text-5xl font-bold leading-tight mb-3"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
+                className="typo-hero-heading mb-3 leading-tight"
+                style={{ color: DEEP_BLUE }}
               >
                 {REGISTRAR.name}
               </h2>
               <p
-                className="text-base mb-6 leading-relaxed"
-                style={{
-                  color: "#4b5563",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-support mb-6 leading-relaxed"
+                style={{ color: "#4b5563" }}
               >
                 {REGISTRAR.designation}
               </p>
-              <p
-                className="text-base leading-relaxed mb-8"
-                style={{
-                  color: "#374151",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-body mb-8" style={{ color: "#374151" }}>
                 {REGISTRAR.brief}
               </p>
               <div className="flex flex-col gap-2 mb-8">
                 <a
                   href={`mailto:${REGISTRAR.email}`}
-                  className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                  style={{
-                    color: DEEP_BLUE,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: DEEP_BLUE }}
                 >
                   <Mail className="w-4 h-4" />
                   {REGISTRAR.email}
                 </a>
                 <a
                   href={`tel:${REGISTRAR.phone}`}
-                  className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                  style={{
-                    color: DEEP_BLUE,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: DEEP_BLUE }}
                 >
                   <Phone className="w-4 h-4" />
                   {REGISTRAR.phone}
@@ -1146,11 +949,8 @@ export default function AdministrationPage() {
               </div>
               <Link
                 to="/administration/registrar"
-                className="inline-flex items-center gap-2 text-base font-semibold group"
-                style={{
-                  color: DEEP_BLUE,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="inline-flex items-center gap-2 typo-btn group"
+                style={{ color: DEEP_BLUE }}
                 data-ocid="administration.registrar_profile_button"
               >
                 View Profile
@@ -1208,14 +1008,10 @@ export default function AdministrationPage() {
             subtitle="Academic deans guiding COEP Tech's schools and departments"
           />
 
-          {/* Deans — portrait cards matching Director style */}
           <div className="mb-16">
             <h3
-              className="text-xl font-bold mb-8 flex items-center gap-3"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
+              className="font-cinzel font-semibold text-xl mb-8 flex items-center gap-3"
+              style={{ color: DEEP_BLUE }}
             >
               <span
                 className="inline-block rounded-full"
@@ -1235,14 +1031,10 @@ export default function AdministrationPage() {
             </div>
           </div>
 
-          {/* Associate Deans */}
           <div id="associate-deans">
             <h3
-              className="text-xl font-bold mb-8 flex items-center gap-3"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
+              className="font-cinzel font-semibold text-xl mb-8 flex items-center gap-3"
+              style={{ color: DEEP_BLUE }}
             >
               <span
                 className="inline-block rounded-full"
@@ -1276,31 +1068,16 @@ export default function AdministrationPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p
-                className="text-xs font-bold uppercase tracking-widest mb-3"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-section-label mb-3" style={{ color: COBALT }}>
                 Financial Administration
               </p>
               <h2
-                className="text-3xl md:text-4xl font-bold leading-tight mb-5"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
+                className="typo-section-heading mb-5 leading-tight"
+                style={{ color: DEEP_BLUE }}
               >
                 Finance &amp; Accounts Officer
               </h2>
-              <p
-                className="text-base leading-relaxed mb-8"
-                style={{
-                  color: "#374151",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-body mb-8" style={{ color: "#374151" }}>
                 The Finance &amp; Accounts Office oversees all financial
                 operations of COEP Technological University — ensuring
                 transparent resource allocation, budget management, and
@@ -1308,11 +1085,8 @@ export default function AdministrationPage() {
               </p>
               <a
                 href="mailto:finance@coeptech.ac.in"
-                className="inline-flex items-center gap-2 text-base font-semibold group"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="inline-flex items-center gap-2 typo-btn group"
+                style={{ color: COBALT }}
                 data-ocid="administration.finance_contact_button"
               >
                 <Mail className="w-4 h-4" />
@@ -1323,17 +1097,11 @@ export default function AdministrationPage() {
             <div
               className="rounded-2xl p-8"
               style={{
-                background: "rgba(22,72,200,0.04)",
-                border: "1px solid rgba(22,72,200,0.1)",
+                background: "rgba(26, 35, 126, 0.04)",
+                border: "1px solid rgba(26, 35, 126, 0.1)",
               }}
             >
-              <p
-                className="text-xs font-bold uppercase tracking-widest mb-3"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-section-label mb-3" style={{ color: COBALT }}>
                 Responsibilities
               </p>
               {[
@@ -1348,23 +1116,12 @@ export default function AdministrationPage() {
                   className="flex items-start gap-3 mb-3 last:mb-0"
                 >
                   <span
-                    className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold"
-                    style={{
-                      background: COBALT,
-                      color: "#fff",
-                      fontFamily: "Source Sans 3, sans-serif",
-                      marginTop: "1px",
-                    }}
+                    className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center font-inter font-bold text-xs text-white mt-0.5"
+                    style={{ background: COBALT }}
                   >
                     {i + 1}
                   </span>
-                  <p
-                    className="text-sm leading-relaxed"
-                    style={{
-                      color: "#374151",
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
-                  >
+                  <p className="typo-body" style={{ color: "#374151" }}>
                     {item}
                   </p>
                 </div>
@@ -1389,31 +1146,16 @@ export default function AdministrationPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <p
-                className="text-xs font-bold uppercase tracking-widest mb-3"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-section-label mb-3" style={{ color: COBALT }}>
                 Student Grievance Redressal
               </p>
               <h2
-                className="text-3xl md:text-4xl font-bold leading-tight mb-5"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
+                className="typo-section-heading mb-5 leading-tight"
+                style={{ color: DEEP_BLUE }}
               >
                 Ombudsperson for Students
               </h2>
-              <p
-                className="text-base leading-relaxed mb-6"
-                style={{
-                  color: "#374151",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-body mb-6" style={{ color: "#374151" }}>
                 The Ombudsperson for Students is an independent authority
                 appointed under UGC guidelines to address grievances related to
                 admissions, examinations, fee refunds, and student welfare. The
@@ -1421,11 +1163,8 @@ export default function AdministrationPage() {
               </p>
               <a
                 href="mailto:ombudsperson@coeptech.ac.in"
-                className="inline-flex items-center gap-2 text-base font-semibold group"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="inline-flex items-center gap-2 typo-btn group"
+                style={{ color: COBALT }}
                 data-ocid="administration.ombudsperson_contact_link"
               >
                 <Mail className="w-4 h-4" />
@@ -1434,13 +1173,7 @@ export default function AdministrationPage() {
               </a>
             </div>
             <div>
-              <p
-                className="text-xs font-bold uppercase tracking-widest mb-4"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-section-label mb-4" style={{ color: COBALT }}>
                 How to File a Grievance
               </p>
               {[
@@ -1462,21 +1195,12 @@ export default function AdministrationPage() {
                   className="flex items-start gap-5 mb-6 last:mb-0"
                 >
                   <span
-                    className="text-3xl font-bold flex-shrink-0 leading-none"
-                    style={{
-                      color: "rgba(22,72,200,0.15)",
-                      fontFamily: "Playfair Display, serif",
-                    }}
+                    className="font-cinzel font-bold text-3xl flex-shrink-0 leading-none"
+                    style={{ color: "rgba(26, 35, 126, 0.15)" }}
                   >
                     {step}
                   </span>
-                  <p
-                    className="text-base leading-relaxed pt-1"
-                    style={{
-                      color: "#374151",
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
-                  >
+                  <p className="typo-body pt-1" style={{ color: "#374151" }}>
                     {text}
                   </p>
                 </div>
@@ -1496,52 +1220,38 @@ export default function AdministrationPage() {
       >
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-2 opacity-70"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-section-label mb-2 opacity-70">
               COEP Technological University
             </p>
-            <h2
-              className="text-3xl md:text-4xl font-bold text-white"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
-              Get in Touch
-            </h2>
-            <p
-              className="text-white/70 mt-2 text-base"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <h2 className="typo-section-heading text-white">Get in Touch</h2>
+            <p className="typo-body text-white/70 mt-2">
               Reach out to our administration team for inquiries,
               collaborations, or partnerships.
             </p>
           </div>
           <a
             href="mailto:info@coeptech.ac.in"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all hover:scale-105 whitespace-nowrap"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl typo-btn transition-all hover:scale-105 whitespace-nowrap"
             style={{
               background: GOLD,
               color: MIDNIGHT,
-              fontFamily: "Source Sans 3, sans-serif",
-              boxShadow: "0 4px 20px rgba(232,196,42,0.3)",
+              boxShadow: "0 4px 16px rgba(232, 196, 42, 0.3)",
             }}
-            data-ocid="administration.contact_link"
+            data-ocid="administration.cta_contact_button"
           >
+            <Mail className="w-4 h-4" />
             Contact Administration
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </section>
 
-      {/* ── Director Modal ── */}
       {openDirector && (
         <DirectorModal
           director={openDirector}
           onClose={() => setOpenDirector(null)}
         />
       )}
-
-      {/* ── Dean Modal ── */}
       {openDean && (
         <DeanModal dean={openDean} onClose={() => setOpenDean(null)} />
       )}

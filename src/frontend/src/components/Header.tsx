@@ -15,9 +15,9 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 // ─── Brand colors ─────────────────────────────────────────────────────────────
-const COBALT = "#1648C8";
+const COBALT = "#1A237E";
 /** Distinct blue for the university name banner — sits between MIDNIGHT ribbon and COBALT nav */
-const COBALT_BRIGHT = "#1E56D9";
+const COBALT_BRIGHT = "#1E3A8A";
 const GOLD = "#E8C42A";
 const MIDNIGHT = "#081E5C";
 
@@ -123,7 +123,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   {
-    label: "Student Life",
+    label: "Campus Life",
     basePath: "/student-life",
     defaultPath: "/student-life",
     links: [
@@ -183,15 +183,19 @@ const NAV_ITEMS: NavItem[] = [
 function Ribbon() {
   return (
     <div
-      style={{ backgroundColor: MIDNIGHT, color: "rgba(255,255,255,0.72)" }}
-      className="text-[0.72rem] hidden md:block"
+      className="typo-section-label hidden md:block"
+      style={{
+        backgroundColor: MIDNIGHT,
+        color: "rgba(255,255,255,0.72)",
+        fontSize: "0.72rem",
+      }}
     >
       <div className="max-w-[1280px] mx-auto px-4 xl:px-8 flex items-center justify-between h-9">
         {/* Left: contact */}
         <div className="flex items-center gap-4">
           <a
             href="tel:+912025507000"
-            className="flex items-center gap-1.5 transition-colors"
+            className="flex items-center gap-1.5 font-inter transition-colors"
             style={{ color: "rgba(255,255,255,0.72)" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.color = GOLD;
@@ -207,7 +211,7 @@ function Ribbon() {
           <span style={{ color: "rgba(255,255,255,0.2)" }}>|</span>
           <a
             href="mailto:info@coeptech.ac.in"
-            className="flex items-center gap-1.5 transition-colors"
+            className="flex items-center gap-1.5 font-inter transition-colors"
             style={{ color: "rgba(255,255,255,0.72)" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.color = GOLD;
@@ -302,7 +306,7 @@ function Ribbon() {
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-colors"
+                  className="font-inter transition-colors"
                   style={{ color: "rgba(255,255,255,0.72)" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = GOLD;
@@ -361,7 +365,7 @@ function LogoBar({ collapsed }: { collapsed: boolean }) {
           />
           {/* Fallback logo (hidden by default) */}
           <div
-            className="w-14 h-14 flex-shrink-0 rounded flex items-center justify-center text-white font-bold text-xl select-none shadow-sm hidden"
+            className="w-14 h-14 flex-shrink-0 rounded flex items-center justify-center text-white font-bold text-xl select-none shadow-sm hidden font-cinzel"
             style={{
               background: `linear-gradient(135deg, ${MIDNIGHT} 60%, ${COBALT})`,
             }}
@@ -370,10 +374,7 @@ function LogoBar({ collapsed }: { collapsed: boolean }) {
           </div>
           <div className="min-w-0">
             <p
-              className="text-[1.05rem] font-bold leading-tight tracking-tight transition-colors text-white"
-              style={{
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
+              className="text-[1.05rem] font-bold leading-tight tracking-tight transition-colors text-white font-cinzel"
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.color = GOLD;
               }}
@@ -384,7 +385,7 @@ function LogoBar({ collapsed }: { collapsed: boolean }) {
               COEP Technological University
             </p>
             <p
-              className="text-[0.67rem] leading-tight mt-0.5"
+              className="text-[0.67rem] leading-tight mt-0.5 font-source"
               style={{ color: "rgba(255,255,255,0.72)" }}
             >
               A Unitary Public University of Government of Maharashtra
@@ -414,15 +415,14 @@ function LogoBar({ collapsed }: { collapsed: boolean }) {
             href="https://admissions.coeptech.ac.in"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center h-9 px-5 rounded text-sm font-semibold transition-all duration-200"
+            className="typo-btn inline-flex items-center h-9 px-5 rounded transition-all duration-200"
             style={{
               backgroundColor: GOLD,
               color: "#1a1a1a",
-              fontFamily: "Source Sans 3, sans-serif",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                "#d4b025";
+                "#b89a18";
               (e.currentTarget as HTMLAnchorElement).style.boxShadow =
                 "0 4px 12px rgba(232,196,42,0.35)";
             }}
@@ -459,15 +459,12 @@ function FlatDropdown({
       )}
       style={{
         borderBottom: `3px solid ${COBALT}`,
-        boxShadow: "0 12px 40px rgba(22,72,200,0.12)",
+        boxShadow: "0 12px 40px rgba(26,35,126,0.12)",
       }}
     >
       <div className="max-w-[1280px] mx-auto px-4 xl:px-8 py-5">
         {/* Section title */}
-        <p
-          className="text-[0.65rem] font-bold uppercase tracking-[0.18em] mb-4"
-          style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-section-label mb-4" style={{ color: COBALT }}>
           {item.label}
         </p>
 
@@ -487,11 +484,8 @@ function FlatDropdown({
                     {link.href.startsWith("/") && !link.href.includes("#") ? (
                       <Link
                         to={link.href as "/"}
-                        className="flex items-center gap-2 py-1.5 text-[0.88rem] transition-colors group"
-                        style={{
-                          color: "#444",
-                          fontFamily: "Source Sans 3, sans-serif",
-                        }}
+                        className="typo-footer-body flex items-center gap-2 py-1.5 transition-colors group"
+                        style={{ color: "#444" }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.color = COBALT;
                         }}
@@ -509,11 +503,8 @@ function FlatDropdown({
                     ) : (
                       <a
                         href={link.href}
-                        className="flex items-center gap-2 py-1.5 text-[0.88rem] transition-colors group"
-                        style={{
-                          color: "#444",
-                          fontFamily: "Source Sans 3, sans-serif",
-                        }}
+                        className="typo-footer-body flex items-center gap-2 py-1.5 transition-colors group"
+                        style={{ color: "#444" }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.color = COBALT;
                         }}
@@ -598,9 +589,8 @@ function DesktopNav() {
                   to={item.defaultPath as "/"}
                   role="menuitem"
                   onClick={() => setOpenIdx(null)}
-                  className="flex items-center gap-1 px-3.5 py-4 text-[0.82rem] font-semibold tracking-wide relative transition-colors"
+                  className="typo-nav flex items-center gap-1 px-3.5 py-4 font-semibold tracking-wide relative transition-colors"
                   style={{
-                    fontFamily: "Source Sans 3, sans-serif",
                     color:
                       active || openIdx === idx
                         ? GOLD
@@ -704,10 +694,7 @@ function MobileDrawer({
               alt="COEP Tech"
               className="h-8 w-auto object-contain"
             />
-            <span
-              className="font-bold text-sm text-white"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <span className="typo-btn text-sm text-white font-cinzel">
               COEP Tech
             </span>
           </div>
@@ -736,10 +723,9 @@ function MobileDrawer({
             <li key={item.label}>
               <button
                 type="button"
-                className="flex items-center justify-between w-full px-5 py-3.5 text-sm font-semibold transition-colors"
+                className="typo-nav flex items-center justify-between w-full px-5 py-3.5 font-semibold transition-colors"
                 style={{
                   color: expanded === idx ? COBALT : "#1a1a1a",
-                  fontFamily: "Source Sans 3, sans-serif",
                 }}
                 onClick={() => toggleSection(idx)}
                 aria-expanded={expanded === idx}
@@ -762,11 +748,8 @@ function MobileDrawer({
                       {link.href.startsWith("/") && !link.href.includes("#") ? (
                         <Link
                           to={link.href as "/"}
-                          className="flex items-center gap-2 py-1.5 text-[0.82rem] w-full transition-colors"
-                          style={{
-                            color: "#555",
-                            fontFamily: "Source Sans 3, sans-serif",
-                          }}
+                          className="typo-footer-body flex items-center gap-2 py-1.5 w-full transition-colors"
+                          style={{ color: "#555" }}
                           onMouseEnter={(e) => {
                             e.currentTarget.style.color = COBALT;
                           }}
@@ -784,11 +767,8 @@ function MobileDrawer({
                       ) : (
                         <a
                           href={link.href}
-                          className="flex items-center gap-2 py-1.5 text-[0.82rem] w-full transition-colors"
-                          style={{
-                            color: "#555",
-                            fontFamily: "Source Sans 3, sans-serif",
-                          }}
+                          className="typo-footer-body flex items-center gap-2 py-1.5 w-full transition-colors"
+                          style={{ color: "#555" }}
                           onMouseEnter={(e) => {
                             e.currentTarget.style.color = COBALT;
                           }}
@@ -818,15 +798,14 @@ function MobileDrawer({
             href="https://admissions.coeptech.ac.in"
             target="_blank"
             rel="noreferrer"
-            className="block w-full text-center py-3 rounded font-semibold text-sm transition-colors"
+            className="typo-btn block w-full text-center py-3 rounded transition-colors"
             style={{
               backgroundColor: GOLD,
               color: "#1a1a1a",
-              fontFamily: "Source Sans 3, sans-serif",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                "#d4b025";
+                "#b89a18";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
@@ -836,10 +815,10 @@ function MobileDrawer({
           >
             Apply Now
           </a>
-          <div className="mt-3 flex items-center justify-center gap-4 text-xs">
+          <div className="mt-3 flex items-center justify-center gap-4">
             <a
               href="tel:+912025507000"
-              className="flex items-center gap-1"
+              className="typo-footer-body flex items-center gap-1"
               style={{ color: "#777" }}
             >
               <Phone className="w-3 h-3" />
@@ -847,7 +826,7 @@ function MobileDrawer({
             </a>
             <a
               href="mailto:info@coeptech.ac.in"
-              className="flex items-center gap-1"
+              className="typo-footer-body flex items-center gap-1"
               style={{ color: "#777" }}
             >
               <Mail className="w-3 h-3" />
@@ -903,10 +882,7 @@ export function Header() {
                 alt="COEP Tech"
                 className="h-8 w-auto object-contain"
               />
-              <span
-                className="text-sm font-bold text-white"
-                style={{ fontFamily: "Source Sans 3, sans-serif" }}
-              >
+              <span className="typo-nav font-bold text-white font-cinzel">
                 COEP Technological University
               </span>
             </Link>

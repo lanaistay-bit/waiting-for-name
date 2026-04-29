@@ -9,12 +9,7 @@ import {
   getResearchImageUrl,
 } from "@/utils/generatedImages";
 import { Link } from "@tanstack/react-router";
-import {
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  ExternalLink,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 /* ─── Scroll-reveal hook ─────────────────────────────────────────────────── */
@@ -69,7 +64,7 @@ const EVENTS: EventItem[] = [
     description:
       "COEP Tech's flagship technical extravaganza featuring robotics, hackathons, and innovation challenges drawing participants from 200+ colleges.",
     category: "Festival",
-    gradient: "linear-gradient(135deg, #1648C8 0%, #0F3499 100%)",
+    gradient: "linear-gradient(135deg, #1A237E 0%, #0F3399 100%)",
   },
   {
     title: "98th Regatta Rowing Championships",
@@ -77,7 +72,7 @@ const EVENTS: EventItem[] = [
     description:
       "Witness the spectacular 98th edition of COEP's legendary Regatta on the Mula river — Asia's oldest collegiate rowing event.",
     category: "Sports",
-    gradient: "linear-gradient(135deg, #0F3499 0%, #081E5C 100%)",
+    gradient: "linear-gradient(135deg, #0F3399 0%, #081E5C 100%)",
   },
   {
     title: "Impressions — Cultural Fest",
@@ -93,7 +88,7 @@ const EVENTS: EventItem[] = [
     description:
       "Annual conclave bringing industry leaders and COEP faculty together for panel discussions on emerging technology trends.",
     category: "Academic",
-    gradient: "linear-gradient(135deg, #1648C8 0%, #0F3499 100%)",
+    gradient: "linear-gradient(135deg, #1A237E 0%, #0F3399 100%)",
   },
   {
     title: "Research Paper Presentation Day",
@@ -101,7 +96,7 @@ const EVENTS: EventItem[] = [
     description:
       "Showcase your research to faculty, industry experts, and peers. Best papers win publication support and cash awards.",
     category: "Research",
-    gradient: "linear-gradient(135deg, #0F3499 0%, #1648C8 100%)",
+    gradient: "linear-gradient(135deg, #0F3399 0%, #1A237E 100%)",
   },
   {
     title: "VIVEKMALA '26",
@@ -109,7 +104,7 @@ const EVENTS: EventItem[] = [
     description:
       "From Vision to Victory — inter-college management and entrepreneurship conclave with case competitions and guest speakers.",
     category: "Management",
-    gradient: "linear-gradient(135deg, #081E5C 0%, #0F3499 100%)",
+    gradient: "linear-gradient(135deg, #081E5C 0%, #0F3399 100%)",
   },
 ];
 
@@ -128,7 +123,7 @@ const NOTICES: NoticeItem[] = [
     description:
       "End semester examinations for all UG and PG programs. Download hall tickets and report to exam halls 30 minutes early.",
     tag: "Examination",
-    gradient: "linear-gradient(135deg, #1648C8 0%, #0F3499 100%)",
+    gradient: "linear-gradient(135deg, #1A237E 0%, #0F3399 100%)",
   },
   {
     title: "Scholarship Application Deadline",
@@ -144,7 +139,7 @@ const NOTICES: NoticeItem[] = [
     description:
       "Semester fee payment deadline for all enrolled students. Late submissions attract a penalty of ₹500 per day. Pay via SBI portal.",
     tag: "Finance",
-    gradient: "linear-gradient(135deg, #0F3499 0%, #081E5C 100%)",
+    gradient: "linear-gradient(135deg, #0F3399 0%, #081E5C 100%)",
   },
   {
     title: "Academic Calendar 2025–26 Released",
@@ -152,7 +147,7 @@ const NOTICES: NoticeItem[] = [
     description:
       "The official academic calendar for AY 2025–26 is now available. Review semester dates, holiday list, and examination windows.",
     tag: "Academic",
-    gradient: "linear-gradient(135deg, #1648C8 0%, #0F3499 100%)",
+    gradient: "linear-gradient(135deg, #1A237E 0%, #0F3399 100%)",
   },
   {
     title: "Holiday List 2024–25",
@@ -160,7 +155,7 @@ const NOTICES: NoticeItem[] = [
     description:
       "List of public holidays and university holidays for the academic year 2024–25 as approved by the Board of Governance.",
     tag: "General",
-    gradient: "linear-gradient(135deg, #0F3499 0%, #1648C8 100%)",
+    gradient: "linear-gradient(135deg, #0F3399 0%, #1A237E 100%)",
   },
   {
     title: "PhD Viva-Voce Schedule",
@@ -168,7 +163,7 @@ const NOTICES: NoticeItem[] = [
     description:
       "Open defense schedule for all registered PhD scholars for the February 2026 cycle. Candidates should contact their guides.",
     tag: "PhD",
-    gradient: "linear-gradient(135deg, #081E5C 0%, #0F3499 100%)",
+    gradient: "linear-gradient(135deg, #081E5C 0%, #0F3399 100%)",
   },
 ];
 
@@ -298,6 +293,13 @@ const STAT_DEFS: StatDef[] = [
     description:
       "Active doctoral researchers pursuing cutting-edge academic research",
   },
+  {
+    suffix: "+",
+    target: 100,
+    label: "Industry Partners",
+    description:
+      "MoUs with leading corporations driving industry-academia collaboration",
+  },
 ];
 
 interface ResearchPaper {
@@ -372,40 +374,40 @@ const TIMELINE_PREVIEW = [
     title: "Foundation — Poona Civil Engineering College",
     description:
       "Founded by the British under Col. Francis Oliphant as Poona Civil Engineering College, one of the first engineering institutions in Asia.",
-    color: "#1648C8",
+    color: "#1A237E",
   },
   {
     year: "1911",
     title: "Renamed — College of Engineering, Pune",
     description:
       "Re-designated as the College of Engineering, Pune (COEP), marking a new era of expanded programs and modernized infrastructure.",
-    color: "#0F3499",
+    color: "#0F3399",
   },
   {
     year: "1947",
     title: "Post-Independence Expansion",
     description:
       "Following Indian independence, COEP expanded rapidly under the Maharashtra Government, becoming a premier institution for the nation's engineering workforce.",
-    color: "#1648C8",
+    color: "#1A237E",
   },
   {
     year: "2022",
     title: "Elevated to Autonomous University Status",
     description:
       "Elevated to COEP Technological University — a Unitary Public University of the Government of Maharashtra, with full academic and administrative autonomy.",
-    color: "#1648C8",
+    color: "#1A237E",
   },
 ];
 
 const LIFE_IMAGES = [
   {
     label: "Historic Campus",
-    gradient: "linear-gradient(135deg, #1648C8 20%, #0F3499 100%)",
+    gradient: "linear-gradient(135deg, #1A237E 20%, #0F3399 100%)",
     size: "large",
   },
   {
     label: "Sports & Athletics",
-    gradient: "linear-gradient(135deg, #0F3499 0%, #081E5C 100%)",
+    gradient: "linear-gradient(135deg, #0F3399 0%, #081E5C 100%)",
     size: "small",
   },
   {
@@ -415,12 +417,12 @@ const LIFE_IMAGES = [
   },
   {
     label: "Research Labs",
-    gradient: "linear-gradient(135deg, #081E5C 0%, #1648C8 100%)",
+    gradient: "linear-gradient(135deg, #081E5C 0%, #1A237E 100%)",
     size: "small",
   },
   {
     label: "Library",
-    gradient: "linear-gradient(135deg, #0F3499 0%, #1648C8 100%)",
+    gradient: "linear-gradient(135deg, #0F3399 0%, #1A237E 100%)",
     size: "small",
   },
 ];
@@ -454,12 +456,8 @@ function useCountUp(target: number, active: boolean, startNear?: boolean) {
   return count;
 }
 
-/* ─── Static Hero ────────────────────────────────────────────────────────── */
+/* ─── Video Hero ─────────────────────────────────────────────────────────── */
 function VideoHero() {
-  const scrollToContent = () => {
-    const el = document.getElementById("announcements");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
   return (
     <section
       id="top"
@@ -467,116 +465,50 @@ function VideoHero() {
       style={{ height: "100vh", minHeight: 520 }}
       data-ocid="hero.section"
     >
-      {/* Rich gradient background: Cobalt → Deep Blue → Midnight */}
-      <div
-        className="absolute inset-0"
+      {/* Fullscreen YouTube background video */}
+      <iframe
+        src="https://www.youtube.com/embed/dHMneVzPHkk?autoplay=1&mute=1&loop=1&playlist=dHMneVzPHkk&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
+        title="COEP Campus Video"
+        allow="autoplay; fullscreen"
+        className="absolute"
         style={{
-          background:
-            "linear-gradient(135deg, #1648C8 0%, #0F3499 45%, #081E5C 100%)",
-        }}
-      />
-      {/* Radial light bloom — top-left accent */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 15% 20%, rgba(232,196,42,0.12) 0%, transparent 70%)",
-        }}
-      />
-      {/* Subtle grid / texture overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,1) 39px, rgba(255,255,255,1) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,1) 39px, rgba(255,255,255,1) 40px)",
-        }}
-      />
-      {/* Diagonal shine stripe */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.04) 50%, transparent 70%)",
+          top: "50%",
+          left: "50%",
+          width: "177.78vh",
+          minWidth: "100%",
+          height: "56.25vw",
+          minHeight: "100%",
+          transform: "translate(-50%, -50%)",
+          border: "none",
+          pointerEvents: "none",
+          zIndex: 0,
         }}
       />
 
-      {/* Overlay content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
-        <div
-          className="inline-flex items-center gap-2 border px-4 py-1.5 mb-6 text-xs font-semibold uppercase tracking-[0.2em] fade-in-up"
-          style={{
-            borderColor: "rgba(255,255,255,0.35)",
-            color: "rgba(255,255,255,0.9)",
-            background: "rgba(255,255,255,0.1)",
-            animationDelay: "0.05s",
-          }}
-        >
-          Est. 1854 · Pune, Maharashtra
-        </div>
+      {/* Dark overlay for text readability */}
+      <div
+        className="absolute inset-0"
+        style={{ background: "rgba(0,0,0,0.45)", zIndex: 1 }}
+      />
+
+      {/* Centered title — only content */}
+      <div
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ zIndex: 10 }}
+      >
         <h1
-          className="font-display font-bold text-white leading-tight fade-in-up"
+          className="typo-hero-heading text-white text-center fade-in-up"
           style={{
-            fontSize: "clamp(2.2rem, 6vw, 5rem)",
-            animationDelay: "0.15s",
             maxWidth: "900px",
+            padding: "0 1.5rem",
+            textShadow:
+              "0 2px 24px rgba(0,0,0,0.65), 0 1px 4px rgba(0,0,0,0.5)",
+            animationDelay: "0.1s",
           }}
         >
           COEP Technological University
         </h1>
-        <p
-          className="mt-4 text-white/80 font-body fade-in-up"
-          style={{
-            fontSize: "clamp(0.95rem, 2.2vw, 1.25rem)",
-            animationDelay: "0.28s",
-            maxWidth: "600px",
-          }}
-        >
-          A Unitary Public University of Government of Maharashtra
-        </p>
-        <p
-          className="mt-3 font-semibold uppercase tracking-[0.25em] text-sm fade-in-up"
-          style={{ color: "#E8C42A", animationDelay: "0.38s" }}
-        >
-          Engineering Excellence · Innovation · Leadership
-        </p>
-        <div
-          className="flex flex-wrap gap-4 mt-10 justify-center fade-in-up"
-          style={{ animationDelay: "0.5s" }}
-        >
-          <Button
-            className="font-semibold px-8 py-3 rounded-none text-sm uppercase tracking-wider"
-            style={{ background: "#E8C42A", color: "#111", border: "none" }}
-            data-ocid="hero.explore_button"
-          >
-            Explore Programs
-          </Button>
-          <Button
-            variant="outline"
-            className="font-semibold px-8 py-3 rounded-none text-sm uppercase tracking-wider border-white/70 text-white transition-smooth"
-            style={{ background: "transparent" }}
-            data-ocid="hero.campus_tour_button"
-          >
-            Virtual Campus Tour
-          </Button>
-        </div>
       </div>
-
-      {/* Scroll indicator */}
-      <button
-        type="button"
-        onClick={scrollToContent}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white transition-smooth"
-        aria-label="Scroll to content"
-        data-ocid="hero.scroll_indicator"
-      >
-        <span className="text-xs uppercase tracking-widest font-medium">
-          Scroll
-        </span>
-        <ChevronDown
-          className="w-5 h-5 animate-bounce"
-          style={{ animationDuration: "1.6s" }}
-        />
-      </button>
     </section>
   );
 }
@@ -596,18 +528,12 @@ function NewsTicker() {
       <div
         className="flex-shrink-0 flex items-center gap-2 px-5"
         style={{
-          background: "#1648C8",
+          background: "#1A237E",
           borderRight: "2px solid rgba(255,255,255,0.4)",
         }}
       >
         <span className="w-1.5 h-1.5 rounded-full bg-accent-gold animate-pulse-cobalt" />
-        <span
-          className="text-xs font-bold uppercase tracking-[0.22em] text-white whitespace-nowrap"
-          style={{
-            fontFamily: "Source Sans 3, sans-serif",
-            letterSpacing: "0.2em",
-          }}
-        >
+        <span className="typo-section-label text-white whitespace-nowrap">
           ANNOUNCEMENTS
         </span>
       </div>
@@ -647,11 +573,8 @@ function NewsTicker() {
           {items.map((item, i) => (
             <span
               key={`ticker-${i}-${item.slice(0, 12)}`}
-              className="flex items-center gap-0 text-white/90"
-              style={{
-                fontSize: 13.5,
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
+              className="flex items-center gap-0 text-white/90 typo-nav"
+              style={{ fontSize: 13.5 }}
             >
               <span
                 className="mx-5"
@@ -699,7 +622,7 @@ function PortraitCard({
         transform: visible ? "translateY(0)" : "translateY(28px)",
         transition: `opacity 0.55s ease ${index * 0.1}s, transform 0.55s ease ${index * 0.1}s`,
         boxShadow: hovered
-          ? "0 16px 40px rgba(22,72,200,0.18)"
+          ? "0 16px 40px rgba(26, 35, 126, 0.18)"
           : "0 2px 12px rgba(0,0,0,0.06)",
         transitionProperty: "opacity, transform, box-shadow",
         minHeight: 420,
@@ -744,19 +667,19 @@ function PortraitCard({
       {/* Content */}
       <div className="flex flex-col flex-1 p-5">
         <h3
-          className="font-bold text-base leading-snug mb-2"
-          style={{ fontFamily: "Playfair Display, serif", color: "#0F3499" }}
+          className="typo-card-title leading-snug mb-2"
+          style={{ color: "#0F3399" }}
         >
           {title}
         </h3>
-        <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
+        <p className="typo-card-desc text-muted-foreground leading-relaxed flex-1 mb-4">
           {description}
         </p>
         {/* Date pill */}
         <div className="flex items-center gap-1.5 mt-auto pt-3 border-t border-border">
           <span
             className="text-xs font-medium px-2.5 py-1"
-            style={{ background: "rgba(22,72,200,0.08)", color: "#1648C8" }}
+            style={{ background: "rgba(26, 35, 126, 0.08)", color: "#1A237E" }}
           >
             {date}
           </span>
@@ -882,13 +805,10 @@ function EventsSection() {
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+          <p className="typo-section-label text-muted-foreground mb-2">
             What's On
           </p>
-          <h2
-            className="text-2xl md:text-3xl font-bold"
-            style={{ fontFamily: "Playfair Display, serif", color: "#0F3499" }}
-          >
+          <h2 className="typo-section-heading" style={{ color: "#0F3399" }}>
             Upcoming Events
           </h2>
           <div className="divider-gold mt-3" />
@@ -903,7 +823,7 @@ function EventsSection() {
               style={{
                 width: 8,
                 height: 8,
-                background: "rgba(22,72,200,0.25)",
+                background: "rgba(26, 35, 126, 0.25)",
               }}
             />
           ))}
@@ -932,18 +852,341 @@ function NoticesSection() {
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+          <p className="typo-section-label text-muted-foreground mb-2">
             Official Communications
           </p>
-          <h2
-            className="text-2xl md:text-3xl font-bold"
-            style={{ fontFamily: "Playfair Display, serif", color: "#0F3499" }}
-          >
+          <h2 className="typo-section-heading" style={{ color: "#0F3399" }}>
             Notices & Circulars
           </h2>
           <div className="divider-gold mt-3" />
         </div>
         <PortraitCarousel items={NOTICES} sectionId="notices" />
+      </div>
+    </section>
+  );
+}
+
+/* ─── Collaborations & MoU Section ──────────────────────────────────────── */
+
+interface CollabPartner {
+  name: string;
+  type: "industry" | "international";
+  logo?: string;
+  country?: string;
+}
+
+const COLLAB_PARTNERS: CollabPartner[] = [
+  // Industry
+  { name: "Tata Group", type: "industry" },
+  { name: "Bosch", type: "industry" },
+  { name: "DRDO", type: "industry" },
+  { name: "ISRO", type: "industry" },
+  { name: "Siemens", type: "industry" },
+  { name: "Thermax", type: "industry" },
+  { name: "Cummins India", type: "industry" },
+  { name: "Forbes Marshall", type: "industry" },
+  { name: "Bajaj Auto", type: "industry" },
+  { name: "Wipro", type: "industry" },
+  // International
+  { name: "TU Delft", type: "international", country: "Netherlands" },
+  { name: "MIT", type: "international", country: "USA" },
+  { name: "KIT Karlsruhe", type: "international", country: "Germany" },
+  { name: "NUS Singapore", type: "international", country: "Singapore" },
+  { name: "Politecnico di Milano", type: "international", country: "Italy" },
+  { name: "TU Munich", type: "international", country: "Germany" },
+  { name: "Monash University", type: "international", country: "Australia" },
+  { name: "Waseda University", type: "international", country: "Japan" },
+];
+
+const INDUSTRY_PARTNERS = COLLAB_PARTNERS.filter((p) => p.type === "industry");
+const INTL_PARTNERS = COLLAB_PARTNERS.filter((p) => p.type === "international");
+
+function CollabLogoTicker({
+  partners,
+  reverse,
+}: { partners: CollabPartner[]; reverse?: boolean }) {
+  const items = [...partners, ...partners];
+  const tickerRef = useRef<HTMLDivElement>(null);
+  return (
+    <div
+      className="relative overflow-hidden"
+      onMouseEnter={() => {
+        if (tickerRef.current)
+          tickerRef.current.style.animationPlayState = "paused";
+      }}
+      onMouseLeave={() => {
+        if (tickerRef.current)
+          tickerRef.current.style.animationPlayState = "running";
+      }}
+    >
+      <div
+        className="absolute left-0 top-0 bottom-0 w-12 z-10 pointer-events-none"
+        style={{
+          background: "linear-gradient(to right, #f7f9ff, transparent)",
+        }}
+      />
+      <div
+        className="absolute right-0 top-0 bottom-0 w-12 z-10 pointer-events-none"
+        style={{ background: "linear-gradient(to left, #f7f9ff, transparent)" }}
+      />
+      <div
+        ref={tickerRef}
+        className="flex items-center gap-3 whitespace-nowrap"
+        style={{
+          animation: `tickerScroll ${reverse ? "20s" : "22s"} linear infinite ${reverse ? "reverse" : ""}`,
+          animationPlayState: "running",
+        }}
+      >
+        {items.map((p, i) => (
+          <div
+            key={`collab-${p.type}-${i}-${p.name.slice(0, 6)}`}
+            className="flex-shrink-0 flex items-center justify-center px-4 py-2 border font-semibold text-xs uppercase tracking-wider"
+            style={{
+              background: "#fff",
+              borderColor: "rgba(26, 35, 126, 0.14)",
+              color: "#1A237E",
+              minWidth: 120,
+              fontFamily: "Source Sans 3, sans-serif",
+              letterSpacing: "0.08em",
+            }}
+          >
+            {p.name}
+            {p.country && (
+              <span
+                className="ml-1.5 opacity-60 text-[10px] normal-case tracking-normal font-normal"
+                style={{ color: "#4A3FA0" }}
+              >
+                {p.country}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CollaborationsSection() {
+  const { ref: headRef, visible: headVisible } =
+    useScrollReveal<HTMLDivElement>();
+  const { ref: leftRef, visible: leftVisible } =
+    useScrollReveal<HTMLDivElement>(0.1);
+  const { ref: rightRef, visible: rightVisible } =
+    useScrollReveal<HTMLDivElement>(0.1);
+
+  return (
+    <section
+      className="py-20 relative overflow-hidden"
+      style={{ background: "#f7f9ff" }}
+      data-ocid="collaborations.section"
+    >
+      {/* Subtle diagonal accent */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 90% 50%, rgba(26,35,126,0.05) 0%, transparent 70%)",
+        }}
+      />
+      <div className="container px-4 md:px-8 relative">
+        {/* Heading */}
+        <div
+          ref={headRef}
+          className="text-center mb-14"
+          style={{
+            opacity: headVisible ? 1 : 0,
+            transform: headVisible ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity 0.6s ease, transform 0.6s ease",
+          }}
+        >
+          <p className="typo-section-label text-muted-foreground mb-2">
+            Global Footprint
+          </p>
+          <h2 className="typo-section-heading" style={{ color: "#0F3399" }}>
+            Collaborations & MoUs
+          </h2>
+          <p className="typo-body mt-3 max-w-xl mx-auto text-muted-foreground">
+            Bridging academia and industry through 100+ active partnerships with
+            leading corporations and global universities
+          </p>
+          <div className="divider-gold mt-5 mx-auto" />
+        </div>
+
+        {/* Two-column split */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+          {/* Industry Partners column */}
+          <div
+            ref={leftRef}
+            className="relative overflow-hidden border border-border"
+            style={{
+              opacity: leftVisible ? 1 : 0,
+              transform: leftVisible ? "translateX(0)" : "translateX(-28px)",
+              transition: "opacity 0.65s ease 0.1s, transform 0.65s ease 0.1s",
+              background: "#fff",
+            }}
+            data-ocid="collaborations.industry_panel"
+          >
+            {/* Colour stripe on top */}
+            <div
+              className="h-1 w-full"
+              style={{
+                background:
+                  "linear-gradient(90deg, #1A237E 0%, #0F3399 50%, #E8C42A 100%)",
+              }}
+            />
+            <div className="p-7">
+              <div className="flex items-center gap-3 mb-4">
+                <div
+                  className="w-9 h-9 flex items-center justify-center rounded-full"
+                  style={{ background: "rgba(26,35,126,0.1)" }}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#1A237E"
+                    strokeWidth={2}
+                    className="w-5 h-5"
+                    aria-hidden="true"
+                  >
+                    <rect x={2} y={7} width={20} height={14} rx={1} />
+                    <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                  </svg>
+                </div>
+                <div>
+                  <h3
+                    className="typo-card-title leading-none"
+                    style={{ color: "#0F3399" }}
+                  >
+                    Industry Partners
+                  </h3>
+                  <p className="typo-support text-muted-foreground mt-0.5">
+                    MoUs with leading Indian & global corporations
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {INDUSTRY_PARTNERS.map((p) => (
+                  <span
+                    key={p.name}
+                    className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider border"
+                    style={{
+                      borderColor: "rgba(26,35,126,0.18)",
+                      color: "#1A237E",
+                      fontFamily: "Source Sans 3, sans-serif",
+                      background: "rgba(26,35,126,0.04)",
+                    }}
+                  >
+                    {p.name}
+                  </span>
+                ))}
+              </div>
+              <p
+                className="mt-5 text-xs font-bold uppercase tracking-widest"
+                style={{ color: "#E8C42A" }}
+              >
+                60+ Active Industry MoUs
+              </p>
+            </div>
+          </div>
+
+          {/* International Partners column */}
+          <div
+            ref={rightRef}
+            className="relative overflow-hidden border border-border"
+            style={{
+              opacity: rightVisible ? 1 : 0,
+              transform: rightVisible ? "translateX(0)" : "translateX(28px)",
+              transition: "opacity 0.65s ease 0.2s, transform 0.65s ease 0.2s",
+              background: "#fff",
+            }}
+            data-ocid="collaborations.international_panel"
+          >
+            <div
+              className="h-1 w-full"
+              style={{
+                background:
+                  "linear-gradient(90deg, #E8C42A 0%, #0F3399 50%, #1A237E 100%)",
+              }}
+            />
+            <div className="p-7">
+              <div className="flex items-center gap-3 mb-4">
+                <div
+                  className="w-9 h-9 flex items-center justify-center rounded-full"
+                  style={{ background: "rgba(26,35,126,0.1)" }}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#1A237E"
+                    strokeWidth={2}
+                    className="w-5 h-5"
+                    aria-hidden="true"
+                  >
+                    <circle cx={12} cy={12} r={10} />
+                    <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
+                  </svg>
+                </div>
+                <div>
+                  <h3
+                    className="typo-card-title leading-none"
+                    style={{ color: "#0F3399" }}
+                  >
+                    International Universities
+                  </h3>
+                  <p className="typo-support text-muted-foreground mt-0.5">
+                    Academic exchange & joint research with global institutions
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {INTL_PARTNERS.map((p) => (
+                  <span
+                    key={p.name}
+                    className="px-3 py-1.5 text-xs font-semibold border"
+                    style={{
+                      borderColor: "rgba(26,35,126,0.18)",
+                      color: "#1A237E",
+                      fontFamily: "Source Sans 3, sans-serif",
+                      background: "rgba(26,35,126,0.04)",
+                    }}
+                  >
+                    {p.name}
+                    <span
+                      className="ml-1.5 opacity-55 text-[10px] font-normal"
+                      style={{ color: "#4A3FA0" }}
+                    >
+                      {p.country}
+                    </span>
+                  </span>
+                ))}
+              </div>
+              <p
+                className="mt-5 text-xs font-bold uppercase tracking-widest"
+                style={{ color: "#E8C42A" }}
+              >
+                40+ International University MoUs
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Scrolling logo tickers */}
+        <div className="space-y-3 mb-12">
+          <CollabLogoTicker partners={INDUSTRY_PARTNERS} />
+          <CollabLogoTicker partners={INTL_PARTNERS} reverse />
+        </div>
+
+        {/* CTA */}
+        <div className="flex justify-center">
+          <Link to="/research" data-ocid="collaborations.view_all_button">
+            <Button
+              className="typo-btn px-10 py-3 rounded-none uppercase tracking-wider text-white transition-smooth"
+              style={{ background: "#1A237E", border: "none" }}
+            >
+              View All Collaborations →
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -961,13 +1204,10 @@ function LatestNews() {
     >
       <div className="container px-4 md:px-8">
         <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+          <p className="typo-section-label text-muted-foreground mb-2">
             Stay Informed
           </p>
-          <h2
-            className="text-2xl md:text-3xl font-bold"
-            style={{ fontFamily: "Playfair Display, serif", color: "#0F3499" }}
-          >
+          <h2 className="typo-section-heading" style={{ color: "#0F3399" }}>
             Latest News
           </h2>
           <div className="divider-gold mt-3" />
@@ -980,14 +1220,14 @@ function LatestNews() {
               data-ocid={`news.item.${i + 1}`}
             >
               <div
-                className="flex-shrink-0 font-black leading-none select-none"
+                className="flex-shrink-0 font-black leading-none select-none typo-stat-number"
                 style={{
                   fontSize: "clamp(2.8rem, 5vw, 4.2rem)",
-                  color: "rgba(22,72,200,0.18)",
+                  color: "rgba(26, 35, 126, 0.18)",
                   minWidth: "4rem",
                   fontVariantNumeric: "tabular-nums",
                   lineHeight: 1,
-                  fontFamily: "Playfair Display, serif",
+                  fontFamily: "var(--font-nav)",
                 }}
               >
                 {String(item.num).padStart(2, "0")}
@@ -997,23 +1237,23 @@ function LatestNews() {
                   <span
                     className="text-xs font-semibold px-2 py-0.5"
                     style={{
-                      background: "rgba(22,72,200,0.08)",
-                      color: "#1648C8",
+                      background: "rgba(26, 35, 126, 0.08)",
+                      color: "#1A237E",
                     }}
                   >
                     {item.date}
                   </span>
                 </div>
                 <h3
-                  className="font-bold text-base md:text-lg leading-snug mb-1.5 group-hover:text-accent-gold transition-smooth"
-                  style={{
-                    fontFamily: "Playfair Display, serif",
-                    color: "#0F3499",
-                  }}
+                  className="typo-card-title leading-snug mb-1.5 group-hover:text-accent-gold transition-smooth"
+                  style={{ color: "#0F3399" }}
                 >
                   {item.title}
                 </h3>
-                <p className="text-sm text-muted-foreground line-clamp-2">
+                <p
+                  className="typo-body-lg text-muted-foreground line-clamp-2"
+                  style={{ fontSize: "0.875rem" }}
+                >
                   {item.excerpt}
                 </p>
               </div>
@@ -1022,7 +1262,7 @@ function LatestNews() {
               </div>
               <div
                 className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-500"
-                style={{ background: "rgba(22,72,200,0.4)" }}
+                style={{ background: "rgba(26, 35, 126, 0.4)" }}
               />
             </div>
           ))}
@@ -1031,11 +1271,8 @@ function LatestNews() {
           <button
             type="button"
             onClick={() => setExpanded((v) => !v)}
-            className="px-10 py-3 border font-semibold text-sm uppercase tracking-wider transition-smooth rounded-none hover:text-accent-gold"
-            style={{
-              borderColor: "#1648C8",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="typo-btn px-10 py-3 border uppercase tracking-wider transition-smooth rounded-none hover:text-accent-gold"
+            style={{ borderColor: "#1A237E" }}
             data-ocid="news.view_more_button"
           >
             {expanded ? "View Less" : "View More"}
@@ -1066,23 +1303,13 @@ function HistorySection() {
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+          <p className="typo-section-label text-muted-foreground mb-2">
             Since 1854
           </p>
-          <h2
-            className="font-bold"
-            style={{
-              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-              fontFamily: "Playfair Display, serif",
-              color: "#0F3499",
-            }}
-          >
+          <h2 className="typo-section-heading" style={{ color: "#0F3399" }}>
             History & Legacy
           </h2>
-          <p
-            className="mt-3 text-muted-foreground max-w-xl mx-auto"
-            style={{ fontFamily: "Source Sans 3, sans-serif" }}
-          >
+          <p className="typo-body mt-3 text-muted-foreground max-w-xl mx-auto">
             Over 170 years of excellence, innovation, and nation-building from
             the heart of Pune
           </p>
@@ -1094,7 +1321,7 @@ function HistorySection() {
           {/* Vertical line */}
           <div
             className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block"
-            style={{ background: "rgba(22,72,200,0.2)" }}
+            style={{ background: "rgba(26, 35, 126, 0.2)" }}
           />
           <div className="space-y-6 md:space-y-0">
             {TIMELINE_PREVIEW.map((entry, index) => {
@@ -1116,7 +1343,7 @@ function HistorySection() {
           >
             <Button
               className="px-10 py-3 rounded-none text-sm font-semibold uppercase tracking-wider text-white transition-smooth"
-              style={{ background: "#1648C8", border: "none" }}
+              style={{ background: "#1A237E", border: "none" }}
             >
               View Full History
             </Button>
@@ -1168,7 +1395,7 @@ function TimelineEntry({
         {!isLast && (
           <div
             className="w-0.5 opacity-25 flex-1"
-            style={{ background: "#1648C8", minHeight: 64 }}
+            style={{ background: "#1A237E", minHeight: 64 }}
           />
         )}
       </div>
@@ -1225,20 +1452,17 @@ function TimelineCard({
       style={{ textAlign: align === "right" ? "right" : "left" }}
     >
       <span
-        className="text-2xl font-bold"
-        style={{ fontFamily: "Playfair Display, serif", color: entry.color }}
+        className="typo-stat-number"
+        style={{ fontFamily: "var(--font-heading)", color: entry.color }}
       >
         {entry.year}
       </span>
-      <h4
-        className="font-bold text-base mt-1 mb-2"
-        style={{ fontFamily: "Playfair Display, serif", color: "#0F3499" }}
-      >
+      <h4 className="typo-card-title mt-1 mb-2" style={{ color: "#0F3399" }}>
         {entry.title}
       </h4>
       <p
-        className="text-sm text-muted-foreground leading-relaxed"
-        style={{ fontFamily: "Source Sans 3, sans-serif" }}
+        className="typo-body text-muted-foreground"
+        style={{ fontSize: "0.875rem" }}
       >
         {entry.description}
       </p>
@@ -1294,25 +1518,17 @@ function StatCountCard({ stat, index }: { stat: StatDef; index: number }) {
         style={{ width: hovered ? "100%" : "0%", background: "#E8C42A" }}
       />
       <div
-        className="font-bold leading-none mb-2"
-        style={{
-          fontSize: "clamp(2.75rem, 5.5vw, 4.25rem)",
-          letterSpacing: "-0.02em",
-          fontFamily: "Playfair Display, serif",
-          color: "#0F3499",
-        }}
+        className="typo-stat-number leading-none mb-2"
+        style={{ color: "#0F3399" }}
       >
         {stat.prefix}
         {formatNum(count)}
         {stat.suffix}
       </div>
-      <div
-        className="text-sm md:text-base font-bold mb-2"
-        style={{ fontFamily: "Playfair Display, serif", color: "#0F3499" }}
-      >
+      <div className="typo-support mb-2" style={{ color: "#0F3399" }}>
         {stat.label}
       </div>
-      <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+      <p className="typo-stat-label text-muted-foreground leading-relaxed">
         {stat.description}
       </p>
       <div
@@ -1341,23 +1557,16 @@ function WhyCoepTech() {
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <p
-            className="text-xs font-semibold uppercase tracking-widest mb-3"
-            style={{ color: "#0F3499" }}
-          >
+          <p className="typo-section-label mb-3" style={{ color: "#0F3399" }}>
             Our Legacy
           </p>
           <h2
-            className="font-bold leading-tight"
-            style={{
-              fontSize: "clamp(2rem, 5vw, 3.2rem)",
-              fontFamily: "Playfair Display, serif",
-              color: "#0F3499",
-            }}
+            className="typo-section-heading leading-tight"
+            style={{ color: "#0F3399" }}
           >
             Why COEP Technological University
           </h2>
-          <p className="mt-3 text-muted-foreground text-base md:text-lg">
+          <p className="typo-body mt-3 text-muted-foreground">
             Shaping engineers and leaders since 1854
           </p>
           <div
@@ -1365,21 +1574,14 @@ function WhyCoepTech() {
             style={{
               height: 3,
               width: 64,
-              background: "#1648C8",
+              background: "#1A237E",
               borderRadius: 2,
             }}
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 border border-border overflow-hidden shadow-premium">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-border overflow-hidden shadow-premium">
           {STAT_DEFS.map((stat, i) => (
-            <div
-              key={stat.label}
-              className={
-                i === STAT_DEFS.length - 1 && STAT_DEFS.length % 3 !== 0
-                  ? "sm:col-span-2 md:col-span-1 md:col-start-2"
-                  : ""
-              }
-            >
+            <div key={stat.label}>
               <StatCountCard stat={stat} index={i} />
             </div>
           ))}
@@ -1427,17 +1629,10 @@ function LifeAtCoep() {
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+          <p className="typo-section-label text-muted-foreground mb-2">
             Campus Experience
           </p>
-          <h2
-            className="font-bold"
-            style={{
-              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-              fontFamily: "Playfair Display, serif",
-              color: "#0F3499",
-            }}
-          >
+          <h2 className="typo-section-heading" style={{ color: "#0F3399" }}>
             Life at COEP
           </h2>
           <div className="divider-gold mt-4 mx-auto" />
@@ -1476,12 +1671,12 @@ function LifeAtCoep() {
             {/* Center overlay */}
             <div
               className="absolute inset-0 flex items-center justify-center"
-              style={{ background: "rgba(8,30,92,0.52)" }}
+              style={{ background: "rgba(8, 30, 92, 0.52)" }}
             >
               <div className="text-center px-6">
                 <p
                   className="text-white font-bold text-lg leading-snug"
-                  style={{ fontFamily: "Playfair Display, serif" }}
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
                   170 years of excellence, innovation, and vibrant campus life
                 </p>
@@ -1520,12 +1715,12 @@ function LifeAtCoep() {
                 className="absolute inset-0 flex items-end p-3"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(8,30,92,0.7) 0%, transparent 60%)",
+                    "linear-gradient(to top, rgba(8, 30, 92, 0.7) 0%, transparent 60%)",
                 }}
               >
                 <span
                   className="text-white font-bold text-xs uppercase tracking-widest"
-                  style={{ fontFamily: "Playfair Display, serif" }}
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {img.label}
                 </span>
@@ -1538,7 +1733,7 @@ function LifeAtCoep() {
           <Link to="/student-life" data-ocid="life.view_more_button">
             <Button
               className="px-10 py-3 rounded-none text-sm font-semibold uppercase tracking-wider text-white transition-smooth"
-              style={{ background: "#1648C8", border: "none" }}
+              style={{ background: "#1A237E", border: "none" }}
             >
               Explore Campus Life
             </Button>
@@ -1576,7 +1771,7 @@ function ResearchCard({
         style={{
           transition: "border-color 0.25s ease, box-shadow 0.25s ease",
           boxShadow: hovered
-            ? "0 8px 28px rgba(22,72,200,0.15)"
+            ? "0 8px 28px rgba(26, 35, 126, 0.15)"
             : "0 2px 8px rgba(0,0,0,0.04)",
         }}
       >
@@ -1596,7 +1791,7 @@ function ResearchCard({
                 if (parent) {
                   el.style.display = "none";
                   parent.style.background =
-                    "linear-gradient(135deg, #0F3499 0%, #1648C8 100%)";
+                    "linear-gradient(135deg, #0F3399 0%, #1A237E 100%)";
                 }
               }
             }}
@@ -1605,22 +1800,19 @@ function ResearchCard({
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to top, rgba(8,30,92,0.5) 0%, transparent 50%)",
+                "linear-gradient(to top, rgba(8, 30, 92, 0.5) 0%, transparent 50%)",
             }}
           />
           <div
             className="absolute top-0 left-0 h-[3px] w-full"
-            style={{ background: hovered ? "#E8C42A" : "#1648C8" }}
+            style={{ background: hovered ? "#E8C42A" : "#1A237E" }}
           />
         </div>
         <div className="p-6">
           <div className="flex items-start justify-between gap-3 mb-3">
             <h3
-              className="font-bold text-base leading-snug flex-1"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: "#0F3499",
-              }}
+              className="typo-card-title leading-snug flex-1"
+              style={{ color: "#0F3399" }}
             >
               {paper.title}
             </h3>
@@ -1629,13 +1821,16 @@ function ResearchCard({
           <div className="flex flex-wrap gap-2 mb-3">
             <span
               className="text-xs font-semibold px-2.5 py-1"
-              style={{ background: "rgba(22,72,200,0.08)", color: "#1648C8" }}
+              style={{
+                background: "rgba(26, 35, 126, 0.08)",
+                color: "#1A237E",
+              }}
             >
               {paper.journal}
             </span>
             <span
               className="text-xs font-semibold px-2.5 py-1"
-              style={{ background: "rgba(22,72,200,0.1)", color: "#1648C8" }}
+              style={{ background: "rgba(26, 35, 126, 0.1)", color: "#1A237E" }}
             >
               {paper.year}
             </span>
@@ -1669,19 +1864,13 @@ function ResearchSection() {
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-2">
+          <p className="typo-section-label text-muted-foreground mb-2">
             Knowledge Creation
           </p>
-          <h2
-            className="text-2xl md:text-3xl font-bold"
-            style={{ fontFamily: "Playfair Display, serif", color: "#0F3499" }}
-          >
+          <h2 className="typo-section-heading" style={{ color: "#0F3399" }}>
             Research & Innovation
           </h2>
-          <p
-            className="mt-2 text-muted-foreground"
-            style={{ fontFamily: "Source Sans 3, sans-serif" }}
-          >
+          <p className="typo-body mt-2 text-muted-foreground">
             Pioneering discoveries at COEP Technological University
           </p>
           <div className="divider-gold mt-3" />
@@ -1695,7 +1884,7 @@ function ResearchSection() {
           <Link to="/research" data-ocid="research.view_more_button">
             <Button
               className="px-10 py-3 rounded-none text-sm font-semibold uppercase tracking-wider text-white transition-smooth"
-              style={{ background: "#1648C8", border: "none" }}
+              style={{ background: "#1A237E", border: "none" }}
             >
               View More Research
             </Button>
@@ -1714,6 +1903,7 @@ export function HomePage() {
       <NewsTicker />
       <EventsSection />
       <NoticesSection />
+      <CollaborationsSection />
       <LatestNews />
       <HistorySection />
       <WhyCoepTech />

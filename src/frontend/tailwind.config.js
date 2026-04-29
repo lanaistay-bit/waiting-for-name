@@ -80,31 +80,54 @@ export default {
         },
         // COEP brand colors as direct Tailwind classes
         cobalt: {
-          DEFAULT: "#1648C8",
-          50: "#EEF2FB",
-          100: "#D5DFF6",
-          200: "#AABFED",
-          400: "#4B72D6",
-          600: "#1648C8",
-          800: "#0F3499",
-          900: "#0A2570",
+          DEFAULT: "#1A237E",
+          50: "#E8EAF6",
+          100: "#C5CAE9",
+          200: "#9FA8DA",
+          400: "#5C6BC0",
+          600: "#1A237E",
+          800: "#0D1B6E",
+          900: "#0A1550",
         },
-        "deep-blue": "#0F3499",
+        "deep-blue": "#0F3399",
         midnight: "#081E5C",
         gold: "#E8C42A",
+        "navy-medium": "#283593",
+        "navy-light": "#3949AB",
       },
       fontFamily: {
-        heading: ["Playfair Display", "serif"],
-        display: ["Playfair Display", "serif"],
-        body: ["Source Sans 3", "sans-serif"],
-        sans: ["Source Sans 3", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "monospace"],
+        // New institutional typography system
+        cinzel:      ["Cinzel", "Georgia", "serif"],
+        inter:       ["Inter", "system-ui", "sans-serif"],
+        source:      ["Source Sans 3", "sans-serif"],
+        baskerville: ["Libre Baskerville", "Georgia", "serif"],
+        manrope:     ["Manrope", "system-ui", "sans-serif"],
+        // Backward-compat aliases
+        heading: ["Cinzel", "Georgia", "serif"],
+        display: ["Cinzel", "Georgia", "serif"],
+        body:    ["Source Sans 3", "sans-serif"],
+        sans:    ["Inter", "system-ui", "sans-serif"],
+        mono:    ["var(--font-mono)", "monospace"],
       },
       fontSize: {
-        // Base is 18px (set in CSS)
+        // Hero heading: 64px desktop / 42px tablet / 32px mobile
+        "hero-h1":        ["4rem",    { fontWeight: "700", lineHeight: "1.2", letterSpacing: "0.5px" }],
+        "hero-h1-md":     ["2.625rem",{ fontWeight: "700", lineHeight: "1.2", letterSpacing: "0.5px" }],
+        "hero-h1-sm":     ["2rem",    { fontWeight: "700", lineHeight: "1.2", letterSpacing: "0.5px" }],
+        // Section heading: 42px desktop / 32px tablet / 26px mobile
+        "section-h2":     ["2.625rem",{ fontWeight: "600", lineHeight: "1.3" }],
+        "section-h2-md":  ["2rem",    { fontWeight: "600", lineHeight: "1.3" }],
+        "section-h2-sm":  ["1.625rem",{ fontWeight: "600", lineHeight: "1.3" }],
+        // Card title
+        "card-title":     ["1.375rem",{ fontWeight: "600", lineHeight: "1.3" }],
+        // Stat number
+        "stat-number":    ["2.25rem", { fontWeight: "700", lineHeight: "1" }],
+        // Hero tagline
+        "hero-tagline":   ["1.25rem", { fontWeight: "500", lineHeight: "1.5", letterSpacing: "1.5px" }],
+        // Legacy clamp sizes
         "stats-xl": [
           "clamp(2.75rem, 5.5vw, 4.25rem)",
-          { fontWeight: "800", lineHeight: "1", fontFamily: "Playfair Display, serif" },
+          { fontWeight: "800", lineHeight: "1" },
         ],
         "display-xl": [
           "clamp(3rem, 6.5vw, 5.5rem)",
@@ -133,10 +156,10 @@ export default {
         "elevation-lg": "0 8px 24px -8px rgba(0,0,0,0.16)",
         premium: "0 4px 24px rgba(0, 0, 0, 0.08)",
         "premium-hover": "0 8px 32px rgba(0, 0, 0, 0.14)",
-        cobalt: "0 4px 20px rgba(22, 72, 200, 0.28)",
-        "cobalt-sm": "0 2px 12px rgba(22, 72, 200, 0.20)",
-        gold: "0 4px 20px rgba(232, 196, 42, 0.30)",
-        "gold-sm": "0 2px 12px rgba(232, 196, 42, 0.22)",
+          cobalt: "0 4px 20px rgba(26, 35, 126, 0.28)",
+          "cobalt-sm": "0 2px 12px rgba(26, 35, 126, 0.20)",
+          gold: "0 4px 20px rgba(232, 196, 42, 0.30)",
+          "gold-sm": "0 2px 12px rgba(232, 196, 42, 0.22)",
         card: "0 2px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04)",
         "card-hover": "0 8px 28px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06)",
         subtle: "0 1px 3px rgba(0,0,0,0.08)",

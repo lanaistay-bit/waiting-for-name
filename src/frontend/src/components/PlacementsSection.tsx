@@ -2,8 +2,8 @@ import { Badge } from "@/components/ui/badge";
 import { motion, useInView, useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-const COBALT = "#1648C8";
-const DEEP_BLUE = "#0F3499";
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
 const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 
@@ -15,7 +15,7 @@ const PLACEMENT_STATS = [
 ];
 
 const COMPANIES = [
-  { name: "TCS", color: "#1648C8" },
+  { name: "TCS", color: "#1A237E" },
   { name: "Infosys", color: "#007CC3" },
   { name: "Wipro", color: "#341C75" },
   { name: "Cognizant", color: "#0033A0" },
@@ -86,12 +86,12 @@ function AnimatedStat({
       }}
       data-ocid={`dms.placements.stat.${index + 1}`}
     >
-      <p className="text-3xl md:text-4xl font-bold text-white mb-1 font-display">
+      <p className="typo-stat-number font-inter font-bold text-3xl md:text-4xl text-white mb-1">
         <span ref={displayRef}>
           {stat.prefix}0{stat.suffix}
         </span>
       </p>
-      <p className="text-sm font-semibold uppercase tracking-wider text-white/65 font-body">
+      <p className="typo-stat-label font-source text-sm font-semibold uppercase tracking-wider text-white/65">
         {stat.label}
       </p>
     </motion.div>
@@ -117,7 +117,7 @@ function CompanyCard({ name, color, playState: _ }: CompanyCardProps) {
       }}
     >
       <span
-        className="font-body font-bold text-center leading-tight"
+        className="font-inter font-bold text-center leading-tight"
         style={{ color, fontSize: "0.85rem" }}
       >
         {name}
@@ -198,21 +198,21 @@ export function PlacementsSection() {
             variant="outline"
             className="px-4 py-1 mb-4 text-sm"
             style={{
-              borderColor: "rgba(22,72,200,0.35)",
+              borderColor: "rgba(26, 35, 126, 0.35)",
               color: COBALT,
-              background: "rgba(22,72,200,0.05)",
+              background: "rgba(26, 35, 126, 0.05)",
             }}
           >
             Career Success
           </Badge>
           <h2
-            className="text-3xl md:text-5xl font-bold mb-4 font-display"
+            className="typo-section-heading font-cinzel font-bold text-3xl md:text-5xl mb-4"
             style={{ color: DEEP_BLUE }}
           >
             Placements &amp; Internships
           </h2>
           <p
-            className="text-lg max-w-2xl mx-auto font-body"
+            className="typo-body font-source text-lg max-w-2xl mx-auto"
             style={{ color: "#6b7280" }}
           >
             Robust industry connections built over 25+ years — connecting DMS
@@ -248,7 +248,7 @@ export function PlacementsSection() {
           style={{
             border: `1.5px solid ${COBALT}18`,
             background: "#fff",
-            boxShadow: "0 4px 24px rgba(22,72,200,0.07)",
+            boxShadow: "0 4px 24px rgba(26, 35, 126, 0.07)",
           }}
           data-ocid="dms.placements.recruiters_section"
         >
@@ -260,19 +260,19 @@ export function PlacementsSection() {
             }}
           >
             <div>
-              <h3 className="text-lg font-bold text-white font-display">
+              <h3 className="typo-card-title font-baskerville font-semibold text-lg text-white">
                 Our Recruiters
               </h3>
-              <p className="text-sm text-white/65 font-body">
+              <p className="typo-body font-source text-sm text-white/65">
                 100+ companies | Finance, Consulting, Analytics, Operations
               </p>
             </div>
             <span
-              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold font-body"
+              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold font-inter"
               style={{
-                background: "rgba(232,196,42,0.2)",
+                background: "rgba(232, 196, 42, 0.2)",
                 color: GOLD,
-                border: "1px solid rgba(232,196,42,0.4)",
+                border: "1px solid rgba(232, 196, 42, 0.4)",
               }}
             >
               Top Recruiters
@@ -303,7 +303,7 @@ export function PlacementsSection() {
 
             {/* Hover hint */}
             <p
-              className="text-center text-xs font-body mt-4"
+              className="typo-body font-source text-center text-xs mt-4"
               style={{ color: "#9ca3af" }}
             >
               Hover to pause · {COMPANIES.length} companies
@@ -319,7 +319,7 @@ export function PlacementsSection() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mt-10 rounded-2xl p-7 flex flex-col md:flex-row items-center gap-6"
           style={{
-            background: "rgba(232,196,42,0.08)",
+            background: "rgba(232, 196, 42, 0.08)",
             border: `2px solid ${GOLD}50`,
           }}
           data-ocid="dms.placements.internship_note"
@@ -334,12 +334,15 @@ export function PlacementsSection() {
           </div>
           <div className="flex-1 text-center md:text-left">
             <h4
-              className="text-base font-bold mb-1 font-display"
+              className="typo-card-title font-baskerville font-semibold text-base mb-1"
               style={{ color: DEEP_BLUE }}
             >
               Summer Internship Program
             </h4>
-            <p className="text-sm font-body" style={{ color: "#6b7280" }}>
+            <p
+              className="typo-body font-source text-sm"
+              style={{ color: "#6b7280" }}
+            >
               8–10 week mandatory summer internship between Semester 2 &amp; 3,
               with stipend at leading corporates across India — Finance,
               Consulting, Analytics, Operations, and Marketing.
@@ -347,7 +350,7 @@ export function PlacementsSection() {
           </div>
           <a
             href="/admissions/mba"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm uppercase tracking-wider transition-all duration-200 hover:brightness-110 hover:scale-105 font-body"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl typo-btn font-inter font-bold text-sm uppercase tracking-wider transition-all duration-200 hover:brightness-110 hover:scale-105"
             style={{
               backgroundColor: MIDNIGHT,
               color: GOLD,

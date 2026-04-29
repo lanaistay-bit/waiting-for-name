@@ -22,8 +22,8 @@ import {
 import { useNavigate, useParams } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
-const COBALT = "#1648C8";
-const DEEP_BLUE = "#0F3499";
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
 const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 
@@ -64,7 +64,7 @@ function ProcessStepItem({ n, title, desc }: ProcessStep) {
     <div className="flex gap-4 items-start">
       <div className="flex flex-col items-center flex-shrink-0">
         <div
-          className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-white shadow-lg flex-shrink-0 relative z-10"
+          className="w-11 h-11 rounded-full flex items-center justify-center font-inter font-bold text-sm text-white shadow-lg flex-shrink-0 relative z-10"
           style={{
             background: `linear-gradient(135deg, ${COBALT}, ${DEEP_BLUE})`,
           }}
@@ -83,15 +83,12 @@ function ProcessStepItem({ n, title, desc }: ProcessStep) {
       </div>
       <div className="pb-7 min-w-0 flex-1">
         <h4
-          className="font-bold text-base mb-1.5 leading-snug"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="font-baskerville font-bold text-base mb-1.5 leading-snug"
+          style={{ color: DEEP_BLUE }}
         >
           {title}
         </h4>
-        <p
-          className="text-sm leading-relaxed"
-          style={{ color: "#5a6272", fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-body text-sm" style={{ color: "#5a6272" }}>
           {desc}
         </p>
       </div>
@@ -103,8 +100,8 @@ function ProcessStepItem({ n, title, desc }: ProcessStep) {
 function SectionTag({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest mb-3"
-      style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
+      className="inline-flex items-center gap-1.5 typo-section-label mb-3"
+      style={{ color: COBALT }}
     >
       <span className="w-5 h-px" style={{ backgroundColor: COBALT }} />
       {children}
@@ -134,8 +131,8 @@ function SectionHero({
     >
       <SectionTag>{eyebrow}</SectionTag>
       <h2
-        className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
-        style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+        className="typo-section-heading mb-4 leading-tight"
+        style={{ color: DEEP_BLUE }}
       >
         {title}
       </h2>
@@ -143,10 +140,7 @@ function SectionHero({
         className="block h-px w-12 mb-4"
         style={{ backgroundColor: COBALT }}
       />
-      <p
-        className="text-lg max-w-2xl leading-relaxed"
-        style={{ color: "#5a6272", fontFamily: "Source Sans 3, sans-serif" }}
-      >
+      <p className="typo-body-lg max-w-2xl" style={{ color: "#5a6272" }}>
         {subtitle}
       </p>
     </div>
@@ -179,16 +173,10 @@ function StatCard({
       }}
     >
       <span className="text-3xl">{icon}</span>
-      <p
-        className="text-[0.68rem] uppercase tracking-widest font-bold"
-        style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
-      >
+      <p className="typo-section-label" style={{ color: COBALT }}>
         {label}
       </p>
-      <p
-        className="text-2xl font-bold leading-none"
-        style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-      >
+      <p className="typo-stat-number" style={{ color: DEEP_BLUE }}>
         {value}
       </p>
     </div>
@@ -208,12 +196,11 @@ function ApplyButton({
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg font-bold text-base transition-all duration-200 hover:scale-105 hover:shadow-lg"
+      className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg typo-btn transition-all duration-200 hover:scale-105 hover:shadow-lg"
       style={{
         backgroundColor: GOLD,
         color: "#1a1a1a",
-        fontFamily: "Source Sans 3, sans-serif",
-        boxShadow: "0 4px 18px rgba(232,196,42,0.3)",
+        boxShadow: "0 4px 18px rgba(232, 196, 42, 0.3)",
       }}
       data-ocid="admissions.apply_button"
     >
@@ -283,8 +270,8 @@ function UndergraduateContent() {
       <div className="grid lg:grid-cols-2 gap-10 mb-12">
         <InfoCard>
           <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+            className="typo-card-title text-2xl mb-6"
+            style={{ color: DEEP_BLUE }}
           >
             Programmes Offered
           </h3>
@@ -329,8 +316,8 @@ function UndergraduateContent() {
 
         <InfoCard accent>
           <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+            className="typo-card-title text-2xl mb-6"
+            style={{ color: DEEP_BLUE }}
           >
             Admission Process
           </h3>
@@ -345,7 +332,7 @@ function UndergraduateContent() {
         className="rounded-2xl p-7 mb-10"
         style={{
           background: `linear-gradient(135deg, ${MIDNIGHT}f5, ${DEEP_BLUE}f0)`,
-          boxShadow: "0 8px 32px rgba(8,30,92,0.2)",
+          boxShadow: "0 8px 32px rgba(8, 30, 92, 0.2)",
         }}
         data-ocid="admissions.btech.eligibility"
       >
@@ -359,7 +346,7 @@ function UndergraduateContent() {
             </p>
             <h4
               className="text-xl font-bold text-white mb-3"
-              style={{ fontFamily: "Playfair Display, serif" }}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               Who Can Apply for B.Tech?
             </h4>
@@ -392,14 +379,11 @@ function UndergraduateContent() {
       <div
         className="rounded-2xl p-7"
         style={{
-          border: "1.5px solid rgba(22,72,200,0.2)",
-          background: "rgba(22,72,200,0.03)",
+          border: "1.5px solid rgba(26, 35, 126, 0.2)",
+          background: "rgba(26, 35, 126, 0.03)",
         }}
       >
-        <h4
-          className="font-bold text-lg mb-4"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-        >
+        <h4 className="font-bold text-lg mb-4" style={{ color: DEEP_BLUE }}>
           Important Dates (Indicative 2025–26)
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -418,7 +402,7 @@ function UndergraduateContent() {
                 className="text-base font-semibold"
                 style={{
                   color: DEEP_BLUE,
-                  fontFamily: "Playfair Display, serif",
+                  fontFamily: "var(--font-heading)",
                 }}
               >
                 {d.period}
@@ -460,10 +444,7 @@ function PostgraduateContent() {
 
       <div className="grid lg:grid-cols-2 gap-10 mb-12">
         <InfoCard>
-          <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-6" style={{ color: DEEP_BLUE }}>
             M.Tech Specialisations
           </h3>
           <div className="space-y-0">
@@ -497,10 +478,7 @@ function PostgraduateContent() {
         </InfoCard>
 
         <InfoCard accent>
-          <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-6" style={{ color: DEEP_BLUE }}>
             Admission Process
           </h3>
           {MTECH_PROCESS.map((step) => (
@@ -550,7 +528,7 @@ function PostgraduateContent() {
         className="rounded-2xl p-7 flex flex-col md:flex-row items-start md:items-center gap-6"
         style={{
           background: `linear-gradient(135deg, ${MIDNIGHT}f5, ${DEEP_BLUE}f0)`,
-          boxShadow: "0 8px 32px rgba(8,30,92,0.2)",
+          boxShadow: "0 8px 32px rgba(8, 30, 92, 0.2)",
         }}
       >
         <div className="flex-1">
@@ -562,7 +540,7 @@ function PostgraduateContent() {
           </p>
           <h4
             className="text-xl font-bold text-white mb-1"
-            style={{ fontFamily: "Playfair Display, serif" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             M.Tech Admissions 2025–26
           </h4>
@@ -626,10 +604,7 @@ function PhDContent() {
 
       <div className="grid lg:grid-cols-2 gap-10 mb-12">
         <InfoCard>
-          <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-6" style={{ color: DEEP_BLUE }}>
             Research Departments
           </h3>
           <div className="space-y-2">
@@ -647,7 +622,7 @@ function PhDContent() {
                   className="block text-sm font-bold mb-0.5"
                   style={{
                     color: DEEP_BLUE,
-                    fontFamily: "Playfair Display, serif",
+                    fontFamily: "var(--font-heading)",
                   }}
                 >
                   {area.dept}
@@ -667,10 +642,7 @@ function PhDContent() {
         </InfoCard>
 
         <InfoCard accent>
-          <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-6" style={{ color: DEEP_BLUE }}>
             Admission Process
           </h3>
           {PHD_PROCESS.map((step) => (
@@ -684,10 +656,7 @@ function PhDContent() {
         style={{ background: "#f7f9ff", border: `1.5px solid ${COBALT}18` }}
       >
         <div>
-          <h4
-            className="text-lg font-bold mb-4"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h4 className="text-lg font-bold mb-4" style={{ color: DEEP_BLUE }}>
             Eligibility Criteria
           </h4>
           <ul className="space-y-2">
@@ -712,10 +681,7 @@ function PhDContent() {
           </ul>
         </div>
         <div>
-          <h4
-            className="text-lg font-bold mb-4"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h4 className="text-lg font-bold mb-4" style={{ color: DEEP_BLUE }}>
             Admission Windows
           </h4>
           <div className="space-y-3">
@@ -732,7 +698,7 @@ function PhDContent() {
                   className="text-sm font-bold"
                   style={{
                     color: DEEP_BLUE,
-                    fontFamily: "Playfair Display, serif",
+                    fontFamily: "var(--font-heading)",
                   }}
                 >
                   {w.season}
@@ -800,7 +766,7 @@ function MBASpecCard({
           </span>
           <h3
             className="text-2xl font-bold text-white"
-            style={{ fontFamily: "Playfair Display, serif" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             {spec.name}
           </h3>
@@ -881,10 +847,7 @@ function MBAContent() {
 
       <div className="grid lg:grid-cols-2 gap-10 mb-10">
         <InfoCard accent>
-          <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-6" style={{ color: DEEP_BLUE }}>
             Admission Process
           </h3>
           {MBA_PROCESS.map((step) => (
@@ -893,10 +856,7 @@ function MBAContent() {
         </InfoCard>
 
         <InfoCard>
-          <h3
-            className="text-2xl font-bold mb-5"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-5" style={{ color: DEEP_BLUE }}>
             Eligibility & Key Info
           </h3>
           <div className="space-y-4">
@@ -934,8 +894,8 @@ function MBAContent() {
             <div
               className="rounded-xl p-4"
               style={{
-                background: "rgba(22,72,200,0.06)",
-                border: "1px solid rgba(22,72,200,0.2)",
+                background: "rgba(26, 35, 126, 0.06)",
+                border: "1px solid rgba(26, 35, 126, 0.2)",
               }}
             >
               <p
@@ -954,7 +914,7 @@ function MBAContent() {
                   style={{
                     borderBottom:
                       i < programHighlights.length - 1
-                        ? "1px solid rgba(22,72,200,0.1)"
+                        ? "1px solid rgba(26, 35, 126, 0.1)"
                         : "none",
                   }}
                 >
@@ -1023,7 +983,7 @@ function PGDiplomaCard({
       </div>
       <h4
         className="font-bold text-base mb-1.5 leading-snug"
-        style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+        style={{ color: DEEP_BLUE }}
       >
         {program.name}
       </h4>
@@ -1035,7 +995,7 @@ function PGDiplomaCard({
       </p>
       <span
         className="text-xs px-2.5 py-0.5 rounded-full font-semibold"
-        style={{ background: "rgba(22,72,200,0.08)", color: COBALT }}
+        style={{ background: "rgba(26, 35, 126, 0.08)", color: COBALT }}
       >
         {program.duration}
       </span>
@@ -1083,10 +1043,7 @@ function PGDiplomaContent() {
       </div>
 
       <div className="mb-12">
-        <h3
-          className="text-2xl font-bold mb-6"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-        >
+        <h3 className="text-2xl font-bold mb-6" style={{ color: DEEP_BLUE }}>
           Available Programmes
         </h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -1098,10 +1055,7 @@ function PGDiplomaContent() {
 
       <div className="grid lg:grid-cols-2 gap-10 mb-10">
         <InfoCard accent>
-          <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-6" style={{ color: DEEP_BLUE }}>
             Admission Process
           </h3>
           {PG_DIPLOMA_PROCESS.map((step) => (
@@ -1110,10 +1064,7 @@ function PGDiplomaContent() {
         </InfoCard>
 
         <InfoCard>
-          <h3
-            className="text-2xl font-bold mb-5"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-5" style={{ color: DEEP_BLUE }}>
             Why PG Diploma at COEP?
           </h3>
           <div className="space-y-4">
@@ -1125,7 +1076,7 @@ function PGDiplomaContent() {
                     className="text-sm font-bold mb-0.5"
                     style={{
                       color: DEEP_BLUE,
-                      fontFamily: "Playfair Display, serif",
+                      fontFamily: "var(--font-heading)",
                     }}
                   >
                     {item.title}
@@ -1188,7 +1139,7 @@ function FeeStructureContent() {
         >
           <h3
             className="text-xl font-bold text-white"
-            style={{ fontFamily: "Playfair Display, serif" }}
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             Annual Fee Structure 2024–25
           </h3>
@@ -1271,10 +1222,7 @@ function FeeStructureContent() {
 
       <div className="grid lg:grid-cols-2 gap-8 mb-10">
         <InfoCard>
-          <h3
-            className="text-2xl font-bold mb-5"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-5" style={{ color: DEEP_BLUE }}>
             Scholarships Available
           </h3>
           <div className="space-y-4">
@@ -1283,8 +1231,8 @@ function FeeStructureContent() {
                 key={s.id}
                 className="rounded-xl p-4 hover:shadow-sm transition-all"
                 style={{
-                  border: "1px solid rgba(22,72,200,0.2)",
-                  background: "rgba(22,72,200,0.04)",
+                  border: "1px solid rgba(26, 35, 126, 0.2)",
+                  background: "rgba(26, 35, 126, 0.04)",
                 }}
                 data-ocid={`admissions.scholarship.${idx + 1}`}
               >
@@ -1300,7 +1248,7 @@ function FeeStructureContent() {
                       className="font-bold text-sm mb-0.5"
                       style={{
                         color: DEEP_BLUE,
-                        fontFamily: "Playfair Display, serif",
+                        fontFamily: "var(--font-heading)",
                       }}
                     >
                       {s.name}
@@ -1333,10 +1281,7 @@ function FeeStructureContent() {
         </InfoCard>
 
         <InfoCard accent>
-          <h3
-            className="text-2xl font-bold mb-5"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="text-2xl font-bold mb-5" style={{ color: DEEP_BLUE }}>
             Important Notes
           </h3>
           <ul className="space-y-3">
@@ -1369,7 +1314,7 @@ function FeeStructureContent() {
                 background: GOLD,
                 color: "#1a1a1a",
                 fontFamily: "Source Sans 3, sans-serif",
-                boxShadow: "0 4px 18px rgba(232,196,42,0.3)",
+                boxShadow: "0 4px 18px rgba(232, 196, 42, 0.3)",
               }}
               data-ocid="admissions.fee_structure_download"
             >
@@ -1432,16 +1377,8 @@ function WhyCOEP() {
             background: `linear-gradient(135deg, ${MIDNIGHT}, ${COBALT})`,
           }}
         >
-          <p
-            className="text-xs font-bold uppercase tracking-widest text-white/60 mb-1"
-            style={{ fontFamily: "Source Sans 3, sans-serif" }}
-          >
-            Why Choose
-          </p>
-          <h3
-            className="text-xl font-bold text-white"
-            style={{ fontFamily: "Playfair Display, serif" }}
-          >
+          <p className="typo-section-label text-white/60 mb-1">Why Choose</p>
+          <h3 className="font-baskerville font-bold text-xl text-white">
             COEP Technological University
           </h3>
         </div>
@@ -1460,21 +1397,12 @@ function WhyCOEP() {
               <span className="text-2xl flex-shrink-0">{stat.icon}</span>
               <div className="min-w-0">
                 <p
-                  className="text-sm font-bold leading-tight"
-                  style={{
-                    color: DEEP_BLUE,
-                    fontFamily: "Playfair Display, serif",
-                  }}
+                  className="font-baskerville font-bold text-sm leading-tight"
+                  style={{ color: DEEP_BLUE }}
                 >
                   {stat.value}
                 </p>
-                <p
-                  className="text-xs"
-                  style={{
-                    color: "#9ca3af",
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
-                >
+                <p className="typo-stat-label" style={{ color: "#9ca3af" }}>
                   {stat.label}
                 </p>
               </div>
@@ -1493,8 +1421,8 @@ function WhyCOEP() {
         }}
       >
         <h4
-          className="text-base font-bold mb-4"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="font-baskerville font-bold text-base mb-4"
+          style={{ color: DEEP_BLUE }}
         >
           Quick Links
         </h4>
@@ -1539,15 +1467,12 @@ function WhyCOEP() {
         }}
       >
         <h4
-          className="text-base font-bold mb-1"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="font-baskerville font-bold text-base mb-1"
+          style={{ color: DEEP_BLUE }}
         >
           Admissions Helpdesk
         </h4>
-        <p
-          className="text-xs mb-4 leading-relaxed"
-          style={{ color: "#7a8899", fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-body text-xs mb-4" style={{ color: "#7a8899" }}>
           For queries, contact the office between 9:30 AM – 5:30 PM on working
           days.
         </p>
@@ -1606,10 +1531,7 @@ export default function AdmissionsPage() {
   ];
 
   return (
-    <div
-      className="min-h-screen bg-background flex flex-col"
-      style={{ fontFamily: "Source Sans 3, sans-serif" }}
-    >
+    <div className="min-h-screen bg-background flex flex-col font-source">
       <Header />
 
       {/* ── Cinematic Hero ── */}
@@ -1659,25 +1581,16 @@ export default function AdmissionsPage() {
               )}
             </nav>
 
-            <p
-              className="text-[0.68rem] font-bold uppercase tracking-[0.2em] mb-4 opacity-60 text-white"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-section-label mb-4 opacity-60 text-white">
               COEP Technological University · Pune
             </p>
             <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-5 fade-in-down"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                lineHeight: 1.05,
-              }}
+              className="typo-hero-heading text-white mb-5 fade-in-down"
+              style={{ lineHeight: 1.05 }}
             >
               Admissions
             </h1>
-            <p
-              className="text-lg md:text-xl text-white/75 max-w-2xl leading-relaxed fade-in-up"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-body-lg text-white/75 max-w-2xl fade-in-up">
               Your journey to academic excellence begins here. Over 170 years of
               engineering tradition, NAAC A++ accreditation, and world-class
               research opportunities await you.
@@ -1691,16 +1604,10 @@ export default function AdmissionsPage() {
                   className="flex flex-col"
                   data-ocid={`admissions.hero_stat.${s.label}`}
                 >
-                  <span
-                    className="text-2xl font-bold text-white leading-none"
-                    style={{ fontFamily: "Playfair Display, serif" }}
-                  >
+                  <span className="typo-stat-number text-white leading-none">
                     {s.value}
                   </span>
-                  <span
-                    className="text-[0.65rem] uppercase tracking-widest text-white/50 mt-0.5"
-                    style={{ fontFamily: "Source Sans 3, sans-serif" }}
-                  >
+                  <span className="typo-section-label text-white/50 mt-0.5">
                     {s.label}
                   </span>
                 </div>

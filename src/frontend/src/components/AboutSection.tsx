@@ -25,16 +25,16 @@ const STATS = [
     sublabel: "MBA & MBA (Business Analytics)",
   },
   {
-    value: 9,
+    value: 40,
     suffix: "+",
-    label: "Faculty Members",
-    sublabel: "Industry & Academic Experts",
+    label: "Faculty",
+    sublabel: "Visiting Faculty, Industry Experts & Permanent Faculty",
   },
   {
-    value: 25,
+    value: 100,
     suffix: "+",
-    label: "Years of Excellence",
-    sublabel: "Management Education",
+    label: "Industry MoUs",
+    sublabel: "Live Corporate Partnerships & Collaborations",
   },
 ];
 
@@ -56,12 +56,12 @@ const VISION_MISSION = [
   {
     icon: Target,
     title: "Vision",
-    text: "To be a nationally recognized centre of management excellence, producing future-ready leaders who drive business innovation and societal impact.",
+    text: "Empowering Visionaries, Transforming Leaders: Shaping the Future of Business Excellence at COEP Technological University.",
   },
   {
     icon: Star,
     title: "Mission",
-    text: "To deliver world-class management education through a blend of rigorous academics, industry integration, research, and holistic development of students.",
+    text: "To foster a culture of academic excellence, providing a cutting-edge curriculum that integrates theory and practical insights. To cultivate visionary and ethical leaders by instilling a strong foundation of leadership skills, critical thinking, and strategic decision-making through experiential learning, industry exposure, and mentorship. To make a positive impact on the corporate community and society at large.",
   },
 ];
 
@@ -108,22 +108,22 @@ export function AboutSection() {
         >
           <Badge
             variant="outline"
-            className="px-4 py-1 mb-4 text-sm"
+            className="px-4 py-1 mb-4 typo-section-label"
             style={{
-              borderColor: "rgba(22,72,200,0.4)",
-              color: "#1648C8",
-              background: "rgba(22,72,200,0.05)",
+              borderColor: "rgba(26,35,126,0.4)",
+              color: "#1A237E",
+              background: "rgba(26,35,126,0.05)",
             }}
           >
             About Us
           </Badge>
           <h2
-            className="text-3xl md:text-5xl font-display font-bold"
-            style={{ color: "#0F3499" }}
+            className="typo-section-heading font-cinzel font-bold"
+            style={{ color: "#0F3399" }}
           >
             Shaping Future Business Leaders
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto font-body text-lg">
+          <p className="typo-body font-source text-muted-foreground mt-4 max-w-xl mx-auto">
             Rooted in one of India's oldest engineering institutions, DMS
             bridges analytical rigour with managerial wisdom.
           </p>
@@ -140,32 +140,40 @@ export function AboutSection() {
             className="space-y-6"
           >
             <h3
-              className="text-2xl md:text-3xl font-display font-bold leading-snug"
-              style={{ color: "#0F3499" }}
+              className="typo-section-heading font-cinzel font-bold leading-snug"
+              style={{ color: "#0F3399", fontSize: "1.6rem" }}
             >
               Department of Management Studies,{" "}
-              <span style={{ color: "#1648C8" }}>COEP Tech</span>
+              <span style={{ color: "#1A237E" }}>COEP Tech</span>
             </h3>
-            <p className="text-muted-foreground leading-relaxed font-body text-lg">
-              The Department of Management Studies at COEP Technological
-              University offers a two-year full-time MBA program recognized by
-              AICTE. Established over two decades ago, DMS is known for its
-              rigorous curriculum, industry-focused pedagogy, and strong
-              placement record. The department nurtures future business leaders
-              through a blend of analytical thinking, leadership development,
-              and real-world exposure.
+            <p className="typo-body font-source text-muted-foreground leading-relaxed">
+              Established in academic year 2020-21, The department has grown by
+              leaps and bounds and is poised to make a mark in management
+              education. One of its key strengths lies in its exceptional
+              faculty, comprising of experienced industry professionals and
+              research scholars. Our faculty, staff, and students work together
+              in harmony to create a vibrant and supportive environment for
+              personal as well as professional growth. The department places a
+              strong emphasis on producing business leaders for tomorrow's
+              generation. Therefore, we foster student driven environment under
+              the supervision of leadership of COEP Technological University.
             </p>
-            <p className="text-muted-foreground leading-relaxed font-body text-lg">
-              DMS offers two specialised programs: the flagship{" "}
-              <strong className="text-foreground">
-                MBA in General Management
-              </strong>{" "}
-              (60 seats) and the industry-forward{" "}
-              <strong className="text-foreground">
-                MBA in Business Analytics
-              </strong>{" "}
-              (60 seats). Graduates step into leadership roles at Fortune 500
-              companies, global consultancies, and innovative startups.
+            <p className="typo-body font-source text-muted-foreground leading-relaxed">
+              Our belief of adding values to corporate world and society at
+              large drives us to take initiatives like Knowledge Resource Centre
+              for HR professionals across industries, preparing value papers for
+              corporate challenges, fostering knowledge sharing through Self
+              Help Groups (finance). Seeing the trajectory so far, we take pride
+              to mention that both the previously passed batches are doing well
+              with their recruiters. We love to be generous and therefore we add
+              values to our alumni by constantly engaging with them under the
+              initiative of Alumni Engagement Centre.
+            </p>
+            <p className="typo-body font-source text-muted-foreground leading-relaxed">
+              We are proud to be a part of COEP Technological University and
+              position ourselves before corporate community as their reliable
+              partner in addressing the business challenges and as a key driver
+              for innovations to uphold the society.
             </p>
 
             {/* Info chips */}
@@ -181,14 +189,14 @@ export function AboutSection() {
                 >
                   <div
                     className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: "rgba(22,72,200,0.1)" }}
+                    style={{ backgroundColor: "rgba(26,35,126,0.1)" }}
                   >
                     <item.icon
                       className="w-4 h-4"
-                      style={{ color: "#1648C8" }}
+                      style={{ color: "#1A237E" }}
                     />
                   </div>
-                  <span className="text-sm text-muted-foreground font-body">
+                  <span className="typo-body font-source text-sm text-muted-foreground">
                     {item.text}
                   </span>
                 </motion.div>
@@ -208,16 +216,16 @@ export function AboutSection() {
                     type: "spring",
                     stiffness: 280,
                   }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-semibold font-body"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full typo-support text-sm font-semibold"
                   style={{
-                    background: "rgba(22,72,200,0.08)",
-                    border: "1px solid rgba(22,72,200,0.25)",
-                    color: "#0F3499",
+                    background: "rgba(26,35,126,0.08)",
+                    border: "1px solid rgba(26,35,126,0.25)",
+                    color: "#0F3399",
                   }}
                 >
                   <badge.icon
                     className="w-3.5 h-3.5"
-                    style={{ color: "#1648C8" }}
+                    style={{ color: "#1A237E" }}
                   />
                   {badge.label}
                 </motion.div>
@@ -250,22 +258,7 @@ export function AboutSection() {
                 transition={{ duration: 0.5 }}
               />
             </div>
-            {/* Founded badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.7, rotate: -8 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, type: "spring", stiffness: 260 }}
-              className="absolute -bottom-5 -left-5 w-28 h-28 rounded-xl border shadow-xl hidden md:flex flex-col items-center justify-center"
-              style={{ backgroundColor: "white", borderColor: "#1648C8" }}
-            >
-              <p className="text-2xl font-bold" style={{ color: "#0F3499" }}>
-                1854
-              </p>
-              <p className="text-[10px] text-muted-foreground text-center leading-tight px-2">
-                Founded in Pune
-              </p>
-            </motion.div>
+
             {/* Gold accent corner */}
             <div
               className="absolute -top-3 -right-3 w-16 h-16 rounded-full opacity-30 pointer-events-none"
@@ -288,29 +281,26 @@ export function AboutSection() {
               transition={{ duration: 0.55, delay: i * 0.1 }}
               whileHover={{
                 y: -4,
-                boxShadow: "0 12px 32px rgba(22,72,200,0.18)",
+                boxShadow: "0 12px 32px rgba(26,35,126,0.18)",
               }}
               className="rounded-2xl p-6 text-center transition-all duration-300"
               style={{
                 background: "white",
-                border: "1.5px solid rgba(22,72,200,0.12)",
-                boxShadow: "0 4px 14px rgba(22,72,200,0.07)",
+                border: "1.5px solid rgba(26,35,126,0.12)",
+                boxShadow: "0 4px 14px rgba(26,35,126,0.07)",
               }}
               data-ocid={`dms.about.stat.${i + 1}`}
             >
-              <p
-                className="text-3xl md:text-4xl font-display font-bold"
-                style={{ color: "#1648C8" }}
-              >
+              <p className="typo-stat-number" style={{ color: "#1A237E" }}>
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </p>
               <p
-                className="font-semibold mt-1 text-sm font-body"
-                style={{ color: "#0F3499" }}
+                className="typo-stat-label font-inter font-semibold mt-1"
+                style={{ color: "#0F3399" }}
               >
                 {stat.label}
               </p>
-              <p className="text-xs text-muted-foreground mt-1 font-body">
+              <p className="typo-stat-label font-source text-muted-foreground mt-1">
                 {stat.sublabel}
               </p>
             </motion.div>
@@ -330,9 +320,9 @@ export function AboutSection() {
               style={{
                 background:
                   i === 0
-                    ? "linear-gradient(135deg, rgba(22,72,200,0.07) 0%, rgba(15,52,153,0.04) 100%)"
-                    : "linear-gradient(135deg, rgba(232,196,42,0.08) 0%, rgba(22,72,200,0.04) 100%)",
-                border: `1.5px solid ${i === 0 ? "rgba(22,72,200,0.18)" : "rgba(232,196,42,0.35)"}`,
+                    ? "linear-gradient(135deg, rgba(26,35,126,0.07) 0%, rgba(15,51,153,0.04) 100%)"
+                    : "linear-gradient(135deg, rgba(232,196,42,0.08) 0%, rgba(26,35,126,0.04) 100%)",
+                border: `1.5px solid ${i === 0 ? "rgba(26,35,126,0.18)" : "rgba(232,196,42,0.35)"}`,
               }}
             >
               <div
@@ -340,8 +330,8 @@ export function AboutSection() {
                 style={{
                   background:
                     i === 0
-                      ? "linear-gradient(135deg, #1648C8 0%, #0F3499 100%)"
-                      : "linear-gradient(135deg, #E8C42A 0%, #c9a800 100%)",
+                      ? "linear-gradient(135deg, #1A237E 0%, #0F3399 100%)"
+                      : "linear-gradient(135deg, #E8C42A 0%, #b89a18 100%)",
                 }}
               >
                 <item.icon
@@ -351,12 +341,12 @@ export function AboutSection() {
               </div>
               <div>
                 <h4
-                  className="font-display font-bold text-lg mb-2"
-                  style={{ color: "#0F3499" }}
+                  className="typo-section-heading font-cinzel font-bold text-lg mb-2"
+                  style={{ color: "#0F3399", fontSize: "1.1rem" }}
                 >
                   {item.title}
                 </h4>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed">
+                <p className="typo-body font-source text-muted-foreground typo-body text-sm leading-relaxed">
                   {item.text}
                 </p>
               </div>

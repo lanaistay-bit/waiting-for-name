@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const COBALT = "#1648C8";
+const COBALT = "#1A237E";
 const GOLD = "#E8C42A";
 const MIDNIGHT = "#081E5C";
 
@@ -130,11 +130,10 @@ export default function SubTabRibbon({
                       data-tabid={tab.id}
                       onClick={() => onTabChange(tab.id)}
                       className={cn(
-                        "relative inline-flex items-center px-4 py-1.5 rounded-full text-[0.78rem] font-semibold uppercase tracking-widest transition-all duration-200 whitespace-nowrap select-none outline-none focus-visible:ring-2 focus-visible:ring-white/60",
+                        "typo-nav font-inter font-medium relative inline-flex items-center px-4 py-1.5 rounded-full text-[0.78rem] font-semibold uppercase tracking-widest transition-all duration-200 whitespace-nowrap select-none outline-none focus-visible:ring-2 focus-visible:ring-white/60",
                         isActive ? "shadow-md" : "hover:bg-white/15",
                       )}
                       style={{
-                        fontFamily: "Source Sans 3, sans-serif",
                         letterSpacing: "0.07em",
                         backgroundColor: isActive ? GOLD : "transparent",
                         color: isActive ? MIDNIGHT : "rgba(255,255,255,0.88)",

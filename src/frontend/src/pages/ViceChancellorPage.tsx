@@ -12,8 +12,8 @@ import {
 import { useEffect, useRef } from "react";
 import { VICE_CHANCELLOR } from "../data/administration";
 
-const COBALT = "#1648C8";
-const DEEP_BLUE = "#0F3499";
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
 const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 
@@ -46,17 +46,6 @@ function AnimatedSection({
     <div ref={ref} className={className}>
       {children}
     </div>
-  );
-}
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p
-      className="text-xs font-bold uppercase tracking-widest mb-3"
-      style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
-    >
-      {children}
-    </p>
   );
 }
 
@@ -93,14 +82,14 @@ function ContentCard({
           style={{
             background: accent
               ? "rgba(232,196,42,0.12)"
-              : "rgba(22,72,200,0.08)",
+              : "rgba(26, 35, 126, 0.08)",
           }}
         >
           <Icon className="w-5 h-5" style={{ color: accent ? GOLD : COBALT }} />
         </div>
         <h2
-          className="text-xl font-bold"
-          style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+          className="font-cinzel font-semibold text-xl"
+          style={{ color: DEEP_BLUE }}
         >
           {title}
         </h2>
@@ -123,13 +112,9 @@ export default function ViceChancellorPage() {
         data-ocid="vc.hero"
       >
         <div className="max-w-6xl mx-auto px-6 pb-0">
-          {/* Breadcrumb */}
           <nav
-            className="flex flex-wrap items-center gap-2 text-xs mb-10"
-            style={{
-              color: "#9ca3af",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="flex flex-wrap items-center gap-2 typo-support mb-10"
+            style={{ color: "#9ca3af" }}
             aria-label="Breadcrumb"
             data-ocid="vc.breadcrumb"
           >
@@ -150,15 +135,14 @@ export default function ViceChancellorPage() {
 
           <Link
             to="/administration"
-            className="inline-flex items-center gap-2 text-sm mb-10 group"
-            style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
+            className="inline-flex items-center gap-2 typo-support mb-10 group"
+            style={{ color: COBALT }}
             data-ocid="vc.back_button"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
             Back to Administration
           </Link>
 
-          {/* Two-column hero: photo left, info right */}
           <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center pb-16">
             {/* Photo */}
             <div className="relative flex justify-start">
@@ -167,12 +151,11 @@ export default function ViceChancellorPage() {
                 style={{
                   width: "340px",
                   aspectRatio: "4/5",
-                  border: "2px solid rgba(22,72,200,0.15)",
+                  border: "2px solid rgba(26, 35, 126, 0.15)",
                   animation:
                     "revealScale 0.9s cubic-bezier(0.22,1,0.36,1) both",
                 }}
               >
-                {/* revealScale defined in index.css */}
                 <img
                   src={vc.photoUrl}
                   alt={vc.name}
@@ -181,59 +164,43 @@ export default function ViceChancellorPage() {
               </div>
               <div
                 className="absolute -bottom-5 -left-5 w-24 h-24 rounded-full"
-                style={{ background: "rgba(232,196,42,0.12)", zIndex: -1 }}
+                style={{ background: "rgba(232, 196, 42, 0.12)", zIndex: -1 }}
               />
             </div>
 
             {/* Info */}
             <div>
-              <SectionLabel>Vice Chancellor</SectionLabel>
+              <p className="typo-section-label mb-3" style={{ color: COBALT }}>
+                Vice Chancellor
+              </p>
               <h1
-                className="text-4xl md:text-6xl font-bold leading-tight mb-3"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
+                className="typo-card-title text-4xl md:text-6xl mb-3 leading-tight"
+                style={{ color: DEEP_BLUE }}
               >
                 {vc.name}
               </h1>
               <p
-                className="text-base mb-6 leading-relaxed"
-                style={{
-                  color: "#4b5563",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-support mb-6 leading-relaxed"
+                style={{ color: "#4b5563" }}
               >
                 {vc.designation}
               </p>
-              <p
-                className="text-base leading-relaxed mb-8"
-                style={{
-                  color: "#374151",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-body mb-8" style={{ color: "#374151" }}>
                 {vc.brief}
               </p>
               <div className="flex flex-col gap-2 mb-8">
                 <a
                   href={`mailto:${vc.email}`}
-                  className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                  style={{
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: COBALT }}
                 >
                   <Mail className="w-4 h-4" />
                   {vc.email}
                 </a>
                 <a
                   href={`tel:${vc.phone}`}
-                  className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-                  style={{
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="flex items-center gap-2 typo-support transition-opacity hover:opacity-70"
+                  style={{ color: COBALT }}
                 >
                   <Phone className="w-4 h-4" />
                   {vc.phone}
@@ -242,8 +209,6 @@ export default function ViceChancellorPage() {
             </div>
           </div>
         </div>
-
-        {/* Cobalt rule */}
         <div style={{ height: "3px", background: COBALT }} />
       </section>
 
@@ -255,31 +220,28 @@ export default function ViceChancellorPage() {
       >
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection delay={0.1}>
-            <SectionLabel>Message</SectionLabel>
+            <p className="typo-section-label mb-3" style={{ color: COBALT }}>
+              Message
+            </p>
             <h2
-              className="text-3xl font-bold mb-8"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
+              className="typo-section-heading mb-8"
+              style={{ color: DEEP_BLUE }}
             >
               Message from the Vice Chancellor
             </h2>
             <div
               className="relative rounded-2xl p-8 md:p-12"
               style={{
-                background: "rgba(22,72,200,0.03)",
-                borderLeft: `4px solid ${COBALT}`,
-                border: "1px solid rgba(22,72,200,0.1)",
+                background: "rgba(26, 35, 126, 0.03)",
+                border: "1px solid rgba(26, 35, 126, 0.1)",
                 borderLeftWidth: "4px",
+                borderLeftColor: COBALT,
               }}
             >
-              {/* Large decorative quote */}
               <div
-                className="absolute top-6 left-8 leading-none select-none"
+                className="absolute top-6 left-8 leading-none select-none font-cinzel"
                 style={{
                   fontSize: "120px",
-                  fontFamily: "Playfair Display, serif",
                   color: COBALT,
                   opacity: 0.06,
                   lineHeight: 1,
@@ -287,49 +249,35 @@ export default function ViceChancellorPage() {
               >
                 "
               </div>
-
               <div className="relative z-10">
                 {messageParas.map((para) => (
                   <p
                     key={para.slice(0, 40)}
-                    className="text-base md:text-lg leading-relaxed mb-5 last:mb-0 italic"
-                    style={{
-                      color: "#374151",
-                      fontFamily: "Playfair Display, serif",
-                    }}
+                    className="typo-body-lg italic mb-5 last:mb-0"
+                    style={{ color: "#374151", fontStyle: "italic" }}
                   >
                     {para}
                   </p>
                 ))}
               </div>
-
               <div
                 className="flex items-center gap-4 mt-8 pt-6"
-                style={{ borderTop: "1px solid rgba(22,72,200,0.1)" }}
+                style={{ borderTop: "1px solid rgba(26, 35, 126, 0.1)" }}
               >
                 <img
                   src={vc.photoUrl}
                   alt={vc.name}
                   className="w-12 h-12 rounded-full object-cover flex-shrink-0"
-                  style={{ border: "2px solid rgba(22,72,200,0.2)" }}
+                  style={{ border: "2px solid rgba(26, 35, 126, 0.2)" }}
                 />
                 <div>
                   <p
-                    className="font-bold text-base"
-                    style={{
-                      fontFamily: "Playfair Display, serif",
-                      color: DEEP_BLUE,
-                    }}
+                    className="font-baskerville font-bold text-base"
+                    style={{ color: DEEP_BLUE }}
                   >
                     {vc.name}
                   </p>
-                  <p
-                    className="text-sm"
-                    style={{
-                      color: "#6b7280",
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
-                  >
+                  <p className="typo-support" style={{ color: "#6b7280" }}>
                     Vice-Chancellor, COEP Technological University
                   </p>
                 </div>
@@ -350,20 +298,18 @@ export default function ViceChancellorPage() {
       >
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection delay={0.05}>
-            <SectionLabel>Profile</SectionLabel>
+            <p className="typo-section-label mb-3" style={{ color: COBALT }}>
+              Profile
+            </p>
             <h2
-              className="text-3xl font-bold mb-10"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
+              className="typo-section-heading mb-10"
+              style={{ color: DEEP_BLUE }}
             >
               Academic &amp; Professional Profile
             </h2>
           </AnimatedSection>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Sidebar */}
             <div className="space-y-6">
               <AnimatedSection delay={0.1}>
                 <ContentCard icon={Award} title="Research Areas">
@@ -371,11 +317,10 @@ export default function ViceChancellorPage() {
                     {vc.research.map((area) => (
                       <span
                         key={area}
-                        className="px-3 py-1 rounded-full text-xs font-semibold"
+                        className="px-3 py-1 rounded-full typo-support text-xs"
                         style={{
-                          background: "rgba(22,72,200,0.08)",
+                          background: "rgba(26, 35, 126, 0.08)",
                           color: COBALT,
-                          fontFamily: "Source Sans 3, sans-serif",
                         }}
                       >
                         {area}
@@ -395,11 +340,8 @@ export default function ViceChancellorPage() {
                           style={{ background: COBALT }}
                         />
                         <p
-                          className="text-sm leading-snug"
-                          style={{
-                            color: "#374151",
-                            fontFamily: "Source Sans 3, sans-serif",
-                          }}
+                          className="typo-body text-sm leading-snug"
+                          style={{ color: "#374151" }}
                         >
                           {edu}
                         </p>
@@ -410,13 +352,12 @@ export default function ViceChancellorPage() {
               </AnimatedSection>
             </div>
 
-            {/* Main */}
             <div className="lg:col-span-2 space-y-6">
               <AnimatedSection delay={0.1}>
                 <ContentCard icon={Briefcase} title="Professional Experience">
                   <div
                     className="relative pl-6 border-l-2"
-                    style={{ borderColor: "rgba(22,72,200,0.15)" }}
+                    style={{ borderColor: "rgba(26, 35, 126, 0.15)" }}
                   >
                     {vc.experience.map((exp, i) => (
                       <div
@@ -430,17 +371,16 @@ export default function ViceChancellorPage() {
                         <div
                           className="rounded-xl p-4"
                           style={{
-                            border: "1px solid rgba(22,72,200,0.08)",
+                            border: "1px solid rgba(26, 35, 126, 0.08)",
                             background:
-                              i === 0 ? "rgba(22,72,200,0.02)" : "transparent",
+                              i === 0
+                                ? "rgba(26, 35, 126, 0.02)"
+                                : "transparent",
                           }}
                         >
                           <p
-                            className="text-sm leading-relaxed"
-                            style={{
-                              color: "#374151",
-                              fontFamily: "Source Sans 3, sans-serif",
-                            }}
+                            className="typo-body text-sm"
+                            style={{ color: "#374151" }}
                           >
                             {exp}
                           </p>
@@ -459,27 +399,24 @@ export default function ViceChancellorPage() {
                         key={achievement.slice(0, 40)}
                         className="flex items-start gap-3 rounded-xl p-4"
                         style={{
-                          border: "1px solid rgba(232,196,42,0.18)",
-                          background: "rgba(232,196,42,0.03)",
+                          border: "1px solid rgba(232, 196, 42, 0.18)",
+                          background: "rgba(232, 196, 42, 0.03)",
                         }}
                       >
                         <div
                           className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                          style={{ background: "rgba(232,196,42,0.2)" }}
+                          style={{ background: "rgba(232, 196, 42, 0.2)" }}
                         >
                           <span
-                            className="text-xs font-bold"
+                            className="font-inter font-bold text-xs"
                             style={{ color: "#b5960a" }}
                           >
                             ✓
                           </span>
                         </div>
                         <p
-                          className="text-sm leading-relaxed"
-                          style={{
-                            color: "#374151",
-                            fontFamily: "Source Sans 3, sans-serif",
-                          }}
+                          className="typo-body text-sm"
+                          style={{ color: "#374151" }}
                         >
                           {achievement}
                         </p>
@@ -503,28 +440,21 @@ export default function ViceChancellorPage() {
       >
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h2
-              className="text-2xl font-bold text-white"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
+            <h2 className="font-cinzel font-semibold text-2xl text-white">
               Explore Administration
             </h2>
-            <p
-              className="text-sm text-white/70 mt-1"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-body text-sm text-white/70 mt-1">
               Learn about COEP Tech's full leadership team and governance
               structure
             </p>
           </div>
           <Link
             to="/administration"
-            className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-xl text-sm whitespace-nowrap transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 typo-btn px-7 py-3.5 rounded-xl text-sm whitespace-nowrap transition-all hover:scale-105"
             style={{
               background: GOLD,
               color: MIDNIGHT,
-              fontFamily: "Source Sans 3, sans-serif",
-              boxShadow: "0 4px 16px rgba(232,196,42,0.25)",
+              boxShadow: "0 4px 16px rgba(232, 196, 42, 0.25)",
             }}
             data-ocid="vc.admin_page_button"
           >

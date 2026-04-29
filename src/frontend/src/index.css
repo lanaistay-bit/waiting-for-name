@@ -4,14 +4,20 @@
 
 @layer base {
   :root {
-    --font-display: "Playfair Display", serif;
+    /* ── Institutional typography system ── */
+    --font-heading: "Cinzel", Georgia, serif;
+    --font-nav: "Inter", system-ui, sans-serif;
     --font-body: "Source Sans 3", sans-serif;
+    --font-card: "Libre Baskerville", Georgia, serif;
+    --font-label: "Manrope", system-ui, sans-serif;
+    /* Legacy aliases */
+    --font-display: "Cinzel", Georgia, serif;
     --font-mono: "Geist Mono", monospace;
     --radius: 0.625rem;
 
     /* COEP Brand Palette */
-    --color-cobalt: #1648c8;
-    --color-deep-blue: #0f3499;
+    --color-cobalt: #1a237e;
+    --color-deep-blue: #0f3399;
     --color-midnight: #081e5c;
     --color-gold: #e8c42a;
 
@@ -116,12 +122,12 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: "Source Sans 3", sans-serif;
-    font-size: 18px;
-    line-height: 1.65;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
   }
 
-  /* Headings use Playfair Display */
+  /* Headings use Cinzel */
   h1,
   h2,
   h3,
@@ -129,20 +135,33 @@
   h5,
   h6,
   .font-heading {
-    font-family: "Playfair Display", serif;
-    color: #0f3499;
+    font-family: var(--font-heading);
+    color: #0f3399;
     line-height: 1.2;
   }
 
-  /* Cobalt selection highlight */
+  /* Navigation and buttons use Inter */
+  nav,
+  button,
+  .font-nav {
+    font-family: var(--font-nav);
+  }
+
+  /* Paragraphs use Source Sans 3 */
+  p {
+    font-family: var(--font-body);
+    line-height: 1.7;
+  }
+
+  /* Navy selection highlight */
   ::selection {
-    background: #1648c8;
+    background: #1a237e;
     color: #fff;
   }
 
-  /* Cobalt focus ring for accessibility */
+  /* Navy focus ring for accessibility */
   :focus-visible {
-    outline: 2px solid #1648c8;
+    outline: 2px solid #1a237e;
     outline-offset: 2px;
   }
 
@@ -155,11 +174,11 @@
     background: #f4f4f4;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(22, 72, 200, 0.4);
+    background: rgba(26, 35, 126, 0.4);
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(22, 72, 200, 0.7);
+    background: rgba(26, 35, 126, 0.7);
   }
 }
 
@@ -314,10 +333,10 @@
 @keyframes chatbotPulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(22, 72, 200, 0.5);
+    box-shadow: 0 0 0 0 rgba(26, 35, 126, 0.5);
   }
   50% {
-    box-shadow: 0 0 0 14px rgba(22, 72, 200, 0);
+    box-shadow: 0 0 0 14px rgba(26, 35, 126, 0);
   }
 }
 
@@ -344,54 +363,227 @@
 /* ─────────────────────────────────────────── */
 
 @layer utilities {
-  /* Typography */
+  /* ── Semantic Typography Utilities ── */
+
+  /* Hero heading: Cinzel Bold 64px / 42px / 32px */
+  .typo-hero-heading {
+    font-family: var(--font-heading);
+    font-size: 4rem; /* 64px */
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+    font-style: normal;
+  }
+  @media (max-width: 1023px) {
+    .typo-hero-heading {
+      font-size: 2.625rem;
+    } /* 42px */
+  }
+  @media (max-width: 639px) {
+    .typo-hero-heading {
+      font-size: 2rem;
+    } /* 32px */
+  }
+
+  /* Hero tagline: Manrope Medium 20px uppercase */
+  .typo-hero-tagline {
+    font-family: var(--font-label);
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+
+  /* Hero description: Source Sans 3 Regular 18px */
+  .typo-hero-desc {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Section heading H2: Cinzel SemiBold 42px / 32px / 26px */
+  .typo-section-heading {
+    font-family: var(--font-heading);
+    font-size: 2.625rem; /* 42px */
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  @media (max-width: 1023px) {
+    .typo-section-heading {
+      font-size: 2rem;
+    } /* 32px */
+  }
+  @media (max-width: 639px) {
+    .typo-section-heading {
+      font-size: 1.625rem;
+    } /* 26px */
+  }
+
+  /* Section label: Manrope Medium 12px uppercase */
+  .typo-section-label {
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+
+  /* Card title: Libre Baskerville SemiBold 22px */
+  .typo-card-title {
+    font-family: var(--font-card);
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  /* Card description: Inter Regular 15px */
+  .typo-card-desc {
+    font-family: var(--font-nav);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Body text: Source Sans 3 Regular 16px */
+  .typo-body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* Body large: Source Sans 3 Regular 18px */
+  .typo-body-lg {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* Stat number: Inter Bold 36px */
+  .typo-stat-number {
+    font-family: var(--font-nav);
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* Stat label: Source Sans 3 Regular 14px */
+  .typo-stat-label {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Nav: Inter Medium 16px */
+  .typo-nav {
+    font-family: var(--font-nav);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* Button: Inter SemiBold 16px */
+  .typo-btn {
+    font-family: var(--font-nav);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+  }
+
+  /* Footer heading: Inter SemiBold 14px */
+  .typo-footer-heading {
+    font-family: var(--font-nav);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  /* Footer body: Source Sans 3 Regular 14px */
+  .typo-footer-body {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Small supporting text: Inter Medium 14px */
+  .typo-support {
+    font-family: var(--font-nav);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* Font-family utility classes */
+  .font-cinzel {
+    font-family: var(--font-heading);
+  }
+  .font-inter {
+    font-family: var(--font-nav);
+  }
+  .font-source {
+    font-family: var(--font-body);
+  }
+  .font-baskerville {
+    font-family: var(--font-card);
+  }
+  .font-manrope {
+    font-family: var(--font-label);
+  }
+  /* Legacy aliases */
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  /* Stats XL (legacy) */
   .text-stats-xl {
     font-size: clamp(2.75rem, 5.5vw, 4.25rem);
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.02em;
-    font-family: "Playfair Display", serif;
+    font-family: var(--font-nav);
   }
 
-  .font-heading {
-    font-family: "Playfair Display", serif;
-  }
-
-  .font-body {
-    font-family: "Source Sans 3", sans-serif;
-  }
-
-  /* Cobalt accent utilities */
+  /* Navy accent utilities */
   .text-cobalt {
-    color: #1648c8;
+    color: #1a237e;
   }
 
   .bg-cobalt {
-    background-color: #1648c8;
+    background-color: #1a237e;
   }
 
   .bg-cobalt-subtle {
-    background-color: rgba(22, 72, 200, 0.08);
+    background-color: rgba(26, 35, 126, 0.08);
   }
 
   .border-cobalt {
-    border-color: #1648c8;
+    border-color: #1a237e;
   }
 
   .border-cobalt-subtle {
-    border-color: rgba(22, 72, 200, 0.2);
+    border-color: rgba(26, 35, 126, 0.2);
   }
 
-  /* Deep blue */
+  /* Deep navy */
   .text-deep-blue {
-    color: #0f3499;
+    color: #0f3399;
   }
 
   .bg-deep-blue {
-    background-color: #0f3499;
+    background-color: #0f3399;
   }
 
-  /* Midnight */
+  /* Midnight/footer */
   .bg-midnight {
     background-color: #081e5c;
   }
@@ -437,7 +629,7 @@
   }
 
   .shadow-cobalt {
-    box-shadow: 0 4px 20px rgba(22, 72, 200, 0.25);
+    box-shadow: 0 4px 20px rgba(26, 35, 126, 0.25);
   }
 
   /* Legacy gold shadow alias */
@@ -520,9 +712,9 @@
     animation: shimmer 1.5s infinite;
   }
 
-  /* Cobalt gradient text */
+  /* Navy gradient text */
   .text-gradient-cobalt {
-    background: linear-gradient(135deg, #1648c8, #0f3499);
+    background: linear-gradient(135deg, #283593, #1a237e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -530,7 +722,7 @@
 
   /* Legacy gold gradient alias */
   .text-gradient-gold {
-    background: linear-gradient(135deg, #1648c8, #0f3499);
+    background: linear-gradient(135deg, #283593, #1a237e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -540,7 +732,7 @@
   .divider-cobalt {
     height: 3px;
     width: 48px;
-    background: #1648c8;
+    background: #1a237e;
     border-radius: 2px;
   }
 
@@ -548,7 +740,7 @@
   .divider-gold {
     height: 3px;
     width: 48px;
-    background: #1648c8;
+    background: #1a237e;
     border-radius: 2px;
   }
 

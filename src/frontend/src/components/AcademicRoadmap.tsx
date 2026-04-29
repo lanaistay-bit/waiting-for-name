@@ -169,35 +169,35 @@ const PHASE_STYLES: Record<
   }
 > = {
   Foundation: {
-    bg: "rgba(22,72,200,0.06)",
-    border: "#1648C8",
-    nodeGrad: "linear-gradient(135deg, #1648C8 0%, #2d5ed4 100%)",
-    text: "#1648C8",
-    glowColor: "rgba(22,72,200,0.4)",
+    bg: "rgba(26, 35, 126, 0.06)",
+    border: "#1A237E",
+    nodeGrad: "linear-gradient(135deg, #1A237E 0%, #283593 100%)",
+    text: "#1A237E",
+    glowColor: "rgba(26, 35, 126, 0.4)",
     label: "Year 1 · Semester 1",
   },
   Core: {
-    bg: "rgba(15,52,153,0.06)",
-    border: "#0F3499",
-    nodeGrad: "linear-gradient(135deg, #0F3499 0%, #1648C8 100%)",
-    text: "#0F3499",
-    glowColor: "rgba(15,52,153,0.4)",
+    bg: "rgba(15, 51, 153, 0.06)",
+    border: "#0F3399",
+    nodeGrad: "linear-gradient(135deg, #0F3399 0%, #1A237E 100%)",
+    text: "#0F3399",
+    glowColor: "rgba(15, 51, 153, 0.4)",
     label: "Year 1 · Semester 2",
   },
   Advanced: {
-    bg: "rgba(8,30,92,0.06)",
+    bg: "rgba(8, 30, 92, 0.06)",
     border: "#081E5C",
-    nodeGrad: "linear-gradient(135deg, #081E5C 0%, #0F3499 100%)",
+    nodeGrad: "linear-gradient(135deg, #081E5C 0%, #0F3399 100%)",
     text: "#081E5C",
-    glowColor: "rgba(8,30,92,0.35)",
+    glowColor: "rgba(8, 30, 92, 0.35)",
     label: "Year 2 · Semester 3",
   },
   Dissertation: {
-    bg: "rgba(232,196,42,0.1)",
+    bg: "rgba(232, 196, 42, 0.1)",
     border: "#E8C42A",
-    nodeGrad: "linear-gradient(135deg, #E8C42A 0%, #c9a800 100%)",
+    nodeGrad: "linear-gradient(135deg, #E8C42A 0%, #b89a18 100%)",
     text: "#7a5f00",
-    glowColor: "rgba(232,196,42,0.5)",
+    glowColor: "rgba(232, 196, 42, 0.5)",
     label: "Year 2 · Semester 4",
   },
 };
@@ -289,7 +289,7 @@ function SemesterCard({
             style={{ color: isActive ? "white" : ps.text }}
           />
           <span
-            className="text-xs font-bold font-body transition-colors duration-300"
+            className="text-xs font-bold font-inter transition-colors duration-300"
             style={{ color: isActive ? "rgba(255,255,255,0.85)" : ps.text }}
           >
             Sem {node.num}
@@ -301,7 +301,7 @@ function SemesterCard({
           animate={{
             background: isActive ? ps.nodeGrad : `${ps.border}15`,
           }}
-          className="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full text-[9px] font-bold whitespace-nowrap font-body shadow-sm"
+          className="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full text-[9px] font-bold whitespace-nowrap font-manrope shadow-sm"
           style={{
             color: isActive
               ? node.phase === "Dissertation"
@@ -318,17 +318,17 @@ function SemesterCard({
       {/* Label below node */}
       <div className="mt-3 text-center px-1">
         <p
-          className="text-sm font-bold font-body leading-tight"
+          className="text-sm font-bold font-inter leading-tight"
           style={{ color: ps.text }}
         >
           {node.period}
         </p>
-        <p className="text-xs font-body text-muted-foreground mt-0.5 leading-tight">
+        <p className="text-xs font-source text-muted-foreground mt-0.5 leading-tight">
           {node.title}
         </p>
         {node.credits && (
           <p
-            className="text-[10px] font-body mt-0.5"
+            className="text-[10px] font-manrope mt-0.5"
             style={{ color: ps.border, opacity: 0.7 }}
           >
             {node.credits}
@@ -367,7 +367,7 @@ function TrackColumn({
         transition={{ duration: 0.6 }}
         className="rounded-2xl p-6 mb-10 text-white flex items-center gap-4 shadow-lg"
         style={{
-          background: `linear-gradient(135deg, ${color} 0%, #0F3499 100%)`,
+          background: `linear-gradient(135deg, ${color} 0%, #0F3399 100%)`,
           boxShadow: `0 8px 32px ${color}50`,
         }}
       >
@@ -381,10 +381,10 @@ function TrackColumn({
           <TrackIcon className="w-7 h-7 text-white" />
         </div>
         <div>
-          <p className="text-white/60 text-xs uppercase tracking-[0.15em] font-body font-semibold">
+          <p className="text-white/60 text-xs uppercase tracking-[0.15em] font-manrope font-semibold">
             MBA Programme — 2 Years
           </p>
-          <h3 className="font-display font-bold text-xl text-white leading-tight mt-0.5">
+          <h3 className="font-cinzel font-bold text-xl text-white leading-tight mt-0.5">
             {label}
           </h3>
         </div>
@@ -396,7 +396,7 @@ function TrackColumn({
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.3 }}
-        className="text-center text-xs text-muted-foreground font-body mb-6"
+        className="text-center text-xs font-source text-muted-foreground mb-6"
       >
         Click any semester to explore courses
       </motion.p>
@@ -443,7 +443,7 @@ function TrackColumn({
             </div>
             <div>
               <p
-                className="text-[10px] font-bold uppercase tracking-widest font-body"
+                className="text-[10px] font-bold uppercase tracking-widest font-manrope"
                 style={{
                   color:
                     active.phase === "Dissertation"
@@ -454,7 +454,7 @@ function TrackColumn({
                 {ps.label}
               </p>
               <h4
-                className="font-display font-bold text-lg leading-tight"
+                className="font-cinzel font-bold text-lg leading-tight"
                 style={{
                   color: active.phase === "Dissertation" ? "#081E5C" : "white",
                 }}
@@ -463,7 +463,7 @@ function TrackColumn({
               </h4>
               {active.credits && (
                 <p
-                  className="text-xs font-body mt-0.5"
+                  className="text-xs font-source mt-0.5"
                   style={{
                     color:
                       active.phase === "Dissertation"
@@ -480,7 +480,7 @@ function TrackColumn({
           {/* Course list */}
           <div className="p-5 bg-card space-y-2.5">
             <p
-              className="text-[11px] font-bold uppercase tracking-widest font-body mb-3"
+              className="text-[11px] font-bold uppercase tracking-widest font-manrope mb-3"
               style={{ color: ps.text }}
             >
               Core Courses
@@ -501,7 +501,7 @@ function TrackColumn({
                   className="w-2 h-2 rounded-full flex-shrink-0"
                   style={{ background: ps.border }}
                 />
-                <span className="text-sm font-body text-foreground leading-snug">
+                <span className="text-sm font-source text-foreground leading-snug">
                   {course}
                 </span>
               </motion.div>
@@ -539,25 +539,25 @@ export function AcademicRoadmap() {
             variant="outline"
             className="px-5 py-1.5 mb-5 text-sm"
             style={{
-              borderColor: "rgba(22,72,200,0.35)",
-              color: "#1648C8",
-              background: "rgba(22,72,200,0.05)",
+              borderColor: "rgba(26, 35, 126, 0.35)",
+              color: "#1A237E",
+              background: "rgba(26, 35, 126, 0.05)",
             }}
           >
             Program Structure
           </Badge>
           <h2
-            className="text-4xl md:text-6xl font-display font-bold mb-5"
-            style={{ color: "#0F3499" }}
+            className="typo-section-heading font-cinzel font-bold mb-5 text-4xl md:text-6xl"
+            style={{ color: "#0F3399" }}
           >
             Academic Roadmap
             <br />
-            <span style={{ color: "#1648C8" }}>— 2 Years, 4 Semesters</span>
+            <span style={{ color: "#1A237E" }}>— 2 Years, 4 Semesters</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto font-body text-xl leading-relaxed">
+          <p className="typo-body font-source text-muted-foreground max-w-2xl mx-auto text-xl leading-relaxed">
             Dual-track MBA: Choose between{" "}
-            <strong style={{ color: "#1648C8" }}>General Management</strong> and{" "}
-            <strong style={{ color: "#0F3499" }}>Business Analytics</strong> —
+            <strong style={{ color: "#1A237E" }}>General Management</strong> and{" "}
+            <strong style={{ color: "#0F3399" }}>Business Analytics</strong> —
             both designed for transformative, industry-ready leadership.
           </p>
         </motion.div>
@@ -582,7 +582,7 @@ export function AcademicRoadmap() {
             return (
               <div
                 key={phase}
-                className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-body font-semibold"
+                className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-inter font-semibold"
                 style={{
                   background: ps.bg,
                   border: `1.5px solid ${ps.border}40`,
@@ -610,8 +610,8 @@ export function AcademicRoadmap() {
           <div
             className="inline-flex rounded-full p-1 gap-1"
             style={{
-              background: "rgba(22,72,200,0.08)",
-              border: "1px solid rgba(22,72,200,0.15)",
+              background: "rgba(26, 35, 126, 0.08)",
+              border: "1px solid rgba(26, 35, 126, 0.15)",
             }}
             role="tablist"
             aria-label="Track selector"
@@ -624,16 +624,16 @@ export function AcademicRoadmap() {
                 aria-selected={mobileTrack === t}
                 onClick={() => setMobileTrack(t)}
                 data-ocid={`dms.roadmap.track.${t}`}
-                className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 font-body"
+                className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 font-inter"
                 style={{
                   background:
                     mobileTrack === t
-                      ? "linear-gradient(135deg, #1648C8 0%, #0F3499 100%)"
+                      ? "linear-gradient(135deg, #1A237E 0%, #0F3399 100%)"
                       : "transparent",
-                  color: mobileTrack === t ? "white" : "#1648C8",
+                  color: mobileTrack === t ? "white" : "#1A237E",
                   boxShadow:
                     mobileTrack === t
-                      ? "0 4px 14px rgba(22,72,200,0.3)"
+                      ? "0 4px 14px rgba(26, 35, 126, 0.3)"
                       : "none",
                 }}
               >
@@ -650,14 +650,14 @@ export function AcademicRoadmap() {
             icon={Users}
             semesters={GM_SEMESTERS}
             track="gm"
-            color="#1648C8"
+            color="#1A237E"
           />
           <TrackColumn
             label="Business Analytics"
             icon={BarChart2}
             semesters={BA_SEMESTERS}
             track="ba"
-            color="#0F3499"
+            color="#0F3399"
           />
         </div>
 
@@ -669,7 +669,7 @@ export function AcademicRoadmap() {
               icon={Users}
               semesters={GM_SEMESTERS}
               track="gm"
-              color="#1648C8"
+              color="#1A237E"
             />
           ) : (
             <TrackColumn
@@ -677,7 +677,7 @@ export function AcademicRoadmap() {
               icon={BarChart2}
               semesters={BA_SEMESTERS}
               track="ba"
-              color="#0F3499"
+              color="#0F3399"
             />
           )}
         </div>
@@ -694,8 +694,8 @@ export function AcademicRoadmap() {
             className="inline-flex items-center gap-5 px-10 py-5 rounded-2xl"
             style={{
               border: "2px solid #E8C42A",
-              background: "rgba(232,196,42,0.08)",
-              boxShadow: "0 8px 32px rgba(232,196,42,0.15)",
+              background: "rgba(232, 196, 42, 0.08)",
+              boxShadow: "0 8px 32px rgba(232, 196, 42, 0.15)",
             }}
           >
             <Briefcase
@@ -704,12 +704,15 @@ export function AcademicRoadmap() {
             />
             <div>
               <p
-                className="text-base font-bold font-body"
-                style={{ color: "#0F3499" }}
+                className="text-base font-bold font-inter"
+                style={{ color: "#0F3399" }}
               >
                 Summer Industry Internship — Between Semester 2 &amp; 3
               </p>
-              <p className="text-sm text-muted-foreground font-body mt-0.5">
+              <p
+                className="text-sm font-source mt-0.5"
+                style={{ color: "#6b7280" }}
+              >
                 8–10 weeks · Evaluated &amp; Graded · Leading corporates across
                 India
               </p>

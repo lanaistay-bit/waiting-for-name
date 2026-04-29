@@ -22,8 +22,8 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const COBALT = "#1648C8";
-const DEEP_BLUE = "#0F3499";
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
 const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 
@@ -125,14 +125,12 @@ function StatBadge({
       data-ocid="placements.hero_stat"
     >
       <span
-        className="text-4xl font-bold leading-none"
-        style={{ color: "white", fontFamily: "Playfair Display, serif" }}
+        className="typo-stat-number leading-none"
+        style={{ color: "white" }}
       >
         {value}
       </span>
-      <span className="text-sm mt-2 text-white/75 font-medium tracking-wide">
-        {label}
-      </span>
+      <span className="typo-stat-label mt-2 text-white/75">{label}</span>
     </div>
   );
 }
@@ -185,14 +183,12 @@ function StatCard({
         {value}
       </span>
       <p
-        className="text-4xl font-bold leading-none mb-2"
-        style={{ fontFamily: "Playfair Display, serif", color: "white" }}
+        className="typo-stat-number leading-none mb-2"
+        style={{ color: "white" }}
       >
         {stat.display}
       </p>
-      <p className="text-sm text-white/70 font-medium tracking-wide">
-        {stat.label}
-      </p>
+      <p className="typo-stat-label text-white/70">{stat.label}</p>
     </div>
   );
 }
@@ -208,12 +204,15 @@ function OverviewSection() {
             style={{ backgroundColor: COBALT }}
           />
           <h2
-            className="text-4xl font-bold mb-3"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+            className="typo-section-heading font-bold mb-3"
+            style={{ color: DEEP_BLUE }}
           >
             Key Placement Highlights
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
+          <p
+            className="typo-body-lg max-w-2xl mx-auto"
+            style={{ color: "#555" }}
+          >
             A legacy of excellence — COEP graduates power the world's top
             organisations
           </p>
@@ -233,30 +232,29 @@ function OverviewSection() {
             style={{ backgroundColor: COBALT }}
           />
           <h2
-            className="text-4xl font-bold mb-5"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+            className="typo-section-heading font-bold mb-5"
+            style={{ color: DEEP_BLUE }}
           >
             Training &amp; Placement Cell
           </h2>
-          <p className="text-lg leading-relaxed mb-4" style={{ color: "#444" }}>
+          <p className="typo-body-lg mb-4" style={{ color: "#444" }}>
             The Training &amp; Placement Cell (TPC) at COEP Technological
             University is the primary bridge between academia and industry. With
             over 168 years of legacy, COEP has built deep relationships with
             India's top employers across every sector.
           </p>
-          <p className="text-lg leading-relaxed mb-6" style={{ color: "#444" }}>
+          <p className="typo-body-lg mb-6" style={{ color: "#444" }}>
             Under dedicated Training &amp; Placement Officers, TPC manages the
             complete placement cycle — from pre-placement training and company
             coordination to final offer issuance — ensuring transparent,
             merit-based placement for all students.
           </p>
           <div
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm"
+            className="typo-support inline-flex items-center gap-2 px-5 py-3 rounded-xl"
             style={{
               backgroundColor: `${COBALT}12`,
               color: COBALT,
               border: `1px solid ${COBALT}30`,
-              fontFamily: "Source Sans 3, sans-serif",
             }}
           >
             <Mail className="w-4 h-4" />
@@ -275,8 +273,8 @@ function OverviewSection() {
         >
           <div className="p-8 text-white">
             <h3
-              className="text-2xl font-bold mb-6"
-              style={{ fontFamily: "Playfair Display, serif", color: "#fff" }}
+              className="typo-section-heading font-bold mb-6"
+              style={{ color: "#fff" }}
             >
               Reach Our TPC
             </h3>
@@ -328,12 +326,12 @@ function OverviewSection() {
         }}
       >
         <h3
-          className="text-3xl font-bold text-center mb-2"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold text-center mb-2"
+          style={{ color: DEEP_BLUE }}
         >
           Our Placement Process
         </h3>
-        <p className="text-center mb-10 text-base" style={{ color: "#666" }}>
+        <p className="typo-body text-center mb-10" style={{ color: "#666" }}>
           A structured, transparent journey from registration to offer letter
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -381,15 +379,12 @@ function OverviewSection() {
                 <span className="text-xs font-bold opacity-60">{step.n}</span>
               </div>
               <h4
-                className="font-bold text-sm mb-1"
-                style={{
-                  color: DEEP_BLUE,
-                  fontFamily: "Playfair Display, serif",
-                }}
+                className="typo-support font-bold text-sm mb-1"
+                style={{ color: DEEP_BLUE }}
               >
                 {step.t}
               </h4>
-              <p className="text-xs leading-snug" style={{ color: "#777" }}>
+              <p className="typo-stat-label" style={{ color: "#777" }}>
                 {step.d}
               </p>
             </div>
@@ -486,15 +481,15 @@ const RECRUITER_ROWS = [
 ];
 
 const SECTOR_COLORS: Record<string, string> = {
-  Technology: "#1648C8",
-  Finance: "#0F3499",
+  Technology: "#1A237E",
+  Finance: "#0F3399",
   "IT Consulting": "#1a5e8a",
   "IT Services": "#2563eb",
   Consulting: "#1e40af",
   Engineering: "#0e7490",
   Manufacturing: "#065f46",
-  Energy: "#0F3499",
-  "Automotive IT": "#1648C8",
+  Energy: "#0F3399",
+  "Automotive IT": "#1A237E",
   Automotive: "#059669",
   Industrial: "#b45309",
   "Precision Eng.": "#9f1239",
@@ -530,10 +525,10 @@ function RecruiterTile({
     <div
       className="rounded-xl border cursor-pointer overflow-hidden transition-all duration-300"
       style={{
-        borderColor: hovered ? COBALT : "rgba(22,72,200,0.18)",
+        borderColor: hovered ? COBALT : "rgba(26, 35, 126, 0.18)",
         background: hovered ? COBALT : "#f8faff",
         transform: hovered ? "translateY(-4px)" : "translateY(0)",
-        boxShadow: hovered ? "0 12px 32px rgba(22,72,200,0.25)" : "none",
+        boxShadow: hovered ? "0 12px 32px rgba(26, 35, 126, 0.25)" : "none",
         animation: `fadeInUp 0.5s ease-out ${(idx % 6) * 0.07}s both`,
       }}
       onMouseEnter={() => setHovered(true)}
@@ -557,21 +552,19 @@ function RecruiterTile({
         </div>
         <div className="text-center">
           <p
-            className="font-bold leading-tight"
+            className="typo-btn font-bold leading-tight"
             style={{
               fontSize: large ? "0.95rem" : "0.82rem",
               color: hovered ? "#fff" : DEEP_BLUE,
-              fontFamily: "Source Sans 3, sans-serif",
               transition: "color 0.3s",
             }}
           >
             {name}
           </p>
           <p
-            className="text-xs mt-0.5"
+            className="typo-stat-label mt-0.5"
             style={{
               color: hovered ? "rgba(255,255,255,0.7)" : "#888",
-              fontFamily: "Source Sans 3, sans-serif",
               transition: "color 0.3s",
             }}
           >
@@ -592,12 +585,12 @@ function RecruitersSection() {
           style={{ backgroundColor: COBALT }}
         />
         <h2
-          className="text-4xl font-bold mb-3"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-3"
+          style={{ color: DEEP_BLUE }}
         >
           Our Top Recruiters
         </h2>
-        <p className="text-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
+        <p className="typo-body-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
           Over 245 companies across sectors trust COEP talent — from global tech
           giants to industrial leaders and fast-growing startups.
         </p>
@@ -611,11 +604,8 @@ function RecruitersSection() {
               style={{ backgroundColor: COBALT }}
             />
             <h3
-              className="text-xl font-bold"
-              style={{
-                color: DEEP_BLUE,
-                fontFamily: "Playfair Display, serif",
-              }}
+              className="typo-card-title font-bold"
+              style={{ color: DEEP_BLUE }}
             >
               {row.tier}
             </h3>
@@ -643,12 +633,8 @@ function RecruitersSection() {
       <div className="text-center pt-4">
         <button
           type="button"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 shadow-lg"
-          style={{
-            backgroundColor: COBALT,
-            color: "#fff",
-            fontFamily: "Source Sans 3, sans-serif",
-          }}
+          className="typo-btn inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 shadow-lg"
+          style={{ backgroundColor: COBALT, color: "#fff" }}
           data-ocid="placements.view_all_recruiters_button"
         >
           <Building2 className="w-5 h-5" />
@@ -792,12 +778,12 @@ function StatisticsSection() {
           style={{ backgroundColor: COBALT }}
         />
         <h2
-          className="text-4xl font-bold mb-3"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-3"
+          style={{ color: DEEP_BLUE }}
         >
           Placement Statistics
         </h2>
-        <p className="text-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
+        <p className="typo-body-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
           Transparent, year-on-year data reflecting consistent growth in our
           placement outcomes
         </p>
@@ -810,9 +796,8 @@ function StatisticsSection() {
             key={yr}
             type="button"
             onClick={() => setActiveYear(yr)}
-            className="px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-200"
+            className="typo-btn px-6 py-2.5 rounded-full text-sm transition-all duration-200"
             style={{
-              fontFamily: "Source Sans 3, sans-serif",
               backgroundColor: activeYear === yr ? COBALT : "transparent",
               color: activeYear === yr ? "#fff" : COBALT,
               border: `1.5px solid ${COBALT}`,
@@ -841,18 +826,18 @@ function StatisticsSection() {
             key={item.label}
             className="rounded-xl text-center p-5 border"
             style={{
-              borderColor: "rgba(22,72,200,0.15)",
+              borderColor: "rgba(26, 35, 126, 0.15)",
               background: idx % 2 === 0 ? "#f8faff" : "#fff",
             }}
             data-ocid={`placements.year_stat.${idx + 1}`}
           >
-            <p
-              className="text-2xl font-bold mb-1"
-              style={{ color: COBALT, fontFamily: "Playfair Display, serif" }}
-            >
+            <p className="typo-stat-number mb-1" style={{ color: COBALT }}>
               {item.value}
             </p>
-            <p className="text-xs text-center" style={{ color: "#666" }}>
+            <p
+              className="typo-stat-label text-center"
+              style={{ color: "#666" }}
+            >
               {item.label}
             </p>
           </div>
@@ -865,8 +850,8 @@ function StatisticsSection() {
         style={{ background: "#f8faff", border: `1px solid ${COBALT}18` }}
       >
         <h3
-          className="text-2xl font-bold mb-6"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-6"
+          style={{ color: DEEP_BLUE }}
         >
           Sector-wise Breakdown ({activeYear})
         </h3>
@@ -875,11 +860,8 @@ function StatisticsSection() {
             <div key={s.label} data-ocid={`placements.sector.${s.label}`}>
               <div className="flex justify-between items-center mb-1.5">
                 <span
-                  className="text-sm font-semibold"
-                  style={{
-                    color: DEEP_BLUE,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-support font-semibold"
+                  style={{ color: DEEP_BLUE }}
                 >
                   {s.label}
                 </span>
@@ -896,14 +878,14 @@ function StatisticsSection() {
       {/* Department table */}
       <section>
         <h3
-          className="text-2xl font-bold mb-6"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-6"
+          style={{ color: DEEP_BLUE }}
         >
           Department-wise Statistics (2024–25)
         </h3>
         <div
           className="overflow-x-auto rounded-xl shadow-lg border"
-          style={{ borderColor: "rgba(22,72,200,0.12)" }}
+          style={{ borderColor: "rgba(26, 35, 126, 0.12)" }}
         >
           <table className="w-full text-sm" data-ocid="placements.dept_table">
             <thead>
@@ -918,8 +900,7 @@ function StatisticsSection() {
                 ].map((h) => (
                   <th
                     key={h}
-                    className="px-5 py-4 text-left font-semibold whitespace-nowrap"
-                    style={{ fontFamily: "Source Sans 3, sans-serif" }}
+                    className="px-5 py-4 text-left typo-support font-semibold whitespace-nowrap"
                   >
                     {h}
                   </th>
@@ -931,7 +912,7 @@ function StatisticsSection() {
                 <tr
                   key={row.dept}
                   className="border-b transition-colors hover:bg-blue-50/30"
-                  style={{ borderColor: "rgba(22,72,200,0.08)" }}
+                  style={{ borderColor: "rgba(26, 35, 126, 0.08)" }}
                   data-ocid={`placements.dept_row.${idx + 1}`}
                 >
                   <td
@@ -1033,12 +1014,12 @@ function CareerServicesSection() {
           style={{ backgroundColor: COBALT }}
         />
         <h2
-          className="text-4xl font-bold mb-3"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-3"
+          style={{ color: DEEP_BLUE }}
         >
           Career Services
         </h2>
-        <p className="text-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
+        <p className="typo-body-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
           Comprehensive, year-round support ensuring every COEP student is
           placement-ready
         </p>
@@ -1050,7 +1031,7 @@ function CareerServicesSection() {
             key={s.title}
             className="group rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             style={{
-              borderColor: "rgba(22,72,200,0.14)",
+              borderColor: "rgba(26, 35, 126, 0.14)",
               background: "#fff",
               animation: `fadeInUp 0.6s ease-out ${idx * 0.1}s both`,
             }}
@@ -1067,26 +1048,19 @@ function CareerServicesSection() {
                 <s.Icon className="w-6 h-6" style={{ color: COBALT }} />
               </div>
               <span
-                className="text-xs font-bold px-3 py-1 rounded-full"
+                className="typo-section-label font-bold px-3 py-1 rounded-full"
                 style={{
-                  backgroundColor: "rgba(22,72,200,0.1)",
-                  color: "#0F3499",
-                  fontFamily: "Source Sans 3, sans-serif",
+                  backgroundColor: "rgba(26, 35, 126, 0.1)",
+                  color: "#0F3399",
                 }}
               >
                 {s.tag}
               </span>
             </div>
-            <h3
-              className="text-xl font-bold mb-3"
-              style={{
-                color: DEEP_BLUE,
-                fontFamily: "Playfair Display, serif",
-              }}
-            >
+            <h3 className="typo-card-title mb-3" style={{ color: DEEP_BLUE }}>
               {s.title}
             </h3>
-            <p className="text-sm leading-relaxed" style={{ color: "#666" }}>
+            <p className="typo-card-desc" style={{ color: "#666" }}>
               {s.desc}
             </p>
           </div>
@@ -1104,17 +1078,14 @@ function CareerServicesSection() {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h3
-              className="text-2xl font-bold mb-3"
-              style={{
-                color: DEEP_BLUE,
-                fontFamily: "Playfair Display, serif",
-              }}
+              className="typo-section-heading font-bold mb-3"
+              style={{ color: DEEP_BLUE }}
             >
               TPC Office — Contact &amp; Timings
             </h3>
             <div
-              className="space-y-3 text-sm"
-              style={{ color: "#444", fontFamily: "Source Sans 3, sans-serif" }}
+              className="typo-body space-y-3 text-sm"
+              style={{ color: "#444" }}
             >
               <div className="flex items-center gap-2">
                 <MapPin
@@ -1154,12 +1125,8 @@ function CareerServicesSection() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="mailto:tpc@coeptech.ac.in"
-              className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90"
-              style={{
-                backgroundColor: COBALT,
-                color: "#fff",
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
+              className="typo-btn flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl transition-all duration-200 hover:opacity-90"
+              style={{ backgroundColor: COBALT, color: "#fff" }}
               data-ocid="placements.contact_email"
             >
               <Mail className="w-4 h-4" />
@@ -1167,12 +1134,11 @@ function CareerServicesSection() {
             </a>
             <a
               href="tel:+912025507052"
-              className="flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90"
+              className="typo-btn flex-1 flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl transition-all duration-200 hover:opacity-90"
               style={{
                 backgroundColor: "transparent",
                 color: COBALT,
                 border: `2px solid ${COBALT}`,
-                fontFamily: "Source Sans 3, sans-serif",
               }}
               data-ocid="placements.contact_phone"
             >
@@ -1274,12 +1240,12 @@ function TrainingSection() {
           style={{ backgroundColor: COBALT }}
         />
         <h2
-          className="text-4xl font-bold mb-3"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-3"
+          style={{ color: DEEP_BLUE }}
         >
           Training &amp; Skill Development
         </h2>
-        <p className="text-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
+        <p className="typo-body-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
           A structured 3-month pre-placement training programme designed to
           build interview-ready graduates
         </p>
@@ -1307,19 +1273,19 @@ function TrainingSection() {
                 {m.month}
               </span>
               <h3
-                className="text-xl font-bold mt-2 mb-2"
-                style={{ fontFamily: "Playfair Display, serif", color: "#fff" }}
+                className="typo-card-title mt-2 mb-2"
+                style={{ color: "#fff" }}
               >
                 {m.phase}
               </h3>
-              <p className="text-sm text-white/70 leading-relaxed">{m.desc}</p>
+              <p className="typo-body text-sm text-white/70">{m.desc}</p>
             </div>
             <div className="p-6 bg-white">
               <ul className="space-y-2">
                 {m.topics.map((t) => (
                   <li
                     key={t}
-                    className="flex items-center gap-2.5 text-sm"
+                    className="flex items-center gap-2.5 typo-body text-sm"
                     style={{ color: "#555" }}
                   >
                     <span
@@ -1360,8 +1326,8 @@ function TrainingSection() {
         style={{ background: "#f8faff", border: `1px solid ${COBALT}18` }}
       >
         <h3
-          className="text-2xl font-bold mb-6"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-6"
+          style={{ color: DEEP_BLUE }}
         >
           Skills Coverage in Our Programme
         </h3>
@@ -1370,7 +1336,7 @@ function TrainingSection() {
             <div key={s.name} data-ocid={`placements.skill.${s.name}`}>
               <div className="flex items-center justify-between mb-2">
                 <span
-                  className="font-semibold text-sm"
+                  className="typo-support font-semibold"
                   style={{ color: DEEP_BLUE }}
                 >
                   {s.icon} {s.name}
@@ -1388,8 +1354,8 @@ function TrainingSection() {
       {/* Upcoming workshops */}
       <section>
         <h3
-          className="text-2xl font-bold mb-6"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-6"
+          style={{ color: DEEP_BLUE }}
         >
           Upcoming Training Calendar
         </h3>
@@ -1399,37 +1365,24 @@ function TrainingSection() {
               key={w.title}
               className="rounded-xl border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               style={{
-                borderColor: "rgba(22,72,200,0.14)",
+                borderColor: "rgba(26, 35, 126, 0.14)",
                 background: "#fff",
               }}
               data-ocid={`placements.workshop.${idx + 1}`}
             >
               <div
-                className="text-xs font-bold px-2.5 py-1 rounded-lg inline-block mb-3"
-                style={{
-                  backgroundColor: `${COBALT}14`,
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-section-label font-bold px-2.5 py-1 rounded-lg inline-block mb-3"
+                style={{ backgroundColor: `${COBALT}14`, color: COBALT }}
               >
                 {w.date}
               </div>
               <h4
-                className="font-bold text-base mb-1.5"
-                style={{
-                  color: DEEP_BLUE,
-                  fontFamily: "Playfair Display, serif",
-                }}
+                className="typo-card-title font-bold text-base mb-1.5"
+                style={{ color: DEEP_BLUE }}
               >
                 {w.title}
               </h4>
-              <div
-                className="space-y-1 text-xs"
-                style={{
-                  color: "#777",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <div className="typo-support space-y-1" style={{ color: "#777" }}>
                 <div className="flex items-center gap-1.5">
                   <Calendar className="w-3 h-3" style={{ color: COBALT }} />
                   {w.time}
@@ -1461,7 +1414,7 @@ const ALUMNI = [
     batch: "2019",
     quote:
       "COEP's rigorous curriculum and TPC's structured mock interviews gave me the confidence and skills to crack Google. The faculty mentorship was exceptional.",
-    companyColor: "#1648C8",
+    companyColor: "#1A237E",
     initials: "PS",
   },
   {
@@ -1472,7 +1425,7 @@ const ALUMNI = [
     batch: "2018",
     quote:
       "The interdisciplinary exposure at COEP — from core engineering to business fundamentals — was the perfect foundation for a product management career at Microsoft.",
-    companyColor: "#0F3499",
+    companyColor: "#0F3399",
     initials: "RK",
   },
   {
@@ -1534,12 +1487,12 @@ function AlumniSection() {
           style={{ backgroundColor: COBALT }}
         />
         <h2
-          className="text-4xl font-bold mb-3"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-3"
+          style={{ color: DEEP_BLUE }}
         >
           Alumni in Top Companies
         </h2>
-        <p className="text-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
+        <p className="typo-body-lg max-w-2xl mx-auto" style={{ color: "#555" }}>
           COEP graduates shaping the future at the world's most admired
           organisations
         </p>
@@ -1560,7 +1513,7 @@ function AlumniSection() {
             >
               <div className="p-8 text-white">
                 <Quote className="w-8 h-8 mb-4 opacity-30" />
-                <p className="text-base leading-relaxed text-white/85 mb-7 italic">
+                <p className="typo-body-lg text-base text-white/85 mb-7 italic">
                   "{a.quote}"
                 </p>
                 <div
@@ -1574,16 +1527,13 @@ function AlumniSection() {
                     {a.initials}
                   </div>
                   <div>
-                    <p
-                      className="font-bold text-lg text-white"
-                      style={{ fontFamily: "Playfair Display, serif" }}
-                    >
+                    <p className="typo-card-title font-bold text-lg text-white">
                       {a.name}
                     </p>
-                    <p className="text-sm text-white/70">
+                    <p className="typo-body text-sm text-white/70">
                       {a.role} — {a.company}
                     </p>
-                    <p className="text-xs text-white/50 mt-0.5">
+                    <p className="typo-stat-label text-white/50 mt-0.5">
                       {a.dept} Department, Batch of {a.batch}
                     </p>
                   </div>
@@ -1644,36 +1594,31 @@ function AlumniSection() {
       >
         <Briefcase className="w-10 h-10 mx-auto mb-4 opacity-60" />
         <h3
-          className="text-2xl font-bold mb-3"
-          style={{ fontFamily: "Playfair Display, serif", color: "#fff" }}
+          className="typo-section-heading font-bold mb-3"
+          style={{ color: "#fff" }}
         >
           Join the COEP Legacy
         </h3>
-        <p className="text-white/75 max-w-xl mx-auto text-base leading-relaxed">
+        <p className="typo-body text-white/75 max-w-xl mx-auto">
           Over 168 years of engineering excellence. Join thousands of COEP
           alumni making a mark at the world's most respected companies.
         </p>
         <div className="flex flex-wrap justify-center gap-4 mt-6">
           <button
             type="button"
-            className="px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90"
-            style={{
-              backgroundColor: GOLD,
-              color: MIDNIGHT,
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="typo-btn px-6 py-3 rounded-xl text-sm transition-all duration-200 hover:opacity-90"
+            style={{ backgroundColor: GOLD, color: MIDNIGHT }}
             data-ocid="placements.alumni_network_button"
           >
             Connect with Alumni Network
           </button>
           <button
             type="button"
-            className="px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:bg-white/20"
+            className="typo-btn px-6 py-3 rounded-xl text-sm transition-all duration-200 hover:bg-white/20"
             style={{
               backgroundColor: "transparent",
               color: "#fff",
               border: "1.5px solid rgba(255,255,255,0.4)",
-              fontFamily: "Source Sans 3, sans-serif",
             }}
             data-ocid="placements.share_story_button"
           >
@@ -1758,30 +1703,22 @@ export default function PlacementsPage() {
 
         <div className="relative max-w-[1280px] mx-auto px-4 xl:px-8">
           <p
-            className="text-xs font-bold uppercase tracking-widest mb-4"
-            style={{
-              color: "rgba(255,255,255,0.75)",
-            }}
+            className="typo-section-label mb-4"
+            style={{ color: "rgba(255,255,255,0.75)" }}
           >
             COEP Technological University • Est. 1854
           </p>
           <h1
-            className="text-5xl md:text-7xl font-bold text-white mb-5 leading-none"
-            style={{
-              fontFamily: "Playfair Display, serif",
-              animation: "fadeInUp 0.6s ease-out 0.1s both",
-            }}
+            className="typo-hero-heading text-white mb-5"
+            style={{ animation: "fadeInUp 0.6s ease-out 0.1s both" }}
           >
             Placements &amp;
             <br />
             <span style={{ color: "white" }}>Careers</span>
           </h1>
           <p
-            className="text-xl text-white/75 max-w-2xl mb-12 leading-relaxed"
-            style={{
-              fontFamily: "Source Sans 3, sans-serif",
-              animation: "fadeInUp 0.6s ease-out 0.2s both",
-            }}
+            className="typo-hero-desc text-white/75 max-w-2xl mb-12"
+            style={{ animation: "fadeInUp 0.6s ease-out 0.2s both" }}
           >
             Building Careers, Shaping Futures — COEP's Legacy of Excellence
             connecting exceptional talent with the world's leading

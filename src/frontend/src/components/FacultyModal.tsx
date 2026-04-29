@@ -41,7 +41,7 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
         <div
           className="relative h-44 overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #081E5C, #1648C8, #0F3499)",
+            background: "linear-gradient(135deg, #081E5C, #1A237E, #0F3399)",
           }}
         >
           <div className="absolute inset-0 opacity-10">
@@ -57,14 +57,14 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
                 className="w-full h-full object-cover object-top"
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src =
-                    `https://ui-avatars.com/api/?name=${encodeURIComponent(faculty.name)}&size=200&background=1648C8&color=fff&bold=true`;
+                    `https://ui-avatars.com/api/?name=${encodeURIComponent(faculty.name)}&size=200&background=1A237E&color=fff&bold=true`;
                 }}
               />
             </div>
           </div>
           {faculty.isSpecial && (
             <div className="absolute top-4 left-4">
-              <span className="text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-[#1648C8] text-white">
+              <span className="typo-support text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-[#1A237E] text-white">
                 Featured Faculty
               </span>
             </div>
@@ -74,14 +74,14 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
         {/* Content */}
         <div className="pt-14 px-8 pb-6 space-y-4 max-h-[70vh] overflow-y-auto">
           <DialogTitle
-            className="font-heading text-2xl font-bold leading-tight"
-            style={{ color: "#0F3499" }}
+            className="font-baskerville font-semibold text-2xl leading-tight"
+            style={{ color: "#0F3399" }}
           >
             {faculty.name}
           </DialogTitle>
           <DialogDescription
-            className="font-body text-base font-semibold -mt-3"
-            style={{ color: "#1648C8" }}
+            className="typo-section-label font-manrope text-base font-semibold -mt-3"
+            style={{ color: "#1A237E" }}
           >
             {faculty.designation}
           </DialogDescription>
@@ -92,7 +92,7 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
               {faculty.email && (
                 <a
                   href={`mailto:${faculty.email}`}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-[#1648C8] transition-colors"
+                  className="flex items-center gap-2 typo-support text-sm text-muted-foreground hover:text-[#1A237E] transition-colors"
                 >
                   <Mail className="w-4 h-4 flex-shrink-0" />
                   <span>{faculty.email}</span>
@@ -101,7 +101,7 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
               {faculty.phone && (
                 <a
                   href={`tel:${faculty.phone}`}
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-2 typo-support text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Phone className="w-4 h-4 flex-shrink-0" />
                   <span>{faculty.phone}</span>
@@ -115,12 +115,12 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
           {/* Bio */}
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <BookOpen className="w-4 h-4" style={{ color: "#1648C8" }} />
-              <h4 className="font-body text-sm font-semibold uppercase tracking-wider text-foreground">
+              <BookOpen className="w-4 h-4" style={{ color: "#1A237E" }} />
+              <h4 className="typo-section-label font-cinzel font-semibold text-sm uppercase tracking-wider text-foreground">
                 About
               </h4>
             </div>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed">
+            <p className="typo-body font-source text-sm text-muted-foreground leading-relaxed">
               {faculty.bio}
             </p>
           </div>
@@ -128,8 +128,8 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
           {/* Expertise */}
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <Award className="w-4 h-4" style={{ color: "#1648C8" }} />
-              <h4 className="font-body text-sm font-semibold uppercase tracking-wider text-foreground">
+              <Award className="w-4 h-4" style={{ color: "#1A237E" }} />
+              <h4 className="typo-section-label font-cinzel font-semibold text-sm uppercase tracking-wider text-foreground">
                 Areas of Expertise
               </h4>
             </div>
@@ -138,7 +138,7 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
                 <Badge
                   key={tag}
                   variant="outline"
-                  className="font-body text-xs border-cobalt-subtle text-cobalt bg-cobalt-subtle px-3 py-0.5"
+                  className="font-source text-xs border-cobalt-subtle text-cobalt bg-cobalt-subtle px-3 py-0.5"
                 >
                   {tag}
                 </Badge>
@@ -152,7 +152,7 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
               to="/faculty/$facultyId"
               params={{ facultyId: faculty.id }}
               onClick={onClose}
-              className="font-body text-sm font-semibold px-5 py-2 rounded-lg transition-all duration-200 hover:opacity-90"
+              className="typo-btn text-sm px-5 py-2 rounded-lg transition-all duration-200 hover:opacity-90"
               style={{ background: "#E8C42A", color: "#081E5C" }}
               data-ocid="faculty.read_more_button"
             >
@@ -161,7 +161,7 @@ export function FacultyModal({ faculty, open, onClose }: FacultyModalProps) {
             <Button
               variant="outline"
               onClick={onClose}
-              className="font-body border-border hover:bg-secondary"
+              className="typo-btn border-border hover:bg-secondary"
               data-ocid="faculty.cancel_button"
             >
               Close

@@ -100,14 +100,11 @@ export function AIChatbot() {
           {/* Header */}
           <div
             className="flex items-center justify-between px-4 py-3 flex-shrink-0"
-            style={{ background: "#1648C8" }}
+            style={{ background: "#1A237E" }}
           >
             <div className="flex items-center gap-2">
               <Bot className="w-5 h-5 text-white" />
-              <span
-                className="font-bold text-white text-sm"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
+              <span className="typo-nav font-cinzel font-bold text-white text-sm">
                 COEP Assistant
               </span>
             </div>
@@ -132,22 +129,21 @@ export function AIChatbot() {
                 {msg.role === "bot" && (
                   <div
                     className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mr-2 mt-0.5"
-                    style={{ background: "#1648C8" }}
+                    style={{ background: "#1A237E" }}
                   >
                     <Bot className="w-3 h-3 text-white" />
                   </div>
                 )}
                 <div
-                  className="max-w-[75%] px-3 py-2 text-xs leading-relaxed whitespace-pre-line"
+                  className="max-w-[75%] px-3 py-2 text-xs leading-relaxed whitespace-pre-line font-source"
                   style={{
                     background:
-                      msg.role === "bot" ? "rgba(22,72,200,0.08)" : "#1648C8",
-                    color: msg.role === "bot" ? "#0F3499" : "#fff",
+                      msg.role === "bot" ? "rgba(26,35,126,0.08)" : "#1A237E",
+                    color: msg.role === "bot" ? "#0F3399" : "#fff",
                     borderRadius:
                       msg.role === "bot"
                         ? "2px 12px 12px 12px"
                         : "12px 2px 12px 12px",
-                    fontFamily: "Source Sans 3, sans-serif",
                   }}
                 >
                   {msg.text}
@@ -163,15 +159,14 @@ export function AIChatbot() {
                     key={qr.label}
                     type="button"
                     onClick={() => handleQuickReply(qr)}
-                    className="text-xs px-3 py-1.5 rounded-full border transition-smooth hover:text-white"
+                    className="typo-support text-xs px-3 py-1.5 rounded-full border transition-smooth hover:text-white"
                     style={{
-                      borderColor: "#1648C8",
-                      color: "#1648C8",
-                      fontFamily: "Source Sans 3, sans-serif",
+                      borderColor: "#1A237E",
+                      color: "#1A237E",
                       background: "transparent",
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "#1648C8";
+                      e.currentTarget.style.background = "#1A237E";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.background = "transparent";
@@ -197,18 +192,15 @@ export function AIChatbot() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
               placeholder="Type a question…"
-              className="flex-1 text-xs outline-none bg-transparent"
-              style={{
-                fontFamily: "Source Sans 3, sans-serif",
-                color: "#0F3499",
-              }}
+              className="flex-1 text-xs outline-none bg-transparent font-source"
+              style={{ color: "#0F3399" }}
               data-ocid="chatbot.input"
             />
             <button
               type="button"
               onClick={handleSend}
               className="w-7 h-7 rounded-full flex items-center justify-center transition-smooth"
-              style={{ background: "#1648C8" }}
+              style={{ background: "#1A237E" }}
               aria-label="Send message"
               data-ocid="chatbot.submit_button"
             >
@@ -224,7 +216,7 @@ export function AIChatbot() {
         onClick={handleOpen}
         className="w-14 h-14 rounded-full flex items-center justify-center shadow-cobalt transition-smooth hover:scale-110"
         style={{
-          background: "#1648C8",
+          background: "#1A237E",
           animation: pulsed ? "chatbotPulse 2.5s ease-in-out 3" : undefined,
         }}
         aria-label="Open COEP Assistant"

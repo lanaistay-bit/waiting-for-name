@@ -45,7 +45,7 @@ function WaveDivider({ flip = false }: { flip?: boolean }) {
       >
         <path
           d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"
-          fill="rgba(22,72,200,0.06)"
+          fill="rgba(26, 35, 126, 0.06)"
         />
       </svg>
     </div>
@@ -92,7 +92,7 @@ function DmsMiniNav() {
           style={{
             background: "rgba(255,255,255,0.96)",
             backdropFilter: "blur(12px)",
-            borderBottom: "1px solid rgba(22,72,200,0.12)",
+            borderBottom: "1px solid rgba(26, 35, 126, 0.12)",
           }}
           data-ocid="dms.mini_nav"
         >
@@ -110,15 +110,15 @@ function DmsMiniNav() {
                         block: "start",
                       });
                     }}
-                    className="px-4 py-1.5 rounded-full text-sm font-semibold font-body whitespace-nowrap transition-all duration-200 flex-shrink-0"
+                    className="px-4 py-1.5 rounded-full text-sm font-semibold font-inter whitespace-nowrap transition-all duration-200 flex-shrink-0"
                     style={{
                       background: isActive
-                        ? "linear-gradient(135deg, #1648C8 0%, #0F3499 100%)"
+                        ? "linear-gradient(135deg, #1A237E 0%, #0F3399 100%)"
                         : "transparent",
-                      color: isActive ? "white" : "#1648C8",
+                      color: isActive ? "white" : "#1A237E",
                       border: isActive
                         ? "none"
-                        : "1px solid rgba(22,72,200,0.2)",
+                        : "1px solid rgba(26, 35, 126, 0.2)",
                     }}
                     data-ocid={`dms.mini_nav.${item.anchor}`}
                   >
@@ -249,7 +249,7 @@ export function DMSPage() {
             <div className="w-14 h-14 rounded-2xl bg-white/15 border border-white/25 flex items-center justify-center flex-shrink-0 backdrop-blur-sm">
               <GraduationCap className="w-7 h-7 text-white" />
             </div>
-            <p className="text-white/75 text-sm font-medium uppercase tracking-wider font-body">
+            <p className="typo-section-label text-white/75">
               School of Multidisciplinary Sciences, Humanities &amp; Management
             </p>
           </motion.div>
@@ -259,12 +259,11 @@ export function DMSPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.3 }}
-            className="text-4xl md:text-6xl font-display font-bold text-white leading-tight max-w-3xl"
+            className="typo-hero-heading text-white max-w-3xl"
           >
             Department of{" "}
             <motion.span
-              className="italic"
-              style={{ fontFamily: "Playfair Display, serif" }}
+              className="italic font-cinzel"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
@@ -278,7 +277,7 @@ export function DMSPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.45 }}
-            className="mt-5 text-white/80 text-base md:text-lg max-w-xl leading-relaxed font-body"
+            className="typo-hero-desc mt-5 text-white/80 max-w-xl"
           >
             Shaping business leaders at the intersection of management
             excellence and engineering innovation — since 1854.
@@ -299,7 +298,7 @@ export function DMSPage() {
                   .getElementById("programs")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="px-6 py-2.5 rounded-full font-semibold text-sm font-body transition-all duration-200 hover:scale-105 hover:shadow-lg"
+              className="typo-btn px-6 py-2.5 rounded-full transition-all duration-200 hover:scale-105 hover:shadow-lg"
               style={{ background: "#E8C42A", color: "#081E5C" }}
               data-ocid="dms.hero.cta_button"
             >
@@ -314,7 +313,7 @@ export function DMSPage() {
                     .getElementById(item.anchor)
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="px-4 py-2 rounded-full border text-sm text-white/85 hover:bg-white/15 hover:text-white hover:border-white/50 transition-all duration-200 backdrop-blur-sm font-body"
+                className="px-4 py-2 rounded-full border typo-nav text-white/85 hover:bg-white/15 hover:text-white hover:border-white/50 transition-all duration-200 backdrop-blur-sm"
                 style={{ borderColor: "rgba(255,255,255,0.3)" }}
                 data-ocid={`dms.hero.nav.${item.anchor}`}
               >

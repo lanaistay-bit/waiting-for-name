@@ -22,8 +22,8 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 // ─── Brand colours ───────────────────────────────────────────────────────────
-const COBALT = "#1648C8";
-const DEEP_BLUE = "#0F3499";
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
 const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 
@@ -100,26 +100,19 @@ function SectionHeading({
   return (
     <div className="mb-12">
       <span
-        className="inline-block text-xs font-bold uppercase tracking-[0.15em] mb-3 px-3 py-1 rounded-full"
-        style={{
-          background: `${COBALT}18`,
-          color: COBALT,
-          fontFamily: "Source Sans 3, sans-serif",
-        }}
+        className="typo-section-label inline-block mb-3 px-3 py-1 rounded-full"
+        style={{ background: `${COBALT}18`, color: COBALT }}
       >
         {label}
       </span>
       <h2
-        className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
-        style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+        className="typo-section-heading font-bold mb-4"
+        style={{ color: DEEP_BLUE }}
       >
         {title}
       </h2>
       {subtitle && (
-        <p
-          className="text-lg max-w-2xl leading-relaxed"
-          style={{ color: "#555", fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-body-lg max-w-2xl" style={{ color: "#555" }}>
           {subtitle}
         </p>
       )}
@@ -158,7 +151,7 @@ function HeroSection() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(22,72,200,0.18) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(26, 35, 126, 0.18) 0%, transparent 70%)",
         }}
       />
       <div className="relative z-10 px-4 max-w-4xl mx-auto">
@@ -179,12 +172,11 @@ function HeroSection() {
         </nav>
         {/* Badge */}
         <span
-          className="inline-block text-xs font-bold uppercase tracking-[0.2em] mb-5 px-4 py-1.5 rounded-full fade-in-up"
+          className="typo-section-label inline-block mb-5 px-4 py-1.5 rounded-full fade-in-up"
           style={{
             background: "rgba(255,255,255,0.15)",
             color: "rgba(255,255,255,0.9)",
             border: "1px solid rgba(255,255,255,0.25)",
-            fontFamily: "Source Sans 3, sans-serif",
             animationDelay: "0.1s",
           }}
         >
@@ -192,21 +184,14 @@ function HeroSection() {
         </span>
         {/* H1 */}
         <h1
-          className="text-5xl md:text-7xl font-bold text-white mb-5 fade-in-up"
-          style={{
-            fontFamily: "Playfair Display, serif",
-            lineHeight: 1.05,
-            animationDelay: "0.2s",
-          }}
+          className="typo-hero-heading text-white mb-5 fade-in-up"
+          style={{ animationDelay: "0.2s" }}
         >
           Research &amp; Innovation
         </h1>
         <p
-          className="text-xl text-white/80 max-w-2xl mx-auto mb-8 fade-in-up leading-relaxed"
-          style={{
-            fontFamily: "Source Sans 3, sans-serif",
-            animationDelay: "0.35s",
-          }}
+          className="typo-hero-desc text-white/80 max-w-2xl mx-auto mb-8 fade-in-up"
+          style={{ animationDelay: "0.35s" }}
         >
           Advancing Knowledge, Shaping the Future — through rigorous research,
           entrepreneurial spirit, and global collaboration since 1854.
@@ -227,11 +212,10 @@ function HeroSection() {
           ].map((item) => (
             <div
               key={item.label}
-              className="flex items-center gap-2 text-white/90 text-sm font-semibold px-3 py-2 rounded-full"
+              className="flex items-center gap-2 text-white/90 text-sm font-semibold px-3 py-2 rounded-full typo-support"
               style={{
                 background: "rgba(255,255,255,0.09)",
                 border: "1px solid rgba(255,255,255,0.15)",
-                fontFamily: "Source Sans 3, sans-serif",
               }}
             >
               <span style={{ color: "white" }}>{item.icon}</span>
@@ -245,7 +229,7 @@ function HeroSection() {
         className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, transparent, rgba(8,30,92,0.3))",
+            "linear-gradient(to bottom, transparent, rgba(8, 30, 92, 0.3))",
         }}
       />
     </div>
@@ -276,16 +260,13 @@ function StatCounter({
         animationDelay: `${delay}ms`,
       }}
     >
-      <div
-        className="text-5xl font-bold mb-1"
-        style={{ fontFamily: "Playfair Display, serif", color: COBALT }}
-      >
+      <div className="typo-stat-number mb-1" style={{ color: COBALT }}>
         {count}
         {suffix}
       </div>
       <div
-        className="text-sm font-semibold uppercase tracking-widest mt-1"
-        style={{ color: "#666", fontFamily: "Source Sans 3, sans-serif" }}
+        className="typo-stat-label uppercase tracking-widest mt-1"
+        style={{ color: "#666" }}
       >
         {label}
       </div>
@@ -369,21 +350,12 @@ function OverviewTab() {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <h3
-                className="text-3xl font-bold mb-4"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
+                className="typo-section-heading font-bold mb-4"
+                style={{ color: DEEP_BLUE }}
               >
                 A Legacy of Scientific Excellence
               </h3>
-              <p
-                className="text-base leading-relaxed mb-4"
-                style={{
-                  color: "#555",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-body mb-4" style={{ color: "#555" }}>
                 COEP Technological University, established in 1854, is among
                 India's oldest and most prestigious engineering institutions.
                 Our research culture thrives on interdisciplinary collaboration,
@@ -391,13 +363,7 @@ function OverviewTab() {
                 From fundamental sciences to cutting-edge engineering, our
                 researchers address the most pressing challenges of our time.
               </p>
-              <p
-                className="text-base leading-relaxed"
-                style={{
-                  color: "#555",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-body" style={{ color: "#555" }}>
                 Guided by our vision of "Technology for Societal
                 Transformation," COEP researchers work in close partnership with
                 government agencies, global universities, and leading industries
@@ -421,16 +387,13 @@ function OverviewTab() {
                   }}
                 >
                   <div
-                    className="text-3xl font-bold mb-1"
-                    style={{
-                      color: COBALT,
-                      fontFamily: "Playfair Display, serif",
-                    }}
+                    className="typo-stat-number mb-1"
+                    style={{ color: COBALT }}
                   >
                     {stat.value}
                   </div>
                   <div
-                    className="text-xs font-semibold uppercase tracking-wider"
+                    className="typo-stat-label uppercase tracking-wider"
                     style={{ color: "#888" }}
                   >
                     {stat.label}
@@ -443,8 +406,8 @@ function OverviewTab() {
 
         {/* Highlights grid */}
         <h3
-          className="text-3xl font-bold mb-8"
-          style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+          className="typo-section-heading font-bold mb-8"
+          style={{ color: DEEP_BLUE }}
         >
           Research Highlights
         </h3>
@@ -469,22 +432,10 @@ function OverviewTab() {
               >
                 {h.icon}
               </div>
-              <h4
-                className="text-xl font-bold mb-3"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
-              >
+              <h4 className="typo-card-title mb-3" style={{ color: DEEP_BLUE }}>
                 {h.title}
               </h4>
-              <p
-                className="text-base leading-relaxed"
-                style={{
-                  color: "#666",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-card-desc" style={{ color: "#666" }}>
                 {h.desc}
               </p>
             </div>
@@ -500,16 +451,10 @@ function OverviewTab() {
         }}
       >
         <div className="max-w-[1280px] mx-auto text-center">
-          <p
-            className="text-white/70 text-sm font-semibold uppercase tracking-widest mb-2"
-            style={{ fontFamily: "Source Sans 3, sans-serif" }}
-          >
+          <p className="typo-section-label text-white/70 mb-2">
             Major Funding Partners
           </p>
-          <h3
-            className="text-3xl font-bold text-white mb-8"
-            style={{ fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="typo-section-heading font-bold text-white mb-8">
             Supported by India's Premier Research Bodies
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
@@ -529,12 +474,11 @@ function OverviewTab() {
             ].map((agency) => (
               <span
                 key={agency}
-                className="px-5 py-2 rounded-full text-sm font-bold"
+                className="px-5 py-2 rounded-full text-sm typo-support font-bold"
                 style={{
                   background: "rgba(255,255,255,0.12)",
                   color: "rgba(255,255,255,0.9)",
                   border: "1px solid rgba(255,255,255,0.2)",
-                  fontFamily: "Source Sans 3, sans-serif",
                 }}
               >
                 {agency}
@@ -639,41 +583,22 @@ function ResearchCentersTab() {
                   {center.icon}
                 </div>
                 <span
-                  className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full"
-                  style={{
-                    background: `${COBALT}10`,
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-section-label px-2 py-1 rounded-full"
+                  style={{ background: `${COBALT}10`, color: COBALT }}
                 >
                   {center.tag}
                 </span>
               </div>
-              <h4
-                className="text-xl font-bold mb-3"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
-              >
+              <h4 className="typo-card-title mb-3" style={{ color: DEEP_BLUE }}>
                 {center.name}
               </h4>
-              <p
-                className="text-sm leading-relaxed mb-5"
-                style={{
-                  color: "#666",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-card-desc mb-5" style={{ color: "#666" }}>
                 {center.desc}
               </p>
               <button
                 type="button"
-                className="inline-flex items-center gap-1.5 text-sm font-bold transition-smooth group-hover:gap-3"
-                style={{
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-btn inline-flex items-center gap-1.5 text-sm transition-smooth group-hover:gap-3"
+                style={{ color: COBALT }}
                 data-ocid={`research.center.learn_more.${i + 1}`}
               >
                 Learn More <ArrowRight size={14} />
@@ -689,16 +614,10 @@ function ResearchCentersTab() {
         style={{ background: `${COBALT}08`, border: `1px solid ${COBALT}20` }}
       >
         <div>
-          <h4
-            className="text-2xl font-bold mb-2"
-            style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
-          >
+          <h4 className="typo-card-title mb-2" style={{ color: DEEP_BLUE }}>
             Collaborate with Our Research Centers
           </h4>
-          <p
-            className="text-base"
-            style={{ color: "#666", fontFamily: "Source Sans 3, sans-serif" }}
-          >
+          <p className="typo-body" style={{ color: "#666" }}>
             Industry partners, government bodies, and international universities
             are welcome to collaborate.
           </p>
@@ -707,12 +626,8 @@ function ResearchCentersTab() {
           href="https://www.coeptech.ac.in/research"
           target="_blank"
           rel="noreferrer"
-          className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-wider transition-smooth hover:shadow-cobalt hover:-translate-y-0.5"
-          style={{
-            background: GOLD,
-            color: MIDNIGHT,
-            fontFamily: "Source Sans 3, sans-serif",
-          }}
+          className="typo-btn flex-shrink-0 inline-flex items-center gap-2 px-8 py-3 rounded-lg uppercase tracking-wider transition-smooth hover:shadow-cobalt hover:-translate-y-0.5"
+          style={{ background: GOLD, color: MIDNIGHT }}
           data-ocid="research.centers.collaborate_button"
         >
           Get in Touch <ArrowRight size={16} />
@@ -800,26 +715,19 @@ function InnovationTab() {
               }}
             >
               <span
-                className="inline-block text-xs font-bold uppercase tracking-[0.2em] mb-4 px-3 py-1 rounded-full"
+                className="typo-section-label inline-block mb-4 px-3 py-1 rounded-full"
                 style={{
                   background: "rgba(255,255,255,0.15)",
                   color: "rgba(255,255,255,0.9)",
                   border: "1px solid rgba(255,255,255,0.25)",
-                  fontFamily: "Source Sans 3, sans-serif",
                 }}
               >
                 Flagship Innovation Cell
               </span>
-              <h2
-                className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
+              <h2 className="typo-section-heading font-bold text-white mb-5">
                 Bhau Institute of Innovation, Entrepreneurship &amp; Leadership
               </h2>
-              <p
-                className="text-white/80 text-base leading-relaxed mb-8"
-                style={{ fontFamily: "Source Sans 3, sans-serif" }}
-              >
+              <p className="typo-body text-white/80 mb-8">
                 Bhau Institute is COEP's flagship centre for innovation and
                 entrepreneurship. Named after Bhalchandra R. Bhave (Bhau), it
                 has been nurturing the entrepreneurial spirit of COEP students
@@ -830,12 +738,8 @@ function InnovationTab() {
                 href="https://www.bhauvip.com/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-wider transition-smooth hover:shadow-gold self-start"
-                style={{
-                  background: GOLD,
-                  color: MIDNIGHT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-btn inline-flex items-center gap-2 px-8 py-3 rounded-lg uppercase tracking-wider transition-smooth hover:shadow-gold self-start"
+                style={{ background: GOLD, color: MIDNIGHT }}
                 data-ocid="research.bhau.explore_button"
               >
                 Explore Bhau Institute <ExternalLink size={14} />
@@ -870,18 +774,8 @@ function InnovationTab() {
                     {h.icon}
                   </div>
                   <div>
-                    <div
-                      className="text-2xl font-bold text-white"
-                      style={{ fontFamily: "Playfair Display, serif" }}
-                    >
-                      {h.title}
-                    </div>
-                    <div
-                      className="text-white/70 text-sm"
-                      style={{ fontFamily: "Source Sans 3, sans-serif" }}
-                    >
-                      {h.sub}
-                    </div>
+                    <div className="typo-stat-number text-white">{h.title}</div>
+                    <div className="typo-stat-label text-white/70">{h.sub}</div>
                   </div>
                 </div>
               ))}
@@ -909,22 +803,10 @@ function InnovationTab() {
               >
                 {s.icon}
               </div>
-              <h4
-                className="text-xl font-bold mb-2"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
-              >
+              <h4 className="typo-card-title mb-2" style={{ color: DEEP_BLUE }}>
                 {s.title}
               </h4>
-              <p
-                className="text-sm leading-relaxed"
-                style={{
-                  color: "#666",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-card-desc" style={{ color: "#666" }}>
                 {s.desc}
               </p>
             </div>
@@ -938,19 +820,10 @@ function InnovationTab() {
           data-ocid="research.incubation.cta"
         >
           <div>
-            <h4
-              className="text-2xl font-bold mb-2"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
-            >
+            <h4 className="typo-card-title mb-2" style={{ color: DEEP_BLUE }}>
               Apply for the 2025–26 Incubation Cohort
             </h4>
-            <p
-              className="text-base"
-              style={{ color: "#666", fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-body" style={{ color: "#666" }}>
               Applications are open for the next batch of startups. Join 50+
               ventures already incubated at COEP.
             </p>
@@ -959,12 +832,8 @@ function InnovationTab() {
             href="https://www.bhauvip.com/"
             target="_blank"
             rel="noreferrer"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-wider transition-smooth hover:shadow-cobalt hover:-translate-y-0.5"
-            style={{
-              background: COBALT,
-              color: "#fff",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="typo-btn flex-shrink-0 inline-flex items-center gap-2 px-8 py-3 rounded-lg uppercase tracking-wider transition-smooth hover:shadow-cobalt hover:-translate-y-0.5"
+            style={{ background: COBALT, color: "#fff" }}
             data-ocid="research.incubation.apply_button"
           >
             Apply Now <ArrowRight size={16} />
@@ -1075,15 +944,12 @@ function PublicationsTab() {
             className="rounded-2xl p-5 text-center border-2 transition-smooth hover:shadow-premium hover:-translate-y-0.5"
             style={{ borderColor: `${COBALT}25`, background: "#fff" }}
           >
-            <div
-              className="text-3xl font-bold mb-1"
-              style={{ color: COBALT, fontFamily: "Playfair Display, serif" }}
-            >
+            <div className="typo-stat-number mb-1" style={{ color: COBALT }}>
               {s.value}
             </div>
             <div
-              className="text-xs font-semibold uppercase tracking-wider mt-1"
-              style={{ color: "#777", fontFamily: "Source Sans 3, sans-serif" }}
+              className="typo-stat-label uppercase tracking-wider mt-1"
+              style={{ color: "#777" }}
             >
               {s.label}
             </div>
@@ -1101,12 +967,11 @@ function PublicationsTab() {
             type="button"
             key={d}
             onClick={() => setActiveDept(d)}
-            className="px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200"
+            className="typo-btn px-4 py-1.5 rounded-full text-sm transition-all duration-200"
             style={{
               background: activeDept === d ? COBALT : `${COBALT}10`,
               color: activeDept === d ? "#fff" : COBALT,
               border: `1px solid ${activeDept === d ? COBALT : `${COBALT}25`}`,
-              fontFamily: "Source Sans 3, sans-serif",
             }}
             data-ocid={`research.publications.dept_filter.${d.toLowerCase().replace(/[\s&]+/g, "-")}`}
           >
@@ -1133,51 +998,31 @@ function PublicationsTab() {
             <div className="flex items-start justify-between gap-5">
               <div className="flex-1 min-w-0">
                 <span
-                  className="inline-block text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mb-3"
-                  style={{
-                    background: `${COBALT}12`,
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-section-label inline-block px-2 py-0.5 rounded-full mb-3"
+                  style={{ background: `${COBALT}12`, color: COBALT }}
                 >
                   {pub.dept}
                 </span>
                 <h3
-                  className="text-xl font-bold mb-2 leading-snug group-hover:text-cobalt transition-colors"
-                  style={{
-                    fontFamily: "Playfair Display, serif",
-                    color: DEEP_BLUE,
-                  }}
+                  className="typo-card-title mb-2 group-hover:text-cobalt transition-colors"
+                  style={{ color: DEEP_BLUE }}
                 >
                   {pub.title}
                 </h3>
-                <p
-                  className="text-sm mb-1.5"
-                  style={{
-                    color: "#777",
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
-                >
+                <p className="typo-support mb-1.5" style={{ color: "#777" }}>
                   {pub.authors}
                 </p>
                 <p
-                  className="text-sm font-semibold italic"
-                  style={{
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-support font-semibold italic"
+                  style={{ color: COBALT }}
                 >
                   {pub.journal} · {pub.year}
                 </p>
               </div>
               <div className="flex flex-col items-end gap-3 flex-shrink-0">
                 <span
-                  className="text-xs font-bold px-2.5 py-1 rounded-lg"
-                  style={{
-                    background: "#e8f0fe",
-                    color: DEEP_BLUE,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-support font-bold px-2.5 py-1 rounded-lg"
+                  style={{ background: "#e8f0fe", color: DEEP_BLUE }}
                 >
                   IF {pub.impactFactor}
                 </span>
@@ -1185,11 +1030,8 @@ function PublicationsTab() {
                   href={`https://doi.org/${pub.doi}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold transition-smooth hover:underline"
-                  style={{
-                    color: COBALT,
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-support inline-flex items-center gap-1.5 transition-smooth hover:underline"
+                  style={{ color: COBALT }}
                   data-ocid={`research.publication.doi.${i + 1}`}
                 >
                   Read Paper <ExternalLink size={11} />
@@ -1205,12 +1047,8 @@ function PublicationsTab() {
           href="https://www.coeptech.ac.in/research/publications"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 px-10 py-4 rounded-lg font-bold text-sm uppercase tracking-wider transition-smooth hover:shadow-cobalt hover:-translate-y-0.5"
-          style={{
-            background: GOLD,
-            color: MIDNIGHT,
-            fontFamily: "Source Sans 3, sans-serif",
-          }}
+          className="typo-btn inline-flex items-center gap-2 px-10 py-4 rounded-lg uppercase tracking-wider transition-smooth hover:shadow-cobalt hover:-translate-y-0.5"
+          style={{ background: GOLD, color: MIDNIGHT }}
           data-ocid="research.publications.view_all_button"
         >
           View All Publications <ChevronRight size={16} />
@@ -1297,15 +1135,12 @@ function PatentsTab() {
             className="rounded-2xl p-6 text-center border-2 transition-smooth hover:shadow-premium"
             style={{ borderColor: `${COBALT}25`, background: "#fff" }}
           >
-            <div
-              className="text-4xl font-bold mb-1"
-              style={{ color: COBALT, fontFamily: "Playfair Display, serif" }}
-            >
+            <div className="typo-stat-number mb-1" style={{ color: COBALT }}>
               {s.value}
             </div>
             <div
-              className="text-xs font-semibold uppercase tracking-wider mt-1"
-              style={{ color: "#777", fontFamily: "Source Sans 3, sans-serif" }}
+              className="typo-stat-label uppercase tracking-wider mt-1"
+              style={{ color: "#777" }}
             >
               {s.label}
             </div>
@@ -1336,19 +1171,10 @@ function PatentsTab() {
                 {p.status}
               </span>
             </div>
-            <h4
-              className="text-lg font-bold mb-2 leading-snug"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
-            >
+            <h4 className="typo-card-title mb-2" style={{ color: DEEP_BLUE }}>
               {p.title}
             </h4>
-            <p
-              className="text-sm mb-3"
-              style={{ color: "#777", fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-support mb-3" style={{ color: "#777" }}>
               {p.inventors}
             </p>
             <div
@@ -1373,15 +1199,12 @@ function PatentsTab() {
         }}
       >
         <h3
-          className="text-2xl font-bold mb-4"
-          style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+          className="typo-section-heading font-bold mb-4"
+          style={{ color: DEEP_BLUE }}
         >
           Institutional IP Policy
         </h3>
-        <p
-          className="mb-6 leading-relaxed text-base"
-          style={{ color: "#555", fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-body mb-6" style={{ color: "#555" }}>
           COEP Tech's IP Policy encourages innovation by providing clear
           guidelines on ownership, revenue sharing, and commercialization of
           intellectual property created at the institution.
@@ -1402,13 +1225,7 @@ function PatentsTab() {
                 size={16}
                 style={{ color: COBALT, flexShrink: 0, marginTop: 3 }}
               />
-              <span
-                className="text-sm"
-                style={{
-                  color: "#555",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <span className="typo-body text-sm" style={{ color: "#555" }}>
                 {item}
               </span>
             </div>
@@ -1418,12 +1235,8 @@ function PatentsTab() {
           href="https://www.coeptech.ac.in/research/ipr"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-bold text-sm uppercase tracking-wider transition-smooth hover:shadow-cobalt"
-          style={{
-            background: COBALT,
-            color: "#fff",
-            fontFamily: "Source Sans 3, sans-serif",
-          }}
+          className="typo-btn inline-flex items-center gap-2 px-7 py-3 rounded-lg uppercase tracking-wider transition-smooth hover:shadow-cobalt"
+          style={{ background: COBALT, color: "#fff" }}
           data-ocid="research.patents.ip_policy_button"
         >
           File a Patent <ShieldCheck size={15} />
@@ -1525,8 +1338,8 @@ function CollaborationsTab() {
           data-ocid="research.collabs.logos_grid"
         >
           <h4
-            className="text-center text-sm font-bold uppercase tracking-widest mb-8"
-            style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
+            className="typo-section-label text-center mb-8"
+            style={{ color: COBALT }}
           >
             Our Research Partners
           </h4>
@@ -1534,12 +1347,11 @@ function CollaborationsTab() {
             {COLLAB_LOGOS.map((name, i) => (
               <div
                 key={name}
-                className="px-5 py-3 rounded-xl font-bold text-sm border-2 transition-smooth hover:shadow-cobalt hover:border-cobalt hover:-translate-y-0.5 cursor-default"
+                className="typo-card-title px-5 py-3 rounded-xl border-2 transition-smooth hover:shadow-cobalt hover:border-cobalt hover:-translate-y-0.5 cursor-default text-sm"
                 style={{
                   background: "#fff",
                   borderColor: `${COBALT}20`,
                   color: DEEP_BLUE,
-                  fontFamily: "Source Sans 3, sans-serif",
                   opacity: logosVisible ? 1 : 0,
                   transition: `opacity 0.5s ease ${i * 50}ms, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease`,
                 }}
@@ -1554,8 +1366,8 @@ function CollaborationsTab() {
               href="https://www.coeptech.ac.in/research/collaborations"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-bold transition-smooth hover:underline"
-              style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
+              className="typo-btn inline-flex items-center gap-1.5 text-sm transition-smooth hover:underline"
+              style={{ color: COBALT }}
               data-ocid="research.collabs.view_all_link"
             >
               View All Partners <ExternalLink size={13} />
@@ -1566,7 +1378,7 @@ function CollaborationsTab() {
         {/* Industry collaborations */}
         <h3
           className="text-3xl font-bold mb-7 flex items-center gap-3"
-          style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+          style={{ fontFamily: "var(--font-heading)", color: DEEP_BLUE }}
         >
           <span
             className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -1590,31 +1402,15 @@ function CollaborationsTab() {
               >
                 <Handshake size={20} />
               </div>
-              <h4
-                className="font-bold text-xl mb-1"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
-              >
+              <h4 className="typo-card-title mb-1" style={{ color: DEEP_BLUE }}>
                 {c.name}
               </h4>
-              <p
-                className="text-sm mb-3"
-                style={{
-                  color: "#666",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-card-desc mb-3" style={{ color: "#666" }}>
                 {c.area}
               </p>
               <span
-                className="text-xs font-bold px-2.5 py-1 rounded-full"
-                style={{
-                  background: "#e8f0fe",
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-section-label px-2.5 py-1 rounded-full"
+                style={{ background: "#e8f0fe", color: COBALT }}
               >
                 {c.type} · {c.country}
               </span>
@@ -1625,7 +1421,7 @@ function CollaborationsTab() {
         {/* International partners */}
         <h3
           className="text-3xl font-bold mb-7 flex items-center gap-3"
-          style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+          style={{ fontFamily: "var(--font-heading)", color: DEEP_BLUE }}
         >
           <span
             className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -1649,31 +1445,15 @@ function CollaborationsTab() {
               >
                 <Globe size={20} />
               </div>
-              <h4
-                className="font-bold text-xl mb-1"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DEEP_BLUE,
-                }}
-              >
+              <h4 className="typo-card-title mb-1" style={{ color: DEEP_BLUE }}>
                 {c.name}
               </h4>
-              <p
-                className="text-sm mb-3"
-                style={{
-                  color: "#666",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-card-desc mb-3" style={{ color: "#666" }}>
                 {c.area}
               </p>
               <span
-                className="text-xs font-bold px-2.5 py-1 rounded-full"
-                style={{
-                  background: "#e8f5e9",
-                  color: "#2e7d32",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-section-label px-2.5 py-1 rounded-full"
+                style={{ background: "#e8f5e9", color: "#2e7d32" }}
               >
                 🌍 {c.country}
               </span>
@@ -1690,28 +1470,18 @@ function CollaborationsTab() {
         }}
       >
         <div className="max-w-[800px] mx-auto text-center">
-          <h3
-            className="text-3xl font-bold text-white mb-4"
-            style={{ fontFamily: "Playfair Display, serif" }}
-          >
+          <h3 className="typo-section-heading font-bold text-white mb-4">
             Partner With COEP Research
           </h3>
-          <p
-            className="text-white/80 text-lg mb-8 leading-relaxed"
-            style={{ fontFamily: "Source Sans 3, sans-serif" }}
-          >
+          <p className="typo-body-lg text-white/80 mb-8">
             We welcome collaborations from industry, government agencies, and
             international institutions. Let's create research that transforms
             society.
           </p>
           <a
             href="mailto:research@coeptech.ac.in"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-lg font-bold text-sm uppercase tracking-wider transition-smooth hover:shadow-gold hover:-translate-y-0.5"
-            style={{
-              background: GOLD,
-              color: MIDNIGHT,
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="typo-btn inline-flex items-center gap-2 px-10 py-4 rounded-lg uppercase tracking-wider transition-smooth hover:shadow-gold hover:-translate-y-0.5"
+            style={{ background: GOLD, color: MIDNIGHT }}
             data-ocid="research.collabs.contact_button"
           >
             Collaborate With Us <ArrowRight size={16} />

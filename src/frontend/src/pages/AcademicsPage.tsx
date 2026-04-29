@@ -14,8 +14,8 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const COBALT = "#1648C8";
-const DEEP_BLUE = "#0F3499";
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
 const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 // COBALT_MUTED used for subtle accent text
@@ -32,10 +32,10 @@ const TABS = [
 // ─── Data ──────────────────────────────────────────────────────────────────────
 
 const STATS = [
-  { value: 10, suffix: "+", label: "Departments" },
-  { value: 90, suffix: "", label: "NIRF Rank (Engg)" },
-  { value: 4500, suffix: "+", label: "Students" },
-  { value: 170, suffix: "+", label: "Years of Excellence" },
+  { value: 14, suffix: "", label: "Departments" },
+  { value: 500, suffix: "+", label: "Research Publications" },
+  { value: 5000, suffix: "+", label: "Students" },
+  { value: 172, suffix: "", label: "Years of Excellence" },
 ];
 
 const ENGINEERING_DEPTS = [
@@ -304,17 +304,11 @@ function AnimatedCounter({
       }}
       data-ocid={`academics.stat_counter.${index + 1}`}
     >
-      <div
-        className="text-4xl md:text-5xl font-bold mb-2"
-        style={{ fontFamily: "Playfair Display, serif", color: "white" }}
-      >
+      <div className="typo-stat-number mb-2" style={{ color: "white" }}>
         {count.toLocaleString()}
         {suffix}
       </div>
-      <div
-        className="text-sm font-semibold uppercase tracking-wider text-white/70"
-        style={{ fontFamily: "Source Sans 3, sans-serif" }}
-      >
+      <div className="typo-stat-label font-semibold uppercase tracking-wider text-white/70">
         {label}
       </div>
     </motion.div>
@@ -341,7 +335,7 @@ function DeptCard({
       style={{
         backgroundColor: "#fff",
         borderLeft: `4px solid ${COBALT}`,
-        boxShadow: "0 1px 4px rgba(22,72,200,0.07)",
+        boxShadow: "0 1px 4px rgba(26, 35, 126, 0.07)",
       }}
       data-ocid={`academics.dept_card.${index + 1}`}
     >
@@ -350,11 +344,8 @@ function DeptCard({
         style={{ color: COBALT }}
       />
       <span
-        className="text-sm font-semibold"
-        style={{
-          fontFamily: "Source Sans 3, sans-serif",
-          color: DEEP_BLUE,
-        }}
+        className="typo-card-desc font-semibold"
+        style={{ color: DEEP_BLUE }}
       >
         {name}
       </span>
@@ -396,31 +387,16 @@ function ProgramCard({
         >
           <Icon className="w-7 h-7" style={{ color: prog.color }} />
         </div>
-        <h3
-          className="text-2xl font-bold mb-1"
-          style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
-        >
+        <h3 className="typo-section-heading mb-1" style={{ color: DEEP_BLUE }}>
           {prog.title}
         </h3>
-        <p
-          className="text-xs font-bold uppercase tracking-widest mb-1"
-          style={{ color: prog.color, fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-section-label mb-1" style={{ color: prog.color }}>
           {prog.tagline}
         </p>
-        <p
-          className="text-sm mb-4"
-          style={{
-            color: COBALT,
-            fontFamily: "Source Sans 3, sans-serif",
-          }}
-        >
+        <p className="typo-body mb-4" style={{ color: COBALT }}>
           {prog.detail}
         </p>
-        <p
-          className="text-sm leading-relaxed flex-1"
-          style={{ color: "#4b5563", fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-card-desc flex-1" style={{ color: "#4b5563" }}>
           {prog.description}
         </p>
         <a
@@ -469,7 +445,7 @@ function AchievementBadge({
       <span
         className="inline-block text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full mb-4"
         style={{
-          backgroundColor: "rgba(22,72,200,0.1)",
+          backgroundColor: "rgba(26, 35, 126, 0.1)",
           color: DEEP_BLUE,
           fontFamily: "Source Sans 3, sans-serif",
         }}
@@ -489,10 +465,7 @@ function AchievementBadge({
       </div>
 
       {/* Big number */}
-      <div
-        className="text-4xl font-bold mb-1"
-        style={{ fontFamily: "Playfair Display, serif", color: item.color }}
-      >
+      <div className="typo-stat-number mb-1" style={{ color: item.color }}>
         {item.highlight}
       </div>
       <div
@@ -501,16 +474,10 @@ function AchievementBadge({
       >
         {item.subtitle}
       </div>
-      <h3
-        className="text-base font-bold mb-2"
-        style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
-      >
+      <h3 className="typo-card-title mb-2" style={{ color: DEEP_BLUE }}>
         {item.title}
       </h3>
-      <p
-        className="text-xs leading-relaxed"
-        style={{ color: "#6b7280", fontFamily: "Source Sans 3, sans-serif" }}
-      >
+      <p className="typo-card-desc" style={{ color: "#6b7280" }}>
         {item.detail}
       </p>
     </motion.div>
@@ -535,8 +502,8 @@ function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4 }}
-        className="inline-block text-xs font-bold uppercase tracking-[0.22em] mb-3"
-        style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
+        className="inline-block typo-section-label mb-3"
+        style={{ color: COBALT }}
       >
         {eyebrow}
       </motion.span>
@@ -545,8 +512,8 @@ function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.08 }}
-        className="text-3xl md:text-4xl font-bold mb-4"
-        style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+        className="typo-section-heading mb-4"
+        style={{ color: DEEP_BLUE }}
       >
         {title}
       </motion.h2>
@@ -556,8 +523,8 @@ function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45, delay: 0.16 }}
-          className="max-w-2xl mx-auto text-base"
-          style={{ color: "#6b7280", fontFamily: "Source Sans 3, sans-serif" }}
+          className="typo-body max-w-2xl mx-auto"
+          style={{ color: "#6b7280" }}
         >
           {subtitle}
         </motion.p>
@@ -656,8 +623,7 @@ export default function AcademicsPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight"
-            style={{ fontFamily: "Playfair Display, serif" }}
+            className="typo-hero-heading text-white mb-4"
           >
             Academic Excellence
           </motion.h1>
@@ -666,8 +632,7 @@ export default function AcademicsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto"
-            style={{ fontFamily: "Source Sans 3, sans-serif" }}
+            className="typo-hero-desc text-white/80 max-w-2xl mx-auto"
           >
             Shaping Engineers, Innovators &amp; Leaders Since 1854
           </motion.p>
@@ -725,11 +690,8 @@ export default function AcademicsPage() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
-                    className="inline-block text-xs font-bold uppercase tracking-[0.22em] mb-4"
-                    style={{
-                      color: COBALT,
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
+                    className="inline-block typo-section-label mb-4"
+                    style={{ color: COBALT }}
                   >
                     COEP Technological University, Pune
                   </motion.span>
@@ -738,11 +700,8 @@ export default function AcademicsPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.55 }}
-                    className="text-3xl md:text-4xl font-bold mb-6"
-                    style={{
-                      fontFamily: "Playfair Display, serif",
-                      color: DEEP_BLUE,
-                    }}
+                    className="typo-section-heading mb-6"
+                    style={{ color: DEEP_BLUE }}
                   >
                     A Legacy of Academic Leadership
                   </motion.h2>
@@ -751,11 +710,8 @@ export default function AcademicsPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-base md:text-lg leading-relaxed mb-4"
-                    style={{
-                      color: "#374151",
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
+                    className="typo-body-lg mb-4"
+                    style={{ color: "#374151" }}
                   >
                     COEP Technological University stands as one of India's most
                     storied engineering institutions, offering a transformative
@@ -771,11 +727,8 @@ export default function AcademicsPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.18 }}
-                    className="text-base leading-relaxed mb-8"
-                    style={{
-                      color: "#6b7280",
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
+                    className="typo-body mb-8"
+                    style={{ color: "#6b7280" }}
                   >
                     Our faculty are internationally accomplished researchers.
                     Our laboratories are equipped with state-of-the-art
@@ -823,7 +776,7 @@ export default function AcademicsPage() {
                       style={{
                         background: "#fff",
                         border: `1.5px solid ${COBALT}22`,
-                        boxShadow: "0 4px 24px rgba(22,72,200,0.09)",
+                        boxShadow: "0 4px 24px rgba(26, 35, 126, 0.09)",
                       }}
                       data-ocid="academics.school_card.1"
                     >
@@ -843,10 +796,7 @@ export default function AcademicsPage() {
                         >
                           <BookOpen className="w-7 h-7 text-white" />
                         </div>
-                        <h3
-                          className="text-2xl font-bold text-white leading-tight"
-                          style={{ fontFamily: "Playfair Display, serif" }}
-                        >
+                        <h3 className="typo-card-title text-white leading-tight">
                           School of Engineering
                         </h3>
                         <div className="flex flex-wrap gap-2 mt-3">
@@ -911,7 +861,7 @@ export default function AcademicsPage() {
                       style={{
                         background: "#fff",
                         border: `1.5px solid ${DEEP_BLUE}22`,
-                        boxShadow: "0 4px 24px rgba(15,52,153,0.09)",
+                        boxShadow: "0 4px 24px rgba(26,35,126,0.09)",
                       }}
                       data-ocid="academics.school_card.2"
                     >
@@ -919,7 +869,7 @@ export default function AcademicsPage() {
                       <div
                         className="px-8 pt-8 pb-6"
                         style={{
-                          background: `linear-gradient(135deg, ${DEEP_BLUE} 0%, #2a56d4 100%)`,
+                          background: `linear-gradient(135deg, ${DEEP_BLUE} 0%, #283593 100%)`,
                         }}
                       >
                         <div
@@ -931,10 +881,7 @@ export default function AcademicsPage() {
                         >
                           <Star className="w-7 h-7 text-white" />
                         </div>
-                        <h3
-                          className="text-2xl font-bold text-white leading-tight"
-                          style={{ fontFamily: "Playfair Display, serif" }}
-                        >
+                        <h3 className="typo-card-title text-white leading-tight">
                           School of Multidisciplinary Sciences, Humanities &amp;
                           Management Studies
                         </h3>
@@ -1060,20 +1007,14 @@ export default function AcademicsPage() {
                           </div>
                           <div>
                             <div
-                              className="font-bold text-sm mb-0.5"
-                              style={{
-                                color: DEEP_BLUE,
-                                fontFamily: "Playfair Display, serif",
-                              }}
+                              className="typo-support font-bold mb-0.5"
+                              style={{ color: DEEP_BLUE }}
                             >
                               {item.label}
                             </div>
                             <div
-                              className="text-xs"
-                              style={{
-                                color: "#9ca3af",
-                                fontFamily: "Source Sans 3, sans-serif",
-                              }}
+                              className="typo-stat-label"
+                              style={{ color: "#9ca3af" }}
                             >
                               {item.desc}
                             </div>
@@ -1129,16 +1070,10 @@ export default function AcademicsPage() {
                       <BookOpen className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h2
-                        className="text-xl font-bold text-white"
-                        style={{ fontFamily: "Playfair Display, serif" }}
-                      >
+                      <h2 className="typo-card-title text-white">
                         School of Engineering
                       </h2>
-                      <p
-                        className="text-sm text-white/70"
-                        style={{ fontFamily: "Source Sans 3, sans-serif" }}
-                      >
+                      <p className="typo-card-desc text-white/70">
                         10 Departments &bull; B.Tech, M.Tech & PhD programmes
                       </p>
                     </div>
@@ -1146,11 +1081,8 @@ export default function AcademicsPage() {
                   </Link>
                   <div className="p-8" style={{ backgroundColor: "#fff" }}>
                     <p
-                      className="text-sm leading-relaxed mb-6 max-w-3xl"
-                      style={{
-                        color: "#4b5563",
-                        fontFamily: "Source Sans 3, sans-serif",
-                      }}
+                      className="typo-body mb-6 max-w-3xl"
+                      style={{ color: "#4b5563" }}
                     >
                       The School of Engineering houses COEP's flagship
                       undergraduate and postgraduate engineering programmes.
@@ -1180,7 +1112,7 @@ export default function AcademicsPage() {
                     to="/academics/schools/school-of-multidisciplinary-sciences"
                     className="block px-8 py-6 flex items-center gap-4 group transition-opacity hover:opacity-90"
                     style={{
-                      background: `linear-gradient(120deg, ${DEEP_BLUE}, #2a56d4)`,
+                      background: `linear-gradient(120deg, ${DEEP_BLUE}, #283593)`,
                     }}
                     data-ocid="academics.schools.multidisciplinary_link"
                   >
@@ -1191,17 +1123,11 @@ export default function AcademicsPage() {
                       <Star className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h2
-                        className="text-xl font-bold text-white"
-                        style={{ fontFamily: "Playfair Display, serif" }}
-                      >
+                      <h2 className="typo-card-title text-white">
                         School of Multidisciplinary Sciences, Humanities &amp;
                         Management Studies
                       </h2>
-                      <p
-                        className="text-sm text-white/70"
-                        style={{ fontFamily: "Source Sans 3, sans-serif" }}
-                      >
+                      <p className="typo-card-desc text-white/70">
                         6 Departments &bull; MBA, M.Sc & PhD programmes
                       </p>
                     </div>
@@ -1243,24 +1169,15 @@ export default function AcademicsPage() {
                 >
                   <div>
                     <p
-                      className="text-xs font-bold uppercase tracking-widest mb-2 opacity-70"
-                      style={{
-                        color: "rgba(255,255,255,0.75)",
-                        fontFamily: "Source Sans 3, sans-serif",
-                      }}
+                      className="typo-section-label mb-2 opacity-70"
+                      style={{ color: "rgba(255,255,255,0.75)" }}
                     >
                       Explore Further
                     </p>
-                    <h3
-                      className="text-2xl font-bold text-white mb-1"
-                      style={{ fontFamily: "Playfair Display, serif" }}
-                    >
+                    <h3 className="typo-card-title text-white mb-1">
                       Visit COEP's Official Academic Portal
                     </h3>
-                    <p
-                      className="text-sm text-white/70"
-                      style={{ fontFamily: "Source Sans 3, sans-serif" }}
-                    >
+                    <p className="typo-body text-white/70">
                       Detailed programme information, curriculum, and faculty
                       listings.
                     </p>
@@ -1273,7 +1190,6 @@ export default function AcademicsPage() {
                     style={{
                       backgroundColor: GOLD,
                       color: MIDNIGHT,
-                      fontFamily: "Source Sans 3, sans-serif",
                     }}
                     data-ocid="academics.schools_cta_button"
                   >
@@ -1324,7 +1240,7 @@ export default function AcademicsPage() {
                   >
                     <h3
                       className="text-lg font-bold text-white"
-                      style={{ fontFamily: "Playfair Display, serif" }}
+                      style={{ fontFamily: "var(--font-heading)" }}
                     >
                       Programme Comparison
                     </h3>
@@ -1483,7 +1399,7 @@ export default function AcademicsPage() {
                           </div>
                           <div
                             className="text-base font-bold text-white"
-                            style={{ fontFamily: "Playfair Display, serif" }}
+                            style={{ fontFamily: "var(--font-heading)" }}
                           >
                             {block.title}
                           </div>
@@ -1537,7 +1453,7 @@ export default function AcademicsPage() {
                     </p>
                     <h3
                       className="text-xl font-bold text-white mb-1"
-                      style={{ fontFamily: "Playfair Display, serif" }}
+                      style={{ fontFamily: "var(--font-heading)" }}
                     >
                       Download Full Curriculum PDF
                     </h3>
@@ -1620,7 +1536,7 @@ export default function AcademicsPage() {
                     </p>
                     <h2
                       className="text-3xl md:text-4xl font-bold text-white mb-4"
-                      style={{ fontFamily: "Playfair Display, serif" }}
+                      style={{ fontFamily: "var(--font-heading)" }}
                     >
                       One of India's Most Decorated Engineering Institutions
                     </h2>
@@ -1713,7 +1629,7 @@ export default function AcademicsPage() {
                         </span>
                         <span
                           className="text-2xl font-bold leading-none"
-                          style={{ fontFamily: "Playfair Display, serif" }}
+                          style={{ fontFamily: "var(--font-heading)" }}
                         >
                           {ev.day}
                         </span>
@@ -1725,7 +1641,7 @@ export default function AcademicsPage() {
                           <h3
                             className="text-base font-bold"
                             style={{
-                              fontFamily: "Playfair Display, serif",
+                              fontFamily: "var(--font-heading)",
                               color: DEEP_BLUE,
                             }}
                           >
@@ -1789,7 +1705,7 @@ export default function AcademicsPage() {
                     </p>
                     <h3
                       className="text-xl font-bold text-white mb-1"
-                      style={{ fontFamily: "Playfair Display, serif" }}
+                      style={{ fontFamily: "var(--font-heading)" }}
                     >
                       View Full Academic Calendar
                     </h3>

@@ -63,7 +63,7 @@ export function FacultyPage() {
         className="relative overflow-hidden"
         style={{
           background:
-            "linear-gradient(135deg, #1F1B47 0%, #332C6F 55%, #4A3FA0 100%)",
+            "linear-gradient(135deg, #0F3399 0%, #1A237E 55%, #283593 100%)",
           minHeight: "340px",
         }}
       >
@@ -71,7 +71,7 @@ export function FacultyPage() {
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <motion.div
             className="absolute -top-24 -right-24 w-96 h-96 rounded-full"
-            style={{ background: "rgba(245,166,35,0.07)" }}
+            style={{ background: "rgba(232,196,42,0.07)" }}
             animate={{ scale: [1, 1.12, 1], rotate: [0, 15, 0] }}
             transition={{
               duration: 10,
@@ -148,13 +148,13 @@ export function FacultyPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.15 }}
               className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 border border-white/20"
-              style={{ background: "rgba(245,166,35,0.18)" }}
+              style={{ background: "rgba(232,196,42,0.18)" }}
             >
-              <Users className="w-8 h-8" style={{ color: "#F5A623" }} />
+              <Users className="w-8 h-8" style={{ color: "#E8C42A" }} />
             </motion.div>
             <div>
               <motion.p
-                className="text-white/50 text-xs font-body font-semibold uppercase tracking-[0.2em] mb-2"
+                className="typo-section-label text-white/50 mb-2"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -162,15 +162,15 @@ export function FacultyPage() {
                 DMS · COEP Technological University
               </motion.p>
               <motion.h1
-                className="font-heading text-4xl md:text-6xl font-bold text-white leading-tight"
+                className="typo-hero-heading text-white leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.25 }}
               >
-                Our <span style={{ color: "#F5A623" }}>Faculty</span>
+                Our <span style={{ color: "#E8C42A" }}>Faculty</span>
               </motion.h1>
               <motion.p
-                className="font-body text-white/65 text-base md:text-lg mt-2 max-w-xl"
+                className="typo-hero-desc text-white/65 mt-2 max-w-xl"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.35 }}
@@ -196,13 +196,10 @@ export function FacultyPage() {
                   <stat.icon className="w-4 h-4 text-white/70" />
                 </div>
                 <div>
-                  <p
-                    className="font-heading text-2xl md:text-3xl font-bold"
-                    style={{ color: "#F5A623" }}
-                  >
+                  <p className="typo-stat-number" style={{ color: "#E8C42A" }}>
                     {stat.value}
                   </p>
-                  <p className="font-body text-[11px] text-white/50 leading-tight">
+                  <p className="typo-stat-label text-white/50 leading-tight">
                     {stat.label}
                   </p>
                 </div>
@@ -238,7 +235,7 @@ export function FacultyPage() {
           <div className="relative flex-1 max-w-sm w-full">
             <Search
               className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none"
-              style={{ color: "#332C6F" }}
+              style={{ color: "#1A237E" }}
             />
             <Input
               type="text"
@@ -247,7 +244,7 @@ export function FacultyPage() {
               onChange={(e) => setSearch(e.target.value)}
               className="pl-9 h-9 font-body text-sm border-2 focus-visible:ring-0"
               style={{
-                borderColor: search ? "#332C6F" : "#e2e8f0",
+                borderColor: search ? "#1A237E" : "#e2e8f0",
                 transition: "border-color 0.2s ease",
               }}
               data-ocid="faculty.search_input"
@@ -263,9 +260,9 @@ export function FacultyPage() {
                 onClick={() => setActiveSpec(spec)}
                 className="font-body text-xs font-semibold px-3 py-1.5 rounded-full border transition-all"
                 style={{
-                  background: activeSpec === spec ? "#332C6F" : "transparent",
-                  color: activeSpec === spec ? "#fff" : "#332C6F",
-                  borderColor: "#332C6F",
+                  background: activeSpec === spec ? "#1A237E" : "transparent",
+                  color: activeSpec === spec ? "#fff" : "#1A237E",
+                  borderColor: "#1A237E",
                 }}
                 whileTap={{ scale: 0.95 }}
                 data-ocid={`faculty.filter.${spec.toLowerCase()}`}
@@ -279,7 +276,7 @@ export function FacultyPage() {
             className="font-body text-xs hidden sm:block ml-auto"
             style={{ color: "#6b7280" }}
           >
-            <span style={{ color: "#332C6F", fontWeight: 700 }}>
+            <span style={{ color: "#1A237E", fontWeight: 700 }}>
               {filtered.length}
             </span>{" "}
             of {FACULTY_DATA.length} faculty
@@ -329,27 +326,24 @@ export function FacultyPage() {
               >
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center mb-5"
-                  style={{ background: "rgba(51,44,111,0.08)" }}
+                  style={{ background: "rgba(26,35,126,0.08)" }}
                 >
-                  <Users className="w-9 h-9" style={{ color: "#332C6F" }} />
+                  <Users className="w-9 h-9" style={{ color: "#1A237E" }} />
                 </div>
                 <h3
-                  className="font-heading text-xl font-semibold mb-2"
-                  style={{ color: "#1F1B47" }}
+                  className="typo-card-title font-semibold mb-2"
+                  style={{ color: "#0F3399" }}
                 >
                   No faculty found
                 </h3>
-                <p
-                  className="font-body text-sm mb-5"
-                  style={{ color: "#6b7280" }}
-                >
+                <p className="typo-body mb-5" style={{ color: "#6b7280" }}>
                   Try adjusting your search or filter to find what you're
                   looking for.
                 </p>
                 <button
                   type="button"
-                  className="font-body text-sm font-semibold hover:underline"
-                  style={{ color: "#332C6F" }}
+                  className="typo-btn hover:underline"
+                  style={{ color: "#1A237E" }}
                   onClick={() => {
                     setSearch("");
                     setActiveSpec("All");
@@ -367,7 +361,7 @@ export function FacultyPage() {
       <motion.section
         className="py-12 md:py-16"
         style={{
-          background: "linear-gradient(135deg, #1F1B47 0%, #332C6F 100%)",
+          background: "linear-gradient(135deg, #0F3399 0%, #1A237E 100%)",
         }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -376,17 +370,17 @@ export function FacultyPage() {
       >
         <div className="container px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-2">
+            <h2 className="typo-section-heading text-white mb-2">
               Interested in our MBA Programme?
             </h2>
-            <p className="font-body text-white/60 text-sm md:text-base">
+            <p className="typo-body text-white/60">
               Learn about admissions, curriculum, and placements at COEP DMS.
             </p>
           </div>
           <Link
             to={DMS_ROUTE}
             className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-body font-bold text-sm transition-all hover:scale-105 hover:brightness-110 shrink-0"
-            style={{ background: "#F5A623", color: "#1F1B47" }}
+            style={{ background: "#E8C42A", color: "#0F3399" }}
           >
             Explore DMS
             <ArrowRight className="w-4 h-4" />
@@ -416,7 +410,7 @@ function FacultyGridCard({ faculty, index }: CardProps) {
       className="relative bg-white rounded-2xl overflow-hidden flex flex-col cursor-pointer"
       style={{
         boxShadow: hovered
-          ? "0 20px 48px rgba(51,44,111,0.18), 0 4px 12px rgba(0,0,0,0.08)"
+          ? "0 20px 48px rgba(26,35,126,0.18), 0 4px 12px rgba(0,0,0,0.08)"
           : "0 4px 20px rgba(0,0,0,0.07)",
         transition: "box-shadow 0.35s ease",
       }}
@@ -435,7 +429,7 @@ function FacultyGridCard({ faculty, index }: CardProps) {
       {/* Gold top border — reveals on hover */}
       <motion.div
         className="absolute top-0 left-0 right-0 h-[3px] z-10"
-        style={{ background: "linear-gradient(to right, #F5A623, #f5d94d)" }}
+        style={{ background: "linear-gradient(to right, #E8C42A, #f5d94d)" }}
         initial={{ scaleX: 0, originX: 0 }}
         animate={{ scaleX: hovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
@@ -452,7 +446,7 @@ function FacultyGridCard({ faculty, index }: CardProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
           onError={(e) => {
             const target = e.currentTarget;
-            target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(faculty.name)}&background=332C6F&color=fff&size=300&bold=true`;
+            target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(faculty.name)}&background=1A237E&color=fff&size=300&bold=true`;
           }}
         />
         {/* Gradient overlay */}
@@ -460,7 +454,7 @@ function FacultyGridCard({ faculty, index }: CardProps) {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(31,27,71,0.7) 0%, rgba(31,27,71,0.1) 50%, transparent 100%)",
+              "linear-gradient(to top, rgba(15,51,153,0.7) 0%, rgba(15,51,153,0.1) 50%, transparent 100%)",
           }}
         />
 
@@ -468,7 +462,7 @@ function FacultyGridCard({ faculty, index }: CardProps) {
         {faculty.isSpecial && (
           <div
             className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-body font-bold uppercase tracking-wider"
-            style={{ background: "#F5A623", color: "#1F1B47" }}
+            style={{ background: "#E8C42A", color: "#0F3399" }}
           >
             Featured
           </div>
@@ -479,7 +473,7 @@ function FacultyGridCard({ faculty, index }: CardProps) {
           {hovered && (
             <motion.div
               className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-body font-semibold"
-              style={{ background: "rgba(255,255,255,0.92)", color: "#332C6F" }}
+              style={{ background: "rgba(255,255,255,0.92)", color: "#1A237E" }}
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.85 }}
@@ -496,20 +490,20 @@ function FacultyGridCard({ faculty, index }: CardProps) {
         {/* Name & designation */}
         <div>
           <h3
-            className="font-heading font-bold text-base leading-snug line-clamp-2"
-            style={{ color: "#1F1B47" }}
+            className="typo-card-title leading-snug line-clamp-2"
+            style={{ color: "#0F3399" }}
           >
             {faculty.name}
           </h3>
           <p
-            className="font-body text-sm font-semibold mt-1 leading-snug line-clamp-2"
-            style={{ color: "#332C6F" }}
+            className="typo-support mt-1 leading-snug line-clamp-2"
+            style={{ color: "#1A237E" }}
           >
             {faculty.designation}
           </p>
           {faculty.qualification && (
             <p
-              className="font-body text-xs mt-0.5 line-clamp-1"
+              className="typo-stat-label mt-0.5 line-clamp-1"
               style={{ color: "#6b7280" }}
             >
               {faculty.qualification}
@@ -523,7 +517,7 @@ function FacultyGridCard({ faculty, index }: CardProps) {
             <span
               key={tag}
               className="font-body text-[10px] font-semibold px-2.5 py-0.5 rounded-full"
-              style={{ background: "rgba(51,44,111,0.08)", color: "#332C6F" }}
+              style={{ background: "rgba(26,35,126,0.08)", color: "#1A237E" }}
             >
               {tag}
             </span>
@@ -548,8 +542,8 @@ function FacultyGridCard({ faculty, index }: CardProps) {
           onClick={(e) => e.stopPropagation()}
           className="flex items-center justify-between px-4 py-2.5 rounded-xl font-body font-semibold text-sm mt-1 transition-all duration-300"
           style={{
-            background: hovered ? "#332C6F" : "#f0f4ff",
-            color: hovered ? "#fff" : "#332C6F",
+            background: hovered ? "#1A237E" : "#f0f4ff",
+            color: hovered ? "#fff" : "#1A237E",
           }}
           data-ocid={`faculty.view_profile.${index + 1}`}
           aria-label={`View profile of ${faculty.name}`}

@@ -10,8 +10,8 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 
-const COBALT = "#1648C8";
-const DEEP_BLUE = "#0F3499";
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
 const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 
@@ -129,7 +129,7 @@ function DeptCard({
       style={{
         background: "#fff",
         border: `1.5px solid ${dept.color}20`,
-        boxShadow: "0 2px 12px rgba(22,72,200,0.07)",
+        boxShadow: "0 2px 12px rgba(26, 35, 126, 0.07)",
       }}
       data-ocid={`engineering.dept_card.${index + 1}`}
     >
@@ -139,12 +139,11 @@ function DeptCard({
         {/* Badge */}
         <div className="flex items-start justify-between mb-3">
           <span
-            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase"
+            className="inline-flex items-center px-3 py-1 rounded-full typo-section-label"
             style={{
               backgroundColor: `${dept.color}12`,
               color: dept.color,
               border: `1px solid ${dept.color}25`,
-              fontFamily: "Source Sans 3, sans-serif",
             }}
           >
             {dept.badge}
@@ -152,28 +151,18 @@ function DeptCard({
         </div>
         {/* Name */}
         <h3
-          className="text-base font-bold mb-2 leading-snug"
-          style={{ fontFamily: "Playfair Display, serif", color: DEEP_BLUE }}
+          className="typo-card-title mb-2 leading-snug"
+          style={{ color: DEEP_BLUE }}
         >
           {dept.name}
         </h3>
         {/* Description */}
-        <p
-          className="text-xs leading-relaxed flex-1 mb-4"
-          style={{ color: "#6b7280", fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-card-desc flex-1 mb-4" style={{ color: "#6b7280" }}>
           {dept.description}
         </p>
         {/* Link */}
-        <div className="flex items-center gap-1.5 text-xs font-semibold transition-all duration-200 group-hover:gap-2.5">
-          <span
-            style={{
-              color: dept.color,
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
-          >
-            View Details
-          </span>
+        <div className="flex items-center gap-1.5 typo-support transition-all duration-200 group-hover:gap-2.5">
+          <span style={{ color: dept.color }}>View Details</span>
           <ChevronRight
             className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1"
             style={{ color: dept.color }}
@@ -208,7 +197,7 @@ export default function SchoolOfEngineeringPage() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(8,30,92,0.88) 0%, rgba(22,72,200,0.70) 60%, rgba(8,30,92,0.85) 100%)",
+              "linear-gradient(135deg, rgba(8,30,92,0.88) 0%, rgba(26,35,126,0.70) 60%, rgba(8,30,92,0.85) 100%)",
           }}
         />
         {/* Dot pattern */}
@@ -282,10 +271,7 @@ export default function SchoolOfEngineeringPage() {
             >
               <Star className="w-7 h-7 text-white" />
             </div>
-            <span
-              className="text-white/75 text-sm font-semibold uppercase tracking-wider"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <span className="typo-section-label text-white/75">
               COEP Technological University
             </span>
           </motion.div>
@@ -295,8 +281,7 @@ export default function SchoolOfEngineeringPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-4xl md:text-6xl font-bold text-white leading-tight mb-4"
-            style={{ fontFamily: "Playfair Display, serif" }}
+            className="typo-hero-heading text-white mb-4"
           >
             School of Engineering
           </motion.h1>
@@ -306,8 +291,7 @@ export default function SchoolOfEngineeringPage() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.45 }}
-            className="text-lg md:text-xl text-white/80 mb-8"
-            style={{ fontFamily: "Source Sans 3, sans-serif" }}
+            className="typo-hero-desc text-white/80 mb-8"
           >
             9 Departments &nbsp;|&nbsp; 2000+ Students &nbsp;|&nbsp; 150+
             Faculty
@@ -336,7 +320,7 @@ export default function SchoolOfEngineeringPage() {
               >
                 <span
                   className="font-bold text-white text-base"
-                  style={{ fontFamily: "Playfair Display, serif" }}
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {s.val}
                 </span>
@@ -368,26 +352,20 @@ export default function SchoolOfEngineeringPage() {
             className="text-center mb-14"
           >
             <span
-              className="inline-block text-xs font-bold uppercase tracking-[0.22em] mb-3"
-              style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
+              className="inline-block typo-section-label mb-3"
+              style={{ color: COBALT }}
             >
               Academic Disciplines
             </span>
             <h2
-              className="text-3xl md:text-4xl font-bold mb-4"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
+              className="typo-section-heading mb-4"
+              style={{ color: DEEP_BLUE }}
             >
               Our Departments
             </h2>
             <p
-              className="max-w-2xl mx-auto text-base"
-              style={{
-                color: "#6b7280",
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
+              className="typo-body max-w-2xl mx-auto"
+              style={{ color: "#6b7280" }}
             >
               Nine departments spanning the breadth of engineering and applied
               sciences, each a centre of academic rigour and research excellence
@@ -418,26 +396,20 @@ export default function SchoolOfEngineeringPage() {
             className="text-center mb-14"
           >
             <span
-              className="inline-block text-xs font-bold uppercase tracking-[0.22em] mb-3"
-              style={{ color: COBALT, fontFamily: "Source Sans 3, sans-serif" }}
+              className="inline-block typo-section-label mb-3"
+              style={{ color: COBALT }}
             >
               Degree Programmes
             </span>
             <h2
-              className="text-3xl md:text-4xl font-bold mb-4"
-              style={{
-                fontFamily: "Playfair Display, serif",
-                color: DEEP_BLUE,
-              }}
+              className="typo-section-heading mb-4"
+              style={{ color: DEEP_BLUE }}
             >
               Programs Offered
             </h2>
             <p
-              className="max-w-2xl mx-auto text-base"
-              style={{
-                color: "#6b7280",
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
+              className="typo-body max-w-2xl mx-auto"
+              style={{ color: "#6b7280" }}
             >
               From undergraduate engineering to doctoral research — COEP School
               of Engineering offers transformative programmes at every level.
@@ -458,7 +430,7 @@ export default function SchoolOfEngineeringPage() {
                   className="rounded-2xl overflow-hidden flex flex-col group"
                   style={{
                     background: `linear-gradient(135deg, ${MIDNIGHT} 0%, ${COBALT} 100%)`,
-                    boxShadow: "0 6px 28px rgba(22,72,200,0.22)",
+                    boxShadow: "0 6px 28px rgba(26, 35, 126, 0.22)",
                   }}
                   data-ocid={`engineering.program_card.${i + 1}`}
                 >
@@ -473,10 +445,7 @@ export default function SchoolOfEngineeringPage() {
                       <Icon className="w-7 h-7 text-white" />
                     </div>
                     <div className="flex items-end gap-3 mb-2">
-                      <h3
-                        className="text-3xl font-bold text-white"
-                        style={{ fontFamily: "Playfair Display, serif" }}
-                      >
+                      <h3 className="typo-section-heading text-white">
                         {prog.title}
                       </h3>
                       <span
@@ -486,10 +455,7 @@ export default function SchoolOfEngineeringPage() {
                         {prog.duration}
                       </span>
                     </div>
-                    <p
-                      className="text-white/75 text-sm leading-relaxed mb-5 flex-1"
-                      style={{ fontFamily: "Source Sans 3, sans-serif" }}
-                    >
+                    <p className="typo-body text-white/75 mb-5 flex-1">
                       {prog.description}
                     </p>
                     {/* Details */}
@@ -559,16 +525,10 @@ export default function SchoolOfEngineeringPage() {
             >
               Ready to Apply?
             </p>
-            <h3
-              className="text-2xl font-bold text-white"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
+            <h3 className="typo-section-heading text-white">
               Join the School of Engineering
             </h3>
-            <p
-              className="text-sm text-white/70 mt-1"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-body text-white/70 mt-1">
               170+ years of engineering excellence in Pune.
             </p>
           </motion.div>

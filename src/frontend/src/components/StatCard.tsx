@@ -12,14 +12,18 @@ export function StatCard({ value, label, sublabel, delay = 0 }: StatCardProps) {
       style={{ animationDelay: `${delay}s` }}
     >
       <span
-        className="text-3xl md:text-4xl font-bold leading-tight mb-1"
-        style={{ color: "#0F3499", fontFamily: "Playfair Display, serif" }}
+        className="typo-stat-number leading-tight mb-1"
+        style={{ color: "#0F3399" }}
       >
         {value}
       </span>
-      <span className="text-sm font-semibold text-foreground">{label}</span>
+      <span className="typo-stat-label font-inter font-semibold text-foreground">
+        {label}
+      </span>
       {sublabel && (
-        <span className="text-xs text-muted-foreground mt-0.5">{sublabel}</span>
+        <span className="typo-stat-label font-source text-muted-foreground mt-0.5">
+          {sublabel}
+        </span>
       )}
     </div>
   );

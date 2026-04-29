@@ -5,6 +5,11 @@ import type { SubTab } from "../components/SubTabRibbon";
 import { BOARD_OF_GOVERNANCE } from "../data/aboutus";
 import type { BoardMember } from "../data/aboutus";
 
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
+const MIDNIGHT = "#081E5C";
+const GOLD = "#E8C42A";
+
 const ABOUT_US_TABS: SubTab[] = [
   { id: "about-university", label: "About University" },
   {
@@ -20,14 +25,12 @@ const TAB_ROUTES: Record<string, string> = {
   "board-of-governance": "/about-us/board-of-governance",
 };
 
-// ── Scroll-reveal hook ────────────────────────────────────────────
 function useReveal<T extends HTMLElement>(): [
   React.RefObject<T | null>,
   boolean,
 ] {
   const ref = useRef<T | null>(null);
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -43,33 +46,29 @@ function useReveal<T extends HTMLElement>(): [
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
-
   return [ref, visible];
 }
 
-// ── Hero ──────────────────────────────────────────────────────────
 function HeroSection() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 50);
     return () => clearTimeout(t);
   }, []);
-
   return (
     <section
       style={{
         background:
-          "linear-gradient(135deg, #081E5C 0%, #0F3499 45%, #1648C8 100%)",
+          "linear-gradient(135deg, #081E5C 0%, #0F3399 45%, #1A237E 100%)",
       }}
       className="relative overflow-hidden pt-28 pb-20 px-6"
       data-ocid="board-hero.section"
     >
-      {/* decorative arcs */}
       <span
         aria-hidden
         className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-10"
         style={{
-          background: "radial-gradient(circle, #E8C42A 0%, transparent 70%)",
+          background: `radial-gradient(circle, ${GOLD} 0%, transparent 70%)`,
         }}
       />
       <span
@@ -79,7 +78,6 @@ function HeroSection() {
           background: "radial-gradient(circle, #ffffff 0%, transparent 70%)",
         }}
       />
-
       <div
         className="max-w-5xl mx-auto text-center relative z-10"
         style={{
@@ -88,13 +86,9 @@ function HeroSection() {
           transition: "opacity 0.7s ease, transform 0.7s ease",
         }}
       >
-        {/* breadcrumb */}
         <nav
-          className="flex items-center justify-center gap-2 text-sm mb-6"
-          style={{
-            fontFamily: "var(--font-body)",
-            color: "rgba(255,255,255,0.65)",
-          }}
+          className="flex items-center justify-center gap-2 typo-support text-sm mb-6"
+          style={{ color: "rgba(255,255,255,0.65)" }}
           aria-label="Breadcrumb"
         >
           <a href="/" className="hover:text-white transition-colors">
@@ -109,27 +103,15 @@ function HeroSection() {
             Board of Governance
           </span>
         </nav>
-
-        <h1
-          className="text-5xl md:text-6xl font-bold text-white mb-5 leading-tight"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
+        <h1 className="typo-hero-heading text-white mb-5 leading-tight">
           Board of Governance
         </h1>
-        <p
-          className="text-xl md:text-2xl"
-          style={{
-            fontFamily: "var(--font-body)",
-            color: "rgba(255,255,255,0.80)",
-          }}
-        >
+        <p className="typo-body-lg" style={{ color: "rgba(255,255,255,0.80)" }}>
           Shaping the Future of Technical Education in Maharashtra
         </p>
-
-        {/* gold rule */}
         <div
           className="mx-auto mt-8 h-1 w-20 rounded-full"
-          style={{ background: "#1648C8" }}
+          style={{ background: GOLD }}
           aria-hidden
         />
       </div>
@@ -137,11 +119,9 @@ function HeroSection() {
   );
 }
 
-// ── Chairman Spotlight ────────────────────────────────────────────
 function ChairmanSection() {
   const [ref, visible] = useReveal<HTMLElement>();
   const { chairman } = BOARD_OF_GOVERNANCE;
-
   return (
     <section
       ref={ref}
@@ -159,7 +139,6 @@ function ChairmanSection() {
             border: "1.5px solid #DDEAFF",
           }}
         >
-          {/* LEFT: photo + badge */}
           <div
             className="flex flex-col items-center justify-center gap-5 p-10"
             style={{
@@ -171,8 +150,8 @@ function ChairmanSection() {
               style={{
                 width: 148,
                 height: 148,
-                border: "4px solid #1648C8",
-                boxShadow: "0 0 0 6px rgba(22,72,200,0.15)",
+                border: "4px solid #1A237E",
+                boxShadow: "0 0 0 6px rgba(26, 35, 126, 0.15)",
               }}
             >
               <img
@@ -183,50 +162,34 @@ function ChairmanSection() {
                 className="w-full h-full object-cover"
               />
             </div>
-
             <span
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-semibold"
-              style={{
-                background: "#1648C8",
-                color: "#fff",
-                fontFamily: "var(--font-body)",
-              }}
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full typo-support font-semibold"
+              style={{ background: COBALT, color: "#fff" }}
             >
               ⭐ Chairman, Board of Governance
             </span>
           </div>
-
-          {/* RIGHT: details */}
           <div className="p-10 flex flex-col justify-center gap-3">
             <h2
-              className="text-3xl font-bold leading-tight"
-              style={{ fontFamily: "var(--font-display)", color: "#0F3499" }}
+              className="typo-card-title text-3xl leading-tight"
+              style={{ color: DEEP_BLUE }}
             >
               {chairman.name}
             </h2>
-            <p
-              className="text-base font-semibold"
-              style={{ fontFamily: "var(--font-body)", color: "#1648C8" }}
-            >
+            <p className="typo-support font-semibold" style={{ color: COBALT }}>
               {chairman.designation}
             </p>
-            <p
-              className="text-sm uppercase tracking-widest"
-              style={{ fontFamily: "var(--font-body)", color: "#6B7280" }}
-            >
+            <p className="typo-section-label" style={{ color: "#6B7280" }}>
               {chairman.organization}
             </p>
             <div
               className="h-px my-1"
               style={{
-                background: "linear-gradient(to right, #1648C8, transparent)",
+                background: `linear-gradient(to right, ${COBALT}, transparent)`,
               }}
               aria-hidden
             />
-            <p
-              className="text-[17px] leading-relaxed"
-              style={{ fontFamily: "var(--font-body)", color: "#374151" }}
-            >
+            <p className="typo-body" style={{ color: "#374151" }}>
               {chairman.bio}
             </p>
           </div>
@@ -236,11 +199,9 @@ function ChairmanSection() {
   );
 }
 
-// ── Governance Introduction ───────────────────────────────────────
 function IntroSection() {
   const [ref, visible] = useReveal<HTMLElement>();
   const { intro, legalBasis } = BOARD_OF_GOVERNANCE;
-
   return (
     <section
       ref={ref}
@@ -255,25 +216,18 @@ function IntroSection() {
           transition: "opacity 0.65s ease, transform 0.65s ease",
         }}
       >
-        <h2
-          className="text-3xl md:text-4xl font-bold mb-6"
-          style={{ fontFamily: "var(--font-display)", color: "#0F3499" }}
-        >
+        <h2 className="typo-section-heading mb-6" style={{ color: DEEP_BLUE }}>
           About the Board
         </h2>
-        <p
-          className="text-lg leading-relaxed mb-6"
-          style={{ fontFamily: "var(--font-body)", color: "#374151" }}
-        >
+        <p className="typo-body-lg mb-6" style={{ color: "#374151" }}>
           {intro}
         </p>
         <div
-          className="inline-flex items-center gap-3 px-6 py-3 rounded-lg text-sm font-medium"
+          className="inline-flex items-center gap-3 px-6 py-3 rounded-lg typo-support font-medium"
           style={{
             background: "#EEF3FF",
             border: "1px solid #BFCFFF",
-            color: "#0F3499",
-            fontFamily: "var(--font-body)",
+            color: DEEP_BLUE,
           }}
         >
           <span>🏛️</span>
@@ -284,11 +238,9 @@ function IntroSection() {
   );
 }
 
-// ── Board Members Table ───────────────────────────────────────────
 function MembersSection() {
   const [ref, visible] = useReveal<HTMLElement>();
   const { members } = BOARD_OF_GOVERNANCE;
-
   return (
     <section
       ref={ref}
@@ -306,73 +258,39 @@ function MembersSection() {
       >
         <div className="text-center mb-10">
           <h2
-            className="text-3xl md:text-4xl font-bold mb-3"
-            style={{ fontFamily: "var(--font-display)", color: "#0F3499" }}
+            className="typo-section-heading mb-3"
+            style={{ color: DEEP_BLUE }}
           >
             Board Members
           </h2>
-          <p
-            className="text-base"
-            style={{ fontFamily: "var(--font-body)", color: "#6B7280" }}
-          >
+          <p className="typo-body" style={{ color: "#6B7280" }}>
             Distinguished leaders from academia, industry, and government
           </p>
         </div>
-
-        {/* Desktop table */}
         <div
           className="hidden md:block rounded-2xl overflow-hidden"
           style={{
             border: "1.5px solid #BFCFFF",
-            boxShadow: "0 4px 24px rgba(22,72,200,0.08)",
+            boxShadow: "0 4px 24px rgba(26, 35, 126, 0.08)",
           }}
         >
-          <table
-            className="w-full text-sm"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
+          <table className="w-full text-sm font-inter">
             <thead>
-              <tr style={{ background: "#1648C8" }}>
-                <th
-                  className="py-4 px-5 text-left text-white font-semibold"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "0.85rem",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  Sr. No.
-                </th>
-                <th
-                  className="py-4 px-5 text-left text-white font-semibold"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "0.85rem",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  Role / Category
-                </th>
-                <th
-                  className="py-4 px-5 text-left text-white font-semibold"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "0.85rem",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  Member Name
-                </th>
-                <th
-                  className="py-4 px-5 text-left text-white font-semibold"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "0.85rem",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  Designation
-                </th>
+              <tr style={{ background: COBALT }}>
+                {[
+                  "Sr. No.",
+                  "Role / Category",
+                  "Member Name",
+                  "Designation",
+                ].map((h) => (
+                  <th
+                    key={h}
+                    className="py-4 px-5 text-left font-cinzel font-semibold text-white"
+                    style={{ fontSize: "0.85rem", letterSpacing: "0.05em" }}
+                  >
+                    {h}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
@@ -387,24 +305,27 @@ function MembersSection() {
                   data-ocid={`board-members.item.${m.srNo}`}
                 >
                   <td
-                    className="py-4 px-5 font-bold"
-                    style={{ color: "#1648C8", width: 80 }}
+                    className="py-4 px-5 font-inter font-bold"
+                    style={{ color: COBALT, width: 80 }}
                   >
                     {String(m.srNo).padStart(2, "0")}
                   </td>
                   <td
-                    className="py-4 px-5 font-medium"
+                    className="py-4 px-5 typo-body"
                     style={{ color: "#374151" }}
                   >
                     {m.member}
                   </td>
                   <td
-                    className="py-4 px-5 font-semibold"
-                    style={{ color: "#0F3499" }}
+                    className="py-4 px-5 font-baskerville font-bold"
+                    style={{ color: DEEP_BLUE }}
                   >
                     {m.name}
                   </td>
-                  <td className="py-4 px-5" style={{ color: "#6B7280" }}>
+                  <td
+                    className="py-4 px-5 typo-support"
+                    style={{ color: "#6B7280" }}
+                  >
                     {m.role}
                   </td>
                 </tr>
@@ -412,8 +333,6 @@ function MembersSection() {
             </tbody>
           </table>
         </div>
-
-        {/* Mobile cards */}
         <div className="md:hidden flex flex-col gap-4">
           {members.map((m: BoardMember) => (
             <div
@@ -421,34 +340,34 @@ function MembersSection() {
               className="rounded-xl p-5 bg-white"
               style={{
                 border: "1.5px solid #BFCFFF",
-                boxShadow: "0 2px 12px rgba(22,72,200,0.07)",
+                boxShadow: "0 2px 12px rgba(26, 35, 126, 0.07)",
               }}
               data-ocid={`board-members.item.${m.srNo}`}
             >
               <div className="flex items-center gap-3 mb-3">
                 <span
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0"
-                  style={{ background: "#1648C8" }}
+                  className="w-8 h-8 rounded-full flex items-center justify-center font-inter font-bold text-sm text-white flex-shrink-0"
+                  style={{ background: COBALT }}
                 >
                   {m.srNo}
                 </span>
                 <span
-                  className="text-xs font-semibold uppercase tracking-wider px-2 py-0.5 rounded"
-                  style={{ background: "#EEF3FF", color: "#1648C8" }}
+                  className="typo-section-label px-2 py-0.5 rounded"
+                  style={{
+                    background: "rgba(26, 35, 126, 0.1)",
+                    color: COBALT,
+                  }}
                 >
                   {m.member}
                 </span>
               </div>
               <p
-                className="text-base font-bold mb-1"
-                style={{ color: "#0F3499", fontFamily: "var(--font-display)" }}
+                className="typo-card-title text-base mb-1"
+                style={{ color: DEEP_BLUE }}
               >
                 {m.name}
               </p>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: "#6B7280", fontFamily: "var(--font-body)" }}
-              >
+              <p className="typo-body text-sm" style={{ color: "#6B7280" }}>
                 {m.role}
               </p>
             </div>
@@ -459,7 +378,6 @@ function MembersSection() {
   );
 }
 
-// ── Governance Framework ──────────────────────────────────────────
 const FRAMEWORK_CARDS = [
   {
     icon: "⚖️",
@@ -480,7 +398,6 @@ const FRAMEWORK_CARDS = [
 
 function FrameworkSection() {
   const [ref, visible] = useReveal<HTMLElement>();
-
   return (
     <section
       ref={ref}
@@ -490,20 +407,19 @@ function FrameworkSection() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <h2
-            className="text-3xl md:text-4xl font-bold mb-3"
-            style={{ fontFamily: "var(--font-display)", color: "#0F3499" }}
+            className="typo-section-heading mb-3"
+            style={{ color: DEEP_BLUE }}
           >
             Governance Framework
           </h2>
           <p
-            className="text-base max-w-xl mx-auto"
-            style={{ fontFamily: "var(--font-body)", color: "#6B7280" }}
+            className="typo-body max-w-xl mx-auto"
+            style={{ color: "#6B7280" }}
           >
             Three pillars that define how COEP Technological University is led
             and governed
           </p>
         </div>
-
         <div
           className="grid md:grid-cols-3 gap-6"
           style={{
@@ -517,11 +433,10 @@ function FrameworkSection() {
               key={`framework-${card.title}`}
               className="rounded-xl p-7 flex flex-col gap-4 bg-white"
               style={{
-                borderLeft: "4px solid #1648C8",
-                boxShadow: "0 2px 20px rgba(22,72,200,0.07)",
                 border: "1px solid #DDEAFF",
                 borderLeftWidth: 4,
-                borderLeftColor: "#1648C8",
+                borderLeftColor: COBALT,
+                boxShadow: "0 2px 20px rgba(26, 35, 126, 0.07)",
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(30px)",
                 transition: `opacity 0.6s ease ${idx * 0.15}s, transform 0.6s ease ${idx * 0.15}s`,
@@ -529,15 +444,12 @@ function FrameworkSection() {
             >
               <div className="text-4xl">{card.icon}</div>
               <h3
-                className="text-xl font-bold"
-                style={{ fontFamily: "var(--font-display)", color: "#0F3499" }}
+                className="font-cinzel font-semibold text-xl"
+                style={{ color: DEEP_BLUE }}
               >
                 {card.title}
               </h3>
-              <p
-                className="text-[16px] leading-relaxed"
-                style={{ fontFamily: "var(--font-body)", color: "#374151" }}
-              >
+              <p className="typo-body" style={{ color: "#374151" }}>
                 {card.body}
               </p>
             </div>
@@ -548,37 +460,26 @@ function FrameworkSection() {
   );
 }
 
-// ── Footer CTA Banner ─────────────────────────────────────────────
 function CtaBanner() {
   return (
     <section
       className="py-12 px-6"
       style={{
-        background: "linear-gradient(90deg, #081E5C 0%, #1648C8 100%)",
+        background: `linear-gradient(90deg, ${MIDNIGHT} 0%, ${COBALT} 100%)`,
       }}
       data-ocid="board-cta.section"
     >
       <div className="max-w-3xl mx-auto text-center">
-        <p
-          className="text-white text-lg mb-2"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
+        <p className="typo-body text-white text-lg mb-2">
           Learn more about our governance structure
         </p>
-        <h3
-          className="text-white text-2xl font-bold mb-6"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
+        <h3 className="font-cinzel font-semibold text-2xl text-white mb-6">
           Authorities, Boards &amp; Committees
         </h3>
         <a
           href="/about-us/authorities-boards-committees"
-          className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm transition-transform hover:scale-105"
-          style={{
-            background: "#E8C42A",
-            color: "#1a1200",
-            fontFamily: "var(--font-body)",
-          }}
+          className="inline-flex items-center gap-2 px-7 py-3 rounded-full typo-btn transition-transform hover:scale-105"
+          style={{ background: GOLD, color: "#1a1200" }}
           data-ocid="board-cta.link"
         >
           View All Committees →
@@ -588,17 +489,14 @@ function CtaBanner() {
   );
 }
 
-// ── Page ──────────────────────────────────────────────────────────
 export default function BoardOfGovernancePage() {
   const navigate = useNavigate();
-
   function handleTabChange(tabId: string) {
     const route = TAB_ROUTES[tabId];
     if (route) navigate({ to: route });
   }
-
   return (
-    <main className="min-h-screen" style={{ fontFamily: "var(--font-body)" }}>
+    <main className="min-h-screen font-source">
       <HeroSection />
       <SubTabRibbon
         tabs={ABOUT_US_TABS}

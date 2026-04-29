@@ -15,8 +15,8 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const COBALT = "#1648C8";
-const DEEP_BLUE = "#0F3499";
+const COBALT = "#1A237E";
+const DEEP_BLUE = "#0F3399";
 const MIDNIGHT = "#081E5C";
 const GOLD = "#E8C42A";
 
@@ -96,16 +96,13 @@ function SectionHeading({
         }}
       />
       <h2
-        className="text-4xl font-bold mb-3"
-        style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+        className="typo-section-heading font-bold mb-3"
+        style={{ color: DEEP_BLUE }}
       >
         {title}
       </h2>
       {subtitle && (
-        <p
-          className="text-lg leading-relaxed max-w-2xl"
-          style={{ color: "#556", fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <p className="typo-body-lg max-w-2xl" style={{ color: "#556" }}>
           {subtitle}
         </p>
       )}
@@ -142,7 +139,7 @@ function HeroSection() {
         background: `linear-gradient(135deg, ${MIDNIGHT} 0%, ${DEEP_BLUE} 40%, ${COBALT} 100%)`,
         minHeight: "480px",
       }}
-      data-ocid="student_life.hero"
+      data-ocid="campus_life.hero"
     >
       {/* Decorative circles */}
       <div
@@ -163,14 +160,13 @@ function HeroSection() {
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 xl:px-8 py-20 flex flex-col items-center text-center">
         {/* Badge */}
         <div
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6 fade-in-down"
+          className="typo-section-label inline-flex items-center gap-2 px-5 py-2 rounded-full mb-6 fade-in-down"
           style={{
             backgroundColor: "rgba(255,255,255,0.15)",
             color: "rgba(255,255,255,0.9)",
             border: "1px solid rgba(255,255,255,0.25)",
-            fontFamily: "Source Sans 3, sans-serif",
           }}
-          data-ocid="student_life.hero_badge"
+          data-ocid="campus_life.hero_badge"
         >
           <span
             className="w-2 h-2 rounded-full animate-pulse-cobalt"
@@ -181,15 +177,11 @@ function HeroSection() {
 
         {/* Heading */}
         <h1
-          className="text-6xl md:text-7xl font-bold text-white mb-5 fade-in-up"
-          style={{
-            fontFamily: "Playfair Display, serif",
-            lineHeight: 1.1,
-            animationDelay: "0.1s",
-          }}
-          data-ocid="student_life.hero_title"
+          className="typo-hero-heading text-white mb-5 fade-in-up"
+          style={{ animationDelay: "0.1s" }}
+          data-ocid="campus_life.hero_title"
         >
-          Student Life
+          Campus Life
           <span
             className="block text-4xl md:text-5xl mt-2 font-normal"
             style={{ color: "rgba(255,255,255,0.8)" }}
@@ -199,11 +191,8 @@ function HeroSection() {
         </h1>
 
         <p
-          className="text-xl text-white/80 max-w-2xl mb-10 fade-in-up"
-          style={{
-            fontFamily: "Source Sans 3, sans-serif",
-            animationDelay: "0.22s",
-          }}
+          className="typo-hero-desc text-white/80 max-w-2xl mb-10 fade-in-up"
+          style={{ animationDelay: "0.22s" }}
         >
           Where Education Meets Experience — A Vibrant Campus Life that nurtures
           engineers, creators, and leaders of tomorrow.
@@ -213,7 +202,7 @@ function HeroSection() {
         <div
           className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl fade-in-up"
           style={{ animationDelay: "0.36s" }}
-          data-ocid="student_life.hero_stats"
+          data-ocid="campus_life.hero_stats"
         >
           {stats.map((stat, i) => (
             <div
@@ -224,7 +213,7 @@ function HeroSection() {
                 border: "1px solid rgba(255,255,255,0.18)",
                 backdropFilter: "blur(8px)",
               }}
-              data-ocid={`student_life.stat.${i + 1}`}
+              data-ocid={`campus_life.stat.${i + 1}`}
             >
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center"
@@ -235,19 +224,10 @@ function HeroSection() {
               >
                 {stat.icon}
               </div>
-              <span
-                className="text-3xl font-bold"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: "white",
-                }}
-              >
+              <span className="typo-stat-number" style={{ color: "white" }}>
                 {stat.value}
               </span>
-              <span
-                className="text-xs font-semibold uppercase tracking-wider text-white/70"
-                style={{ fontFamily: "Source Sans 3, sans-serif" }}
-              >
+              <span className="typo-stat-label uppercase tracking-wider text-white/70">
                 {stat.label}
               </span>
             </div>
@@ -257,6 +237,62 @@ function HeroSection() {
     </div>
   );
 }
+
+// ═══════════════════════════════════════════════════════════════
+// CAMPUS PHOTOS DATA
+// ═══════════════════════════════════════════════════════════════
+const CAMPUS_PHOTOS = [
+  {
+    src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80",
+    label: "Engineering Block",
+    span: "row-span-2",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80",
+    label: "Campus Grounds",
+    span: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80",
+    label: "Cultural Fest",
+    span: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&q=80",
+    label: "Sports Arena",
+    span: "row-span-2",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
+    label: "Student Community",
+    span: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=600&q=80",
+    label: "Boat Club — Heritage Since 1869",
+    span: "col-span-2",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&q=80",
+    label: "Central Library",
+    span: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&q=80",
+    label: "Research Labs",
+    span: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80",
+    label: "ZEST Sports Fest",
+    span: "",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80",
+    label: "Hostel Campus Life",
+    span: "",
+  },
+];
 
 // ═══════════════════════════════════════════════════════════════
 // OVERVIEW
@@ -299,37 +335,7 @@ function OverviewSection() {
     },
   ];
 
-  const timelineItems = [
-    {
-      year: "1854",
-      event: "COEP established — one of Asia's oldest engineering colleges.",
-    },
-    {
-      year: "1869",
-      event:
-        "Historic Boat Club founded — a symbol of COEP's sporting heritage.",
-    },
-    {
-      year: "1920s",
-      event:
-        "First student clubs formed — drama, music, and literary societies.",
-    },
-    {
-      year: "1980s",
-      event:
-        "IMPRESSIONS cultural festival launched, becoming Pune's largest cultural fest.",
-    },
-    {
-      year: "2000s",
-      event:
-        "E-Cell and technical fests added, reflecting COEP's innovation ecosystem.",
-    },
-    {
-      year: "2022",
-      event:
-        "COEP elevated to Technological University status — student life expands dramatically.",
-    },
-  ];
+  // Campus photo collage replaces the timeline
 
   return (
     <div>
@@ -364,19 +370,10 @@ function OverviewSection() {
             >
               {item.icon}
             </div>
-            <h3
-              className="text-lg font-bold mb-2"
-              style={{
-                color: DEEP_BLUE,
-                fontFamily: "Playfair Display, serif",
-              }}
-            >
+            <h3 className="typo-card-title mb-2" style={{ color: DEEP_BLUE }}>
               {item.title}
             </h3>
-            <p
-              className="text-sm leading-relaxed"
-              style={{ color: "#556", fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-card-desc" style={{ color: "#556" }}>
               {item.desc}
             </p>
           </div>
@@ -406,87 +403,68 @@ function OverviewSection() {
             "
           </span>
           <p
-            className="text-2xl text-white font-light max-w-3xl mx-auto -mt-4"
-            style={{ fontFamily: "Playfair Display, serif", lineHeight: 1.5 }}
+            className="typo-body-lg text-2xl text-white font-light max-w-3xl mx-auto -mt-4"
+            style={{ lineHeight: 1.5 }}
           >
             At COEP, we believe that education is not just about degrees — it is
             about character, community, and the courage to innovate.
           </p>
-          <p
-            className="mt-4 text-sm font-semibold uppercase tracking-widest"
-            style={{
-              color: "rgba(255,255,255,0.6)",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
-          >
+          <p className="typo-section-label mt-4 text-white/60">
             — COEP Technological University, Est. 1854
           </p>
         </div>
       </div>
 
-      {/* Timeline */}
+      {/* Campus Highlights photo collage */}
       <div
         ref={ref3}
         style={{
           opacity: v3 ? 1 : 0,
-          transform: v3 ? "none" : "translateX(-24px)",
-          transition: "all 0.7s ease-out",
+          transform: v3 ? "none" : "translateY(28px)",
+          transition: "all 0.8s ease-out",
         }}
       >
         <h3
-          className="text-2xl font-bold mb-8"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-2"
+          style={{ color: DEEP_BLUE }}
         >
-          Student Life Through the Ages
+          Campus Highlights
         </h3>
-        <div className="relative">
-          <div
-            className="absolute left-6 top-0 bottom-0 w-0.5"
-            style={{ backgroundColor: `${COBALT}30` }}
-          />
-          <div className="space-y-6">
-            {timelineItems.map((item, i) => (
+        <p className="typo-body mb-8 max-w-2xl" style={{ color: "#556" }}>
+          A glimpse into the vibrant world of COEP — where every corner of
+          campus has a story to tell.
+        </p>
+
+        {/* Masonry-style photo grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-[160px]">
+          {CAMPUS_PHOTOS.map((photo, i) => (
+            <div
+              key={photo.label}
+              className={`relative rounded-2xl overflow-hidden group cursor-pointer ${photo.span ?? ""}`}
+              style={{
+                transitionDelay: `${i * 60}ms`,
+              }}
+              data-ocid={`overview.campus_photo.${i + 1}`}
+            >
+              <img
+                src={photo.src}
+                alt={photo.label}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+              />
+              {/* Overlay */}
               <div
-                key={item.year}
-                className="flex gap-6 items-start"
-                data-ocid={`overview.timeline.${i + 1}`}
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4"
+                style={{
+                  background: `linear-gradient(to top, ${MIDNIGHT}e0 0%, transparent 60%)`,
+                }}
               >
-                <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm z-10"
-                  style={{
-                    backgroundColor: i % 2 === 0 ? COBALT : DEEP_BLUE,
-                    color: "#fff",
-                    fontFamily: "Playfair Display, serif",
-                  }}
-                >
-                  {item.year.slice(-2)}
-                </div>
-                <div
-                  className="flex-1 rounded-xl p-4 border bg-white"
-                  style={{ borderColor: `${COBALT}18` }}
-                >
-                  <span
-                    className="text-xs font-bold uppercase tracking-widest mb-1 block"
-                    style={{
-                      color: COBALT,
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
-                  >
-                    {item.year}
-                  </span>
-                  <p
-                    className="text-sm"
-                    style={{
-                      color: "#444",
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
-                  >
-                    {item.event}
-                  </p>
-                </div>
+                <span className="typo-support text-white font-semibold">
+                  {photo.label}
+                </span>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -641,7 +619,7 @@ const CAT_CONFIG: Record<
   },
   Cultural: {
     bg: "#e8f0fe",
-    text: "#1648C8",
+    text: "#1A237E",
     icon: <Award className="w-3.5 h-3.5" />,
   },
   Social: {
@@ -691,11 +669,10 @@ function ClubsSection() {
             key={cat}
             type="button"
             onClick={() => setFilter(cat)}
-            className="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 hover:shadow-cobalt"
+            className="typo-btn px-4 py-2 rounded-full text-sm transition-all duration-200 hover:shadow-cobalt"
             style={{
               backgroundColor: filter === cat ? COBALT : "#f0f4ff",
               color: filter === cat ? "#fff" : COBALT,
-              fontFamily: "Source Sans 3, sans-serif",
               border: `1px solid ${COBALT}30`,
             }}
             data-ocid={`clubs.filter.${cat.toLowerCase()}`}
@@ -742,37 +719,12 @@ function ClubsSection() {
                   <Users className="w-4 h-4" />
                 </div>
               </div>
-              <h3
-                className="font-bold text-base mb-2 leading-tight"
-                style={{
-                  color: DEEP_BLUE,
-                  fontFamily: "Playfair Display, serif",
-                }}
-              >
+              <h3 className="typo-card-title mb-2" style={{ color: DEEP_BLUE }}>
                 {club.name}
               </h3>
-              <p
-                className="text-sm leading-relaxed mb-4"
-                style={{
-                  color: "#556",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-card-desc" style={{ color: "#556" }}>
                 {club.desc}
               </p>
-              <button
-                type="button"
-                className="w-full py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:opacity-90"
-                style={{
-                  backgroundColor: `${COBALT}12`,
-                  color: COBALT,
-                  fontFamily: "Source Sans 3, sans-serif",
-                  border: `1px solid ${COBALT}22`,
-                }}
-                data-ocid={`clubs.join_button.${i + 1}`}
-              >
-                Join Club →
-              </button>
             </div>
           );
         })}
@@ -884,14 +836,11 @@ function FestsSection() {
                 <div className="md:col-span-2 p-10 flex flex-col justify-between border-r border-white/10">
                   <div>
                     <span className="text-6xl mb-4 block">{fest.icon}</span>
-                    <h3
-                      className="text-5xl font-bold text-white mb-2"
-                      style={{ fontFamily: "Playfair Display, serif" }}
-                    >
+                    <h3 className="typo-hero-heading text-white mb-2">
                       {fest.name}
                     </h3>
                     <div
-                      className="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest mb-3"
+                      className="typo-section-label inline-block px-3 py-1 rounded-full mb-3"
                       style={{
                         backgroundColor: `${fest.accentColor}30`,
                         color: fest.accentColor,
@@ -900,10 +849,7 @@ function FestsSection() {
                     >
                       {fest.tag}
                     </div>
-                    <p
-                      className="text-white/60 text-sm flex items-center gap-2"
-                      style={{ fontFamily: "Source Sans 3, sans-serif" }}
-                    >
+                    <p className="typo-support text-white/60 flex items-center gap-2">
                       <span
                         className="w-2 h-2 rounded-full inline-block"
                         style={{ backgroundColor: fest.accentColor }}
@@ -913,11 +859,10 @@ function FestsSection() {
                   </div>
                   <button
                     type="button"
-                    className="mt-8 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90 hover:scale-105"
+                    className="typo-btn mt-8 px-6 py-3 rounded-xl transition-all duration-200 hover:opacity-90 hover:scale-105"
                     style={{
                       backgroundColor: GOLD,
                       color: MIDNIGHT,
-                      fontFamily: "Source Sans 3, sans-serif",
                     }}
                     data-ocid={`fests.register_button.${i + 1}`}
                   >
@@ -928,28 +873,19 @@ function FestsSection() {
                 {/* Right — Highlights */}
                 <div className="md:col-span-3 p-10">
                   <h4
-                    className="text-sm font-semibold uppercase tracking-widest mb-6"
-                    style={{
-                      color: fest.accentColor,
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
+                    className="typo-section-label mb-6"
+                    style={{ color: fest.accentColor }}
                   >
                     Event Highlights
                   </h4>
                   <ul className="space-y-4">
                     {fest.highlights.map((hl) => (
-                      <li
-                        key={hl}
-                        className="flex items-start gap-3"
-                        style={{ fontFamily: "Source Sans 3, sans-serif" }}
-                      >
+                      <li key={hl} className="flex items-start gap-3">
                         <span
                           className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
                           style={{ backgroundColor: fest.accentColor }}
                         />
-                        <span className="text-white/85 text-[15px] leading-relaxed">
-                          {hl}
-                        </span>
+                        <span className="typo-body text-white/85">{hl}</span>
                       </li>
                     ))}
                   </ul>
@@ -966,8 +902,8 @@ function FestsSection() {
         style={{ borderColor: `${COBALT}22`, background: "#f7f9ff" }}
       >
         <h3
-          className="text-xl font-bold mb-4"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-4"
+          style={{ color: DEEP_BLUE }}
         >
           Other Signature Events
         </h3>
@@ -992,22 +928,10 @@ function FestsSection() {
               style={{ borderColor: `${COBALT}18` }}
               data-ocid={`fests.other.${i + 1}`}
             >
-              <h4
-                className="font-bold text-base mb-1"
-                style={{
-                  color: DEEP_BLUE,
-                  fontFamily: "Playfair Display, serif",
-                }}
-              >
+              <h4 className="typo-card-title mb-1" style={{ color: DEEP_BLUE }}>
                 {event.name}
               </h4>
-              <p
-                className="text-sm"
-                style={{
-                  color: "#556",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-card-desc" style={{ color: "#556" }}>
                 {event.desc}
               </p>
             </div>
@@ -1107,8 +1031,8 @@ function SportsSection() {
           }}
         >
           <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+            className="typo-section-heading font-bold mb-6"
+            style={{ color: DEEP_BLUE }}
           >
             Sports Facilities
           </h3>
@@ -1128,21 +1052,12 @@ function SportsSection() {
                 </span>
                 <div>
                   <h4
-                    className="font-bold text-sm mb-0.5"
-                    style={{
-                      color: DEEP_BLUE,
-                      fontFamily: "Playfair Display, serif",
-                    }}
+                    className="typo-card-title mb-0.5"
+                    style={{ color: DEEP_BLUE }}
                   >
                     {facility.name}
                   </h4>
-                  <p
-                    className="text-sm"
-                    style={{
-                      color: "#556",
-                      fontFamily: "Source Sans 3, sans-serif",
-                    }}
-                  >
+                  <p className="typo-card-desc" style={{ color: "#556" }}>
                     {facility.desc}
                   </p>
                 </div>
@@ -1161,8 +1076,8 @@ function SportsSection() {
           }}
         >
           <h3
-            className="text-2xl font-bold mb-6"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+            className="typo-section-heading font-bold mb-6"
+            style={{ color: DEEP_BLUE }}
           >
             Championship Achievements
           </h3>
@@ -1171,7 +1086,7 @@ function SportsSection() {
               <div
                 key={ach}
                 className="flex items-start gap-4 rounded-xl p-4 border bg-white"
-                style={{ borderColor: "rgba(22,72,200,0.25)" }}
+                style={{ borderColor: "rgba(26, 35, 126, 0.25)" }}
                 data-ocid={`sports.achievement.${i + 1}`}
               >
                 <div
@@ -1179,56 +1094,16 @@ function SportsSection() {
                   style={{
                     background: `linear-gradient(135deg, ${COBALT}, ${DEEP_BLUE})`,
                     color: "white",
-                    fontFamily: "Playfair Display, serif",
+                    fontFamily: "var(--font-heading)",
                   }}
                 >
                   {i + 1}
                 </div>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{
-                    color: "#444",
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
-                >
+                <p className="typo-body" style={{ color: "#444" }}>
                   {ach}
                 </p>
               </div>
             ))}
-          </div>
-
-          {/* Sports dept contact */}
-          <div
-            className="rounded-2xl p-6"
-            style={{
-              background: `linear-gradient(135deg, ${MIDNIGHT}, ${DEEP_BLUE})`,
-            }}
-          >
-            <h4
-              className="font-bold text-lg text-white mb-2"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
-              Physical Education Department
-            </h4>
-            <p
-              className="text-white/70 text-sm mb-4"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
-              For sports scholarships, trial registrations, and facility
-              bookings, contact our Physical Education Department.
-            </p>
-            <a
-              href="mailto:sports@coeptech.ac.in"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90"
-              style={{
-                backgroundColor: GOLD,
-                color: MIDNIGHT,
-                fontFamily: "Source Sans 3, sans-serif",
-              }}
-              data-ocid="sports.contact_button"
-            >
-              Contact Sports Dept →
-            </a>
           </div>
         </div>
       </div>
@@ -1246,7 +1121,7 @@ const HOSTELS = [
   { name: "Raigad", gender: "Boys", capacity: 320, block: "D" },
   { name: "Kondhana", gender: "Boys", capacity: 200, block: "E" },
   { name: "Rajgad", gender: "Boys", capacity: 180, block: "F" },
-  { name: "Jijaoo", gender: "Girls", capacity: 220, block: "G" },
+  { name: "Jijau", gender: "Girls", capacity: 220, block: "G" },
   { name: "Lohagad", gender: "Girls", capacity: 180, block: "H" },
 ];
 
@@ -1291,15 +1166,14 @@ function HostelSection() {
         className="rounded-2xl p-5 border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-premium"
         style={{
           borderColor:
-            hostel.gender === "Boys" ? `${COBALT}22` : "rgba(22,72,200,0.22)",
+            hostel.gender === "Boys"
+              ? `${COBALT}22`
+              : "rgba(26, 35, 126, 0.22)",
         }}
         data-ocid={`hostel.card.${index + 1}`}
       >
         <div className="flex items-center justify-between mb-3">
-          <h4
-            className="font-bold text-lg"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
+          <h4 className="typo-card-title mb-3" style={{ color: DEEP_BLUE }}>
             {hostel.name}
           </h4>
           <span
@@ -1308,29 +1182,23 @@ function HostelSection() {
               backgroundColor:
                 hostel.gender === "Boys"
                   ? `${COBALT}15`
-                  : "rgba(22,72,200,0.1)",
+                  : "rgba(26, 35, 126, 0.1)",
               color: hostel.gender === "Boys" ? COBALT : DEEP_BLUE,
             }}
           >
             {hostel.gender}
           </span>
         </div>
-        <div
-          className="text-3xl font-bold mb-1"
-          style={{ color: COBALT, fontFamily: "Playfair Display, serif" }}
-        >
+        <div className="typo-stat-number mb-1" style={{ color: COBALT }}>
           {count}+
         </div>
         <div
-          className="text-xs font-semibold uppercase tracking-wide"
-          style={{ color: "#888", fontFamily: "Source Sans 3, sans-serif" }}
+          className="typo-stat-label uppercase tracking-wide"
+          style={{ color: "#888" }}
         >
           Resident Capacity
         </div>
-        <div
-          className="mt-3 text-xs"
-          style={{ color: "#666", fontFamily: "Source Sans 3, sans-serif" }}
-        >
+        <div className="typo-support mt-3" style={{ color: "#666" }}>
           Block {hostel.block} · 24/7 Warden · Wi-Fi
         </div>
       </div>
@@ -1355,10 +1223,7 @@ function HostelSection() {
           transition: "all 0.7s ease-out",
         }}
       >
-        <h3
-          className="text-2xl font-bold text-white mb-6 text-center"
-          style={{ fontFamily: "Playfair Display, serif" }}
-        >
+        <h3 className="typo-section-heading font-bold text-white mb-6 text-center">
           Hostel Amenities
         </h3>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -1381,61 +1246,31 @@ function HostelSection() {
               >
                 {amenity.icon}
               </div>
-              <h4
-                className="font-semibold text-white text-sm mb-1"
-                style={{ fontFamily: "Source Sans 3, sans-serif" }}
-              >
+              <h4 className="typo-support font-semibold text-white text-sm mb-1">
                 {amenity.title}
               </h4>
-              <p
-                className="text-white/60 text-xs"
-                style={{ fontFamily: "Source Sans 3, sans-serif" }}
-              >
-                {amenity.desc}
-              </p>
+              <p className="typo-stat-label text-white/60">{amenity.desc}</p>
             </div>
           ))}
         </div>
         <div className="mt-6 flex flex-wrap gap-6 justify-center">
           <div className="text-center">
-            <span
-              className="text-2xl font-bold text-white block"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
+            <span className="typo-stat-number text-white block">
               ₹35,000–₹55,000
             </span>
-            <span
-              className="text-white/60 text-xs"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <span className="typo-stat-label text-white/60">
               Annual Hostel Fee (approx.)
             </span>
           </div>
           <div className="text-center">
-            <span
-              className="text-2xl font-bold text-white block"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
-              ₹28,000
-            </span>
-            <span
-              className="text-white/60 text-xs"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <span className="typo-stat-number text-white block">₹28,000</span>
+            <span className="typo-stat-label text-white/60">
               Mess Fee (annual approx.)
             </span>
           </div>
           <div className="text-center">
-            <span
-              className="text-2xl font-bold text-white block"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
-              2,000+
-            </span>
-            <span
-              className="text-white/60 text-xs"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <span className="typo-stat-number text-white block">2,000+</span>
+            <span className="typo-stat-label text-white/60">
               Total Residents
             </span>
           </div>
@@ -1452,8 +1287,8 @@ function HostelSection() {
         }}
       >
         <h3
-          className="text-2xl font-bold mb-5"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-5"
+          style={{ color: DEEP_BLUE }}
         >
           Boys' Hostels
         </h3>
@@ -1463,8 +1298,8 @@ function HostelSection() {
           ))}
         </div>
         <h3
-          className="text-2xl font-bold mb-5"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-5"
+          style={{ color: DEEP_BLUE }}
         >
           Girls' Hostels
         </h3>
@@ -1477,40 +1312,6 @@ function HostelSection() {
             />
           ))}
         </div>
-      </div>
-
-      {/* Hostel contact */}
-      <div
-        className="mt-10 rounded-2xl p-6 border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-        style={{ borderColor: `${COBALT}22`, background: "#f7f9ff" }}
-      >
-        <div>
-          <h4
-            className="font-bold text-lg mb-1"
-            style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
-          >
-            Hostel Allotment Enquiries
-          </h4>
-          <p
-            className="text-sm"
-            style={{ color: "#556", fontFamily: "Source Sans 3, sans-serif" }}
-          >
-            Contact the Hostel Office or apply through the student portal during
-            admission season.
-          </p>
-        </div>
-        <a
-          href="mailto:hostel@coeptech.ac.in"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90 whitespace-nowrap"
-          style={{
-            backgroundColor: COBALT,
-            color: "#fff",
-            fontFamily: "Source Sans 3, sans-serif",
-          }}
-          data-ocid="hostel.contact_button"
-        >
-          Contact Hostel Office →
-        </a>
       </div>
     </div>
   );
@@ -1594,11 +1395,8 @@ function ServicesSection() {
               </div>
               <div>
                 <h3
-                  className="font-bold text-lg leading-tight"
-                  style={{
-                    color: DEEP_BLUE,
-                    fontFamily: "Playfair Display, serif",
-                  }}
+                  className="typo-card-title leading-tight"
+                  style={{ color: DEEP_BLUE }}
                 >
                   {service.title}
                 </h3>
@@ -1606,10 +1404,7 @@ function ServicesSection() {
             </div>
 
             {/* Description */}
-            <p
-              className="text-sm leading-relaxed mb-5"
-              style={{ color: "#556", fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-body mb-5" style={{ color: "#556" }}>
               {service.desc}
             </p>
 
@@ -1652,11 +1447,10 @@ function ServicesSection() {
             {/* CTA */}
             <button
               type="button"
-              className="w-full py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90"
+              className="typo-btn w-full py-2.5 rounded-xl transition-all duration-200 hover:opacity-90"
               style={{
                 backgroundColor: COBALT,
                 color: "#fff",
-                fontFamily: "Source Sans 3, sans-serif",
               }}
               data-ocid={`services.cta_button.${i + 1}`}
             >
@@ -1672,8 +1466,8 @@ function ServicesSection() {
         style={{ borderColor: `${COBALT}22`, background: "#f7f9ff" }}
       >
         <h3
-          className="text-xl font-bold mb-5"
-          style={{ color: DEEP_BLUE, fontFamily: "Playfair Display, serif" }}
+          className="typo-section-heading font-bold mb-5"
+          style={{ color: DEEP_BLUE }}
         >
           Additional Resources
         </h3>
@@ -1701,27 +1495,15 @@ function ServicesSection() {
               style={{ borderColor: `${COBALT}18` }}
               data-ocid={`services.resource.${i + 1}`}
             >
-              <h4
-                className="font-bold text-sm mb-1"
-                style={{
-                  color: DEEP_BLUE,
-                  fontFamily: "Playfair Display, serif",
-                }}
-              >
+              <h4 className="typo-card-title mb-1" style={{ color: DEEP_BLUE }}>
                 {res.name}
               </h4>
-              <p
-                className="text-xs mb-2"
-                style={{
-                  color: "#556",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
-              >
+              <p className="typo-body text-sm mb-2" style={{ color: "#556" }}>
                 {res.desc}
               </p>
               <a
                 href={`mailto:${res.contact}`}
-                className="text-xs hover:underline font-medium"
+                className="typo-support hover:underline"
                 style={{ color: COBALT }}
               >
                 {res.contact}
@@ -1787,7 +1569,7 @@ export default function StudentLifePage() {
       {/* Content */}
       <main
         className="max-w-[1280px] mx-auto w-full px-4 xl:px-8 py-14"
-        data-ocid="student_life.content"
+        data-ocid="campus_life.content"
       >
         {renderContent()}
       </main>

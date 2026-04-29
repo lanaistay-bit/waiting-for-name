@@ -53,8 +53,8 @@ export function FacultyCarousel() {
         opacity: 1,
         blur: 0,
         width: "320px",
-        shadow: "0 20px 60px rgba(51,44,111,0.30)",
-        border: "2px solid #F5A623",
+        shadow: "0 20px 60px rgba(26,35,126,0.30)",
+        border: "2px solid #E8C42A",
       };
     }
     if (absOffset === 1) {
@@ -64,8 +64,8 @@ export function FacultyCarousel() {
         opacity: 0.62,
         blur: 2,
         width: "220px",
-        shadow: "0 6px 20px rgba(51,44,111,0.12)",
-        border: "1.5px solid rgba(51,44,111,0.2)",
+        shadow: "0 6px 20px rgba(26,35,126,0.12)",
+        border: "1.5px solid rgba(26,35,126,0.2)",
       };
     }
     return {
@@ -74,8 +74,8 @@ export function FacultyCarousel() {
       opacity: 0.35,
       blur: 4,
       width: "170px",
-      shadow: "0 4px 12px rgba(51,44,111,0.07)",
-      border: "1px solid rgba(51,44,111,0.10)",
+      shadow: "0 4px 12px rgba(26,35,126,0.07)",
+      border: "1px solid rgba(26,35,126,0.10)",
     };
   };
 
@@ -101,22 +101,22 @@ export function FacultyCarousel() {
         >
           <Badge
             variant="outline"
-            className="px-4 py-1 mb-4 text-sm"
+            className="px-4 py-1 mb-4 typo-section-label"
             style={{
-              borderColor: "rgba(51,44,111,0.4)",
-              color: "#332C6F",
-              background: "rgba(51,44,111,0.05)",
+              borderColor: "rgba(26,35,126,0.4)",
+              color: "#1A237E",
+              background: "rgba(26,35,126,0.05)",
             }}
           >
             Our Faculty
           </Badge>
           <h2
-            className="text-3xl md:text-5xl font-display font-bold"
-            style={{ color: "#1F1B47" }}
+            className="typo-section-heading font-cinzel font-bold"
+            style={{ color: "#0F3399" }}
           >
             Meet Our Distinguished Faculty
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto font-body text-lg">
+          <p className="text-muted-foreground mt-4 max-w-xl mx-auto typo-body-lg">
             Experienced academics and industry practitioners bringing diverse
             expertise and mentorship to every classroom.
           </p>
@@ -141,9 +141,9 @@ export function FacultyCarousel() {
               data-ocid="dms.faculty.carousel.prev_button"
               className="absolute left-0 md:left-4 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-md"
               style={{
-                border: "2px solid #332C6F",
+                border: "2px solid #1A237E",
                 background: "white",
-                color: "#332C6F",
+                color: "#1A237E",
               }}
             >
               <ChevronLeft className="w-5 h-5" />
@@ -195,7 +195,7 @@ export function FacultyCarousel() {
                         transition={{ duration: 0.4 }}
                         onError={(e) => {
                           const target = e.currentTarget;
-                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(faculty.name)}&background=332C6F&color=fff&size=300&bold=true`;
+                          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(faculty.name)}&background=1A237E&color=fff&size=300&bold=true`;
                         }}
                       />
                     </div>
@@ -206,7 +206,7 @@ export function FacultyCarousel() {
                         className="h-1 w-full"
                         style={{
                           background:
-                            "linear-gradient(to right, #F5A623, #332C6F)",
+                            "linear-gradient(to right, #E8C42A, #1A237E)",
                         }}
                       />
                     )}
@@ -222,19 +222,19 @@ export function FacultyCarousel() {
                           className="p-5"
                         >
                           <h3
-                            className="font-bold text-base leading-snug font-display"
-                            style={{ color: "#1F1B47" }}
+                            className="typo-card-title leading-snug"
+                            style={{ color: "#0F3399" }}
                           >
                             {faculty.name}
                           </h3>
                           <p
-                            className="mt-1 text-sm font-semibold font-body"
-                            style={{ color: "#332C6F" }}
+                            className="typo-support mt-1"
+                            style={{ color: "#1A237E" }}
                           >
                             {faculty.title}
                           </p>
                           {faculty.qualification && (
-                            <p className="text-xs text-muted-foreground mt-1 font-body">
+                            <p className="typo-support font-inter mt-0.5">
                               {faculty.qualification}
                             </p>
                           )}
@@ -243,11 +243,11 @@ export function FacultyCarousel() {
                               <Badge
                                 key={exp}
                                 variant="secondary"
-                                className="text-[10px] px-2 py-0.5 font-body"
+                                className="typo-support text-[10px] px-2 py-0.5"
                                 style={{
-                                  background: "rgba(51,44,111,0.09)",
-                                  color: "#332C6F",
-                                  border: "1px solid rgba(51,44,111,0.2)",
+                                  background: "rgba(26,35,126,0.09)",
+                                  color: "#1A237E",
+                                  border: "1px solid rgba(26,35,126,0.2)",
                                 }}
                               >
                                 {exp}
@@ -260,9 +260,9 @@ export function FacultyCarousel() {
                             to="/faculty/$facultyId"
                             params={{ facultyId: faculty.id }}
                             onClick={(e) => e.stopPropagation()}
-                            className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold font-body px-4 py-2 rounded-lg transition-all duration-200 hover:opacity-90"
+                            className="typo-btn mt-4 inline-flex items-center gap-1.5 text-xs px-4 py-2 rounded-lg transition-all duration-200 hover:opacity-90"
                             style={{
-                              background: "#332C6F",
+                              background: "#1A237E",
                               color: "white",
                             }}
                             data-ocid={`dms.faculty.view_profile.${index + 1}`}
@@ -278,14 +278,14 @@ export function FacultyCarousel() {
                     {offset !== 0 && (
                       <div className="p-3 text-center">
                         <p
-                          className="text-xs font-bold font-display truncate"
-                          style={{ color: "#1F1B47" }}
+                          className="font-baskerville font-semibold text-xs truncate"
+                          style={{ color: "#0F3399" }}
                         >
                           {faculty.name}
                         </p>
                         <p
-                          className="text-[10px] font-body truncate"
-                          style={{ color: "#332C6F" }}
+                          className="typo-support font-inter text-[10px] truncate"
+                          style={{ color: "#1A237E" }}
                         >
                           {faculty.title}
                         </p>
@@ -304,9 +304,9 @@ export function FacultyCarousel() {
               data-ocid="dms.faculty.carousel.next_button"
               className="absolute right-0 md:right-4 z-20 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-md"
               style={{
-                border: "2px solid #332C6F",
+                border: "2px solid #1A237E",
                 background: "white",
-                color: "#332C6F",
+                color: "#1A237E",
               }}
             >
               <ChevronRight className="w-5 h-5" />
@@ -328,7 +328,7 @@ export function FacultyCarousel() {
                 style={{
                   width: i === activeIndex ? "28px" : "8px",
                   height: "8px",
-                  background: i === activeIndex ? "#332C6F" : "#CBD5E0",
+                  background: i === activeIndex ? "#1A237E" : "#CBD5E0",
                 }}
               />
             ))}
@@ -344,8 +344,8 @@ export function FacultyCarousel() {
           >
             <Button
               asChild
-              className="gap-2 font-body font-semibold px-8 py-3 rounded-full text-sm shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              style={{ background: "#332C6F", color: "white" }}
+              className="typo-btn gap-2 px-8 py-3 rounded-full text-sm shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              style={{ background: "#1A237E", color: "white" }}
               data-ocid="dms.faculty.view_all_button"
             >
               <Link to={FACULTY_ROUTE}>

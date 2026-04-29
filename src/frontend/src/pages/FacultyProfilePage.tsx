@@ -13,10 +13,10 @@ import {
 } from "lucide-react";
 import { useEffect, useRef } from "react";
 
-const NAVY = "#332C6F";
-const DARK_NAVY = "#1F1B47";
-const LIGHT_NAVY = "#4A3FA0";
-const GOLD = "#F5A623";
+const NAVY = "#1A237E";
+const DARK_NAVY = "#0F3399";
+const LIGHT_NAVY = "#283593";
+const GOLD = "#E8C42A";
 
 const DMS_ROUTE =
   "/academics/schools/school-of-multidisciplinary-sciences/department-of-management-studies";
@@ -86,15 +86,15 @@ function ContentCard({
           className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
           style={{
             background: accent
-              ? "rgba(245,166,35,0.12)"
-              : "rgba(51,44,111,0.08)",
+              ? "rgba(232,196,42,0.12)"
+              : "rgba(26,35,126,0.08)",
           }}
         >
           <Icon className="w-5 h-5" style={{ color: accent ? GOLD : NAVY }} />
         </div>
         <h2
-          className="text-xl font-bold"
-          style={{ fontFamily: "Playfair Display, serif", color: DARK_NAVY }}
+          className="typo-section-heading"
+          style={{ fontFamily: "var(--font-heading)", color: DARK_NAVY }}
         >
           {title}
         </h2>
@@ -117,32 +117,22 @@ export function FacultyProfilePage() {
         >
           <div
             className="w-20 h-20 rounded-full flex items-center justify-center mb-2"
-            style={{ background: "rgba(51,44,111,0.08)" }}
+            style={{ background: "rgba(26,35,126,0.08)" }}
           >
             <span className="text-3xl">🔍</span>
           </div>
-          <h1
-            className="text-3xl font-bold"
-            style={{ fontFamily: "Playfair Display, serif", color: DARK_NAVY }}
-          >
+          <h1 className="typo-section-heading" style={{ color: DARK_NAVY }}>
             Profile Not Found
           </h1>
-          <p
-            className="text-base max-w-sm"
-            style={{
-              color: "#6b7280",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
-          >
+          <p className="typo-body max-w-sm" style={{ color: "#6b7280" }}>
             The requested faculty profile could not be found.
           </p>
           <Link
             to={FACULTY_ROUTE}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl typo-btn"
             style={{
               background: GOLD,
               color: DARK_NAVY,
-              fontFamily: "Source Sans 3, sans-serif",
             }}
             data-ocid="faculty_profile.back_link"
           >
@@ -165,11 +155,8 @@ export function FacultyProfilePage() {
         <div className="max-w-6xl mx-auto px-6 pb-0">
           {/* Breadcrumb */}
           <nav
-            className="flex flex-wrap items-center gap-2 text-xs mb-10"
-            style={{
-              color: "#9ca3af",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="flex flex-wrap items-center gap-2 typo-stat-label mb-10"
+            style={{ color: "#9ca3af" }}
             aria-label="Breadcrumb"
             data-ocid="faculty_profile.breadcrumb"
           >
@@ -206,8 +193,8 @@ export function FacultyProfilePage() {
 
           <Link
             to={FACULTY_ROUTE}
-            className="inline-flex items-center gap-2 text-sm mb-10 group"
-            style={{ color: NAVY, fontFamily: "Source Sans 3, sans-serif" }}
+            className="inline-flex items-center gap-2 typo-support mb-10 group"
+            style={{ color: NAVY }}
             data-ocid="faculty_profile.back_button"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
@@ -224,7 +211,7 @@ export function FacultyProfilePage() {
                   style={{
                     width: "300px",
                     aspectRatio: "4/5",
-                    border: "2px solid rgba(51,44,111,0.15)",
+                    border: "2px solid rgba(26,35,126,0.15)",
                     animation:
                       "revealScale 0.9s cubic-bezier(0.22,1,0.36,1) both",
                   }}
@@ -235,13 +222,13 @@ export function FacultyProfilePage() {
                     className="w-full h-full object-cover object-top"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).src =
-                        `https://ui-avatars.com/api/?name=${encodeURIComponent(faculty.name)}&size=400&background=332C6F&color=fff&bold=true`;
+                        `https://ui-avatars.com/api/?name=${encodeURIComponent(faculty.name)}&size=400&background=1A237E&color=fff&bold=true`;
                     }}
                   />
                 </div>
                 <div
                   className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full"
-                  style={{ background: "rgba(245,166,35,0.10)", zIndex: -1 }}
+                  style={{ background: "rgba(232,196,42,0.10)", zIndex: -1 }}
                 />
                 {faculty.isSpecial && (
                   <div
@@ -261,40 +248,25 @@ export function FacultyProfilePage() {
             {/* Right: Info */}
             <div>
               <p
-                className="text-xs font-bold uppercase tracking-widest mb-3"
-                style={{
-                  color: LIGHT_NAVY,
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-section-label mb-3"
+                style={{ color: LIGHT_NAVY }}
               >
                 {faculty.title}
               </p>
               <h1
-                className="text-4xl md:text-5xl font-bold leading-tight mb-3"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DARK_NAVY,
-                }}
+                className="typo-hero-heading leading-tight mb-3"
+                style={{ color: DARK_NAVY }}
               >
                 {faculty.name}
               </h1>
               <p
-                className="text-base mb-2 leading-relaxed"
-                style={{
-                  color: "#4b5563",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-body-lg mb-2 leading-relaxed"
+                style={{ color: "#4b5563" }}
               >
                 {faculty.designation}
               </p>
               {faculty.qualification && (
-                <p
-                  className="text-sm mb-6"
-                  style={{
-                    color: "#9ca3af",
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
-                >
+                <p className="typo-support mb-6" style={{ color: "#9ca3af" }}>
                   {faculty.qualification}
                 </p>
               )}
@@ -302,11 +274,8 @@ export function FacultyProfilePage() {
 
               {faculty.bio && (
                 <p
-                  className="text-base leading-relaxed mb-8"
-                  style={{
-                    color: "#374151",
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-body leading-relaxed mb-8"
+                  style={{ color: "#374151" }}
                 >
                   {faculty.bio}
                 </p>
@@ -363,18 +332,12 @@ export function FacultyProfilePage() {
         >
           <div className="max-w-6xl mx-auto px-6">
             <AnimatedSection delay={0.05}>
-              <p
-                className="text-xs font-bold uppercase tracking-widest mb-3"
-                style={{ color: NAVY, fontFamily: "Source Sans 3, sans-serif" }}
-              >
+              <p className="typo-section-label mb-3" style={{ color: NAVY }}>
                 Profile
               </p>
               <h2
-                className="text-3xl font-bold mb-10"
-                style={{
-                  fontFamily: "Playfair Display, serif",
-                  color: DARK_NAVY,
-                }}
+                className="typo-section-heading mb-10"
+                style={{ color: DARK_NAVY }}
               >
                 Academic &amp; Professional Profile
               </h2>
@@ -394,7 +357,7 @@ export function FacultyProfilePage() {
                               key={area}
                               className="px-3 py-1 rounded-full text-xs font-semibold"
                               style={{
-                                background: "rgba(51,44,111,0.08)",
+                                background: "rgba(26,35,126,0.08)",
                                 color: NAVY,
                                 fontFamily: "Source Sans 3, sans-serif",
                               }}
@@ -444,11 +407,8 @@ export function FacultyProfilePage() {
                             />
                             <div>
                               <p
-                                className="text-sm leading-snug"
-                                style={{
-                                  color: "#374151",
-                                  fontFamily: "Source Sans 3, sans-serif",
-                                }}
+                                className="typo-body leading-snug"
+                                style={{ color: "#374151" }}
                               >
                                 {edu.degree}
                               </p>
@@ -480,7 +440,7 @@ export function FacultyProfilePage() {
                     >
                       <div
                         className="relative pl-6 border-l-2"
-                        style={{ borderColor: "rgba(51,44,111,0.15)" }}
+                        style={{ borderColor: "rgba(26,35,126,0.15)" }}
                       >
                         {faculty.experience.map((exp) => (
                           <div
@@ -494,15 +454,12 @@ export function FacultyProfilePage() {
                             <div
                               className="rounded-xl p-4"
                               style={{
-                                border: "1px solid rgba(51,44,111,0.08)",
+                                border: "1px solid rgba(26,35,126,0.08)",
                               }}
                             >
                               <p
-                                className="text-sm leading-relaxed"
-                                style={{
-                                  color: "#374151",
-                                  fontFamily: "Source Sans 3, sans-serif",
-                                }}
+                                className="typo-support leading-relaxed"
+                                style={{ color: "#374151" }}
                               >
                                 {exp}
                               </p>
@@ -528,13 +485,13 @@ export function FacultyProfilePage() {
                             key={achievement.slice(0, 40)}
                             className="flex items-start gap-3 rounded-xl p-4"
                             style={{
-                              border: "1px solid rgba(245,166,35,0.18)",
-                              background: "rgba(245,166,35,0.03)",
+                              border: "1px solid rgba(232,196,42,0.18)",
+                              background: "rgba(232,196,42,0.03)",
                             }}
                           >
                             <div
                               className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                              style={{ background: "rgba(245,166,35,0.2)" }}
+                              style={{ background: "rgba(232,196,42,0.2)" }}
                             >
                               <span
                                 className="text-xs font-bold"
@@ -544,11 +501,8 @@ export function FacultyProfilePage() {
                               </span>
                             </div>
                             <p
-                              className="text-sm leading-relaxed"
-                              style={{
-                                color: "#374151",
-                                fontFamily: "Source Sans 3, sans-serif",
-                              }}
+                              className="typo-body leading-relaxed"
+                              style={{ color: "#374151" }}
                             >
                               {achievement}
                             </p>
@@ -565,27 +519,21 @@ export function FacultyProfilePage() {
                     <div
                       className="rounded-2xl p-8"
                       style={{
-                        background: "rgba(51,44,111,0.03)",
-                        border: "1px solid rgba(51,44,111,0.1)",
+                        background: "rgba(26,35,126,0.03)",
+                        border: "1px solid rgba(26,35,126,0.1)",
                         borderLeft: `4px solid ${NAVY}`,
                         borderLeftWidth: "4px",
                       }}
                     >
                       <h3
-                        className="text-xl font-bold mb-3"
-                        style={{
-                          fontFamily: "Playfair Display, serif",
-                          color: DARK_NAVY,
-                        }}
+                        className="typo-card-title mb-3"
+                        style={{ color: DARK_NAVY }}
                       >
                         About
                       </h3>
                       <p
-                        className="text-base leading-relaxed"
-                        style={{
-                          color: "#374151",
-                          fontFamily: "Source Sans 3, sans-serif",
-                        }}
+                        className="typo-body leading-relaxed"
+                        style={{ color: "#374151" }}
                       >
                         {faculty.bio ||
                           "Detailed profile information for this faculty member is being updated. Please contact the department for more information."}
@@ -593,11 +541,10 @@ export function FacultyProfilePage() {
                       {faculty.email && (
                         <a
                           href={`mailto:${faculty.email}`}
-                          className="inline-flex items-center gap-2 mt-5 font-semibold text-sm px-5 py-2.5 rounded-lg"
+                          className="inline-flex items-center gap-2 mt-5 typo-btn px-5 py-2.5 rounded-lg"
                           style={{
                             background: GOLD,
                             color: DARK_NAVY,
-                            fontFamily: "Source Sans 3, sans-serif",
                           }}
                         >
                           <Mail className="w-4 h-4" />
@@ -621,27 +568,20 @@ export function FacultyProfilePage() {
       >
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h2
-              className="text-2xl font-bold text-white"
-              style={{ fontFamily: "Playfair Display, serif" }}
-            >
+            <h2 className="typo-section-heading text-white">
               Explore More Faculty
             </h2>
-            <p
-              className="text-sm text-white/70 mt-1"
-              style={{ fontFamily: "Source Sans 3, sans-serif" }}
-            >
+            <p className="typo-body text-white/70 mt-1">
               Meet all the distinguished faculty members at DMS, COEP
             </p>
           </div>
           <Link
             to={FACULTY_ROUTE}
-            className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-xl text-sm whitespace-nowrap transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 typo-btn px-7 py-3.5 rounded-xl whitespace-nowrap transition-all hover:scale-105"
             style={{
               background: GOLD,
               color: DARK_NAVY,
-              fontFamily: "Source Sans 3, sans-serif",
-              boxShadow: "0 4px 16px rgba(245,166,35,0.25)",
+              boxShadow: "0 4px 16px rgba(232,196,42,0.25)",
             }}
             data-ocid="faculty_profile.all_faculty_button"
           >

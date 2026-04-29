@@ -82,10 +82,9 @@ function setMapBgNormal(e: MouseEvent<HTMLAnchorElement>) {
 function ColHeading({ children }: { children: React.ReactNode }) {
   return (
     <h3
-      className="text-sm font-bold uppercase tracking-widest mb-6"
+      className="typo-footer-heading uppercase tracking-widest mb-6"
       style={{
         color: GOLD,
-        fontFamily: "Playfair Display, serif",
         borderBottom: "1px solid rgba(232,196,42,0.25)",
         paddingBottom: "0.6rem",
       }}
@@ -108,9 +107,7 @@ function FooterLink({
 }) {
   const baseStyle: React.CSSProperties = {
     color: MUTED_WHITE,
-    fontFamily: "Source Sans 3, sans-serif",
     transition: "color 0.2s ease",
-    fontSize: "0.875rem",
     lineHeight: "1.6",
   };
 
@@ -120,6 +117,7 @@ function FooterLink({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        className="typo-footer-body"
         style={baseStyle}
         data-ocid={ocid}
         onMouseEnter={setColorGold}
@@ -133,6 +131,7 @@ function FooterLink({
   return (
     <Link
       to={href as "/"}
+      className="typo-footer-body"
       style={baseStyle}
       data-ocid={ocid}
       onMouseEnter={setColorGold}
@@ -211,10 +210,9 @@ function ContactLink({
   return (
     <a
       href={`${prefix}${href}`}
-      className="text-sm"
+      className="typo-footer-body"
       style={{
         color: MUTED_WHITE,
-        fontFamily: "Source Sans 3, sans-serif",
         transition: "color 0.2s ease",
       }}
       onMouseEnter={setColorGold}
@@ -255,19 +253,15 @@ export function Footer() {
           >
             <div className="flex items-center gap-3">
               <div
-                className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg"
+                className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-lg font-cinzel"
                 style={{
                   background: GOLD,
                   color: MIDNIGHT,
-                  fontFamily: "Playfair Display, serif",
                 }}
               >
                 CT
               </div>
-              <p
-                className="font-bold text-white text-sm leading-snug"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
+              <p className="typo-footer-heading text-white leading-snug">
                 COEP Technological
                 <br />
                 University
@@ -275,10 +269,9 @@ export function Footer() {
             </div>
 
             <p
-              className="text-sm italic leading-relaxed"
+              className="text-sm italic leading-relaxed font-cinzel"
               style={{
                 color: GOLD,
-                fontFamily: "Playfair Display, serif",
                 opacity: 0.9,
               }}
             >
@@ -293,11 +286,8 @@ export function Footer() {
                 style={{ color: GOLD }}
               />
               <p
-                className="text-sm leading-relaxed"
-                style={{
-                  color: "rgba(255,255,255,0.60)",
-                  fontFamily: "Source Sans 3, sans-serif",
-                }}
+                className="typo-footer-body leading-relaxed"
+                style={{ color: "rgba(255,255,255,0.60)" }}
               >
                 Survey No. 1893-A, Wellesley Rd,
                 <br />
@@ -405,11 +395,8 @@ export function Footer() {
                   style={{ color: GOLD }}
                 />
                 <span
-                  className="text-sm"
-                  style={{
-                    color: "rgba(255,255,255,0.55)",
-                    fontFamily: "Source Sans 3, sans-serif",
-                  }}
+                  className="typo-footer-body"
+                  style={{ color: "rgba(255,255,255,0.55)" }}
                 >
                   COEP Tech, Shivajinagar, Pune
                 </span>
@@ -425,12 +412,11 @@ export function Footer() {
                   href="https://maps.google.com/?q=COEP+Technological+University+Pune"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs px-4 py-2 rounded-md font-semibold"
+                  className="typo-btn text-xs px-4 py-2 rounded-md"
                   style={{
                     background: "rgba(232,196,42,0.13)",
                     color: GOLD,
                     border: "1px solid rgba(232,196,42,0.35)",
-                    fontFamily: "Source Sans 3, sans-serif",
                     transition: "background 0.2s ease",
                   }}
                   onMouseEnter={setMapBgHover}
@@ -458,31 +444,22 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p
-            className="text-xs"
-            style={{
-              color: "rgba(255,255,255,0.50)",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="typo-footer-body text-xs"
+            style={{ color: "rgba(255,255,255,0.50)" }}
           >
             © {year} COEP Technological University. All rights reserved.
           </p>
 
           <p
-            className="text-xs text-center"
-            style={{
-              color: "rgba(255,255,255,0.40)",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="typo-footer-body text-xs text-center"
+            style={{ color: "rgba(255,255,255,0.40)" }}
           >
             Autonomous University established 2022
           </p>
 
           <p
-            className="text-xs"
-            style={{
-              color: "rgba(255,255,255,0.35)",
-              fontFamily: "Source Sans 3, sans-serif",
-            }}
+            className="typo-footer-body text-xs"
+            style={{ color: "rgba(255,255,255,0.35)" }}
           >
             Built with love using{" "}
             <a

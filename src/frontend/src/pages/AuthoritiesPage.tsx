@@ -20,11 +20,9 @@ const TAB_ROUTES: Record<string, string> = {
   "board-of-governance": "/about-us/board-of-governance",
 };
 
-// ─── IntersectionObserver hook ────────────────────────────────────────────────
 function useScrollReveal<T extends HTMLElement>() {
   const ref = useRef<T>(null);
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -40,11 +38,9 @@ function useScrollReveal<T extends HTMLElement>() {
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
-
   return { ref, visible };
 }
 
-// ─── CommitteeCard ─────────────────────────────────────────────────────────────
 function CommitteeCard({
   committee,
   delay,
@@ -66,31 +62,26 @@ function CommitteeCard({
         transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms, box-shadow 0.35s ease, translate 0.35s ease`,
       }}
     >
-      {/* Sr. No pill */}
       <span
-        className="absolute top-4 right-4 bg-cobalt text-white text-xs font-bold
-          rounded-full w-6 h-6 flex items-center justify-center shadow-cobalt z-10"
+        className="absolute top-4 right-4 bg-cobalt text-white font-inter font-bold
+          rounded-full w-6 h-6 flex items-center justify-center shadow-cobalt z-10 text-xs"
       >
         {committee.srNo}
       </span>
-
-      {/* Card body */}
       <div className="p-7 pb-5 flex flex-col gap-3">
         <div className="text-4xl mb-1" role="img" aria-hidden="true">
           {committee.icon}
         </div>
         <h3
-          className="font-heading text-deep-blue font-bold leading-snug pr-6"
+          className="typo-card-title leading-snug pr-6"
           style={{ fontSize: "1.15rem" }}
         >
           {committee.name}
         </h3>
-        <p className="font-body text-gray-600 leading-relaxed text-sm">
+        <p className="typo-body text-sm" style={{ color: "#4b5563" }}>
           {committee.description}
         </p>
       </div>
-
-      {/* Cobalt bottom border accent */}
       <div
         className="h-1 w-full bg-cobalt group-hover:h-[5px] transition-all duration-300"
         aria-hidden="true"
@@ -99,20 +90,19 @@ function CommitteeCard({
   );
 }
 
-// ─── TableView ─────────────────────────────────────────────────────────────────
 function CommitteeTable({ committees }: { committees: Committee[] }) {
   return (
     <div className="w-full overflow-x-auto rounded-2xl shadow-premium">
       <table className="min-w-full text-sm">
         <thead>
           <tr className="bg-cobalt text-white">
-            <th className="px-5 py-4 text-left font-bold font-body w-16 rounded-tl-2xl">
+            <th className="px-5 py-4 text-left font-inter font-bold w-16 rounded-tl-2xl">
               Sr. No.
             </th>
-            <th className="px-5 py-4 text-left font-bold font-body w-64">
+            <th className="px-5 py-4 text-left font-inter font-bold w-64">
               Committee Name
             </th>
-            <th className="px-5 py-4 text-left font-bold font-body rounded-tr-2xl">
+            <th className="px-5 py-4 text-left font-inter font-bold rounded-tr-2xl">
               Description
             </th>
           </tr>
@@ -126,14 +116,17 @@ function CommitteeTable({ committees }: { committees: Committee[] }) {
                 c.srNo % 2 === 0 ? "bg-gray-50/60" : "bg-white"
               }`}
             >
-              <td className="px-5 py-4 text-center font-bold text-cobalt font-body">
+              <td className="px-5 py-4 text-center font-inter font-bold text-cobalt">
                 {c.srNo}
               </td>
-              <td className="px-5 py-4 font-bold font-heading text-deep-blue text-sm leading-snug">
+              <td className="px-5 py-4 font-baskerville font-bold text-deep-blue text-sm leading-snug">
                 <span className="mr-2">{c.icon}</span>
                 {c.name}
               </td>
-              <td className="px-5 py-4 text-gray-600 font-body leading-relaxed">
+              <td
+                className="px-5 py-4 typo-body text-sm"
+                style={{ color: "#4b5563" }}
+              >
                 {c.description}
               </td>
             </tr>
@@ -144,7 +137,6 @@ function CommitteeTable({ committees }: { committees: Committee[] }) {
   );
 }
 
-// ─── Main Page ─────────────────────────────────────────────────────────────────
 export default function AuthoritiesPage() {
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const navigate = useNavigate();
@@ -160,17 +152,16 @@ export default function AuthoritiesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-body">
-      {/* ── SECTION 1: HERO ──────────────────────────────────────────────────── */}
+    <div className="min-h-screen bg-white font-source">
+      {/* ── HERO ── */}
       <section
         data-ocid="authorities.hero"
         className="relative overflow-hidden"
         style={{
-          background: "linear-gradient(135deg, #081E5C 0%, #1648C8 100%)",
+          background: "linear-gradient(135deg, #081E5C 0%, #1A237E 100%)",
           minHeight: "340px",
         }}
       >
-        {/* Decorative grid overlay */}
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -179,8 +170,6 @@ export default function AuthoritiesPage() {
           }}
           aria-hidden="true"
         />
-
-        {/* Decorative circles */}
         <div
           className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10"
           style={{
@@ -195,11 +184,9 @@ export default function AuthoritiesPage() {
           }}
           aria-hidden="true"
         />
-
         <div className="relative max-w-6xl mx-auto px-6 py-20 flex flex-col items-start gap-5">
-          {/* Breadcrumb */}
           <nav
-            className="fade-in-down flex items-center gap-2 text-white/70 text-sm font-body"
+            className="fade-in-down flex items-center gap-2 text-white/70 typo-support"
             aria-label="Breadcrumb"
           >
             <a href="/" className="hover:text-white transition-colors">
@@ -214,43 +201,33 @@ export default function AuthoritiesPage() {
               Authorities, Boards &amp; Committees
             </span>
           </nav>
-
-          {/* Heading */}
           <h1
-            className="font-heading text-white font-bold leading-tight fade-in-up"
-            style={{
-              fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
-              animationDelay: "100ms",
-            }}
+            className="typo-hero-heading text-white leading-tight fade-in-up"
+            style={{ animationDelay: "100ms" }}
           >
             Authorities, Boards &amp; Committees
           </h1>
-
-          {/* Subtext */}
           <p
-            className="font-body text-white/80 text-lg max-w-xl fade-in-up"
+            className="typo-hero-desc text-white/80 max-w-xl fade-in-up"
             style={{ animationDelay: "220ms" }}
           >
             Governing Excellence in Technical Education
           </p>
-
-          {/* Gold accent underline */}
           <div
             className="h-1 w-24 rounded-full fade-in-up"
-            style={{ background: "#1648C8", animationDelay: "340ms" }}
+            style={{ background: "#1A237E", animationDelay: "340ms" }}
             aria-hidden="true"
           />
         </div>
       </section>
 
-      {/* ── SUB-TAB RIBBON ── */}
       <SubTabRibbon
         tabs={ABOUT_US_TABS}
         activeTab="authorities-boards-committees"
         onTabChange={handleTabChange}
       />
 
-      {/* ── SECTION 2: INTRODUCTION ──────────────────────────────────────────── */}
+      {/* ── INTRODUCTION ── */}
       <section
         data-ocid="authorities.intro"
         ref={introSection.ref}
@@ -268,17 +245,22 @@ export default function AuthoritiesPage() {
         >
           <div className="flex items-center gap-4 mb-6">
             <div className="divider-cobalt" aria-hidden="true" />
-            <span className="text-cobalt font-bold text-sm uppercase tracking-widest font-body">
+            <span className="typo-section-label text-cobalt">
               Governance Structure
             </span>
           </div>
-          <p className="text-gray-700 font-body leading-relaxed text-lg mb-5">
+          <p className="typo-body-lg mb-5" style={{ color: "#374151" }}>
             {AUTHORITIES_DATA.intro}
           </p>
-          <div className="bg-cobalt-subtle border-l-4 border-cobalt rounded-lg px-6 py-4 text-gray-700 font-body text-base">
-            <span className="font-bold text-cobalt">Legal Basis: </span>
+          <div
+            className="bg-cobalt-subtle border-l-4 border-cobalt rounded-lg px-6 py-4 typo-body"
+            style={{ color: "#374151" }}
+          >
+            <span className="font-inter font-bold text-cobalt">
+              Legal Basis:{" "}
+            </span>
             As per the{" "}
-            <span className="font-semibold text-deep-blue">
+            <span className="font-inter font-semibold text-deep-blue">
               COEP Technological University Act
             </span>
             , Government of Maharashtra — these authorities ensure transparency,
@@ -288,14 +270,13 @@ export default function AuthoritiesPage() {
         </div>
       </section>
 
-      {/* ── SECTION 3: COMMITTEES GRID ───────────────────────────────────────── */}
+      {/* ── COMMITTEES GRID ── */}
       <section
         data-ocid="authorities.committees"
         ref={gridSection.ref}
         className="bg-surface py-20"
       >
         <div className="max-w-6xl mx-auto px-6">
-          {/* Section header */}
           <div
             className="text-center mb-14"
             style={{
@@ -308,31 +289,30 @@ export default function AuthoritiesPage() {
           >
             <div className="inline-flex items-center gap-3 mb-4">
               <div className="divider-cobalt" aria-hidden="true" />
-              <span className="text-cobalt font-bold text-sm uppercase tracking-widest font-body">
+              <span className="typo-section-label text-cobalt">
                 As per COEP Tech Act
               </span>
               <div className="divider-cobalt" aria-hidden="true" />
             </div>
-            <h2
-              className="font-heading text-deep-blue font-bold mb-3"
-              style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)" }}
-            >
+            <h2 className="typo-section-heading text-deep-blue mb-3">
               University Authorities, Boards and Committees
             </h2>
-            <p className="font-body text-gray-600 max-w-2xl mx-auto text-base">
+            <p
+              className="typo-body max-w-2xl mx-auto"
+              style={{ color: "#4b5563" }}
+            >
               Eleven statutory bodies govern every domain of university life —
               from academics and finance to student welfare and research
               excellence.
             </p>
           </div>
 
-          {/* View toggle */}
           <div className="flex justify-end mb-8 gap-2" ref={tableSection.ref}>
             <button
               type="button"
               data-ocid="authorities.grid_view.toggle"
               onClick={() => setViewMode("grid")}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold font-body transition-smooth border ${
+              className={`px-4 py-2 rounded-lg typo-support font-semibold transition-smooth border ${
                 viewMode === "grid"
                   ? "bg-cobalt text-white border-cobalt shadow-cobalt"
                   : "bg-white text-cobalt border-cobalt hover:bg-cobalt-subtle"
@@ -344,7 +324,7 @@ export default function AuthoritiesPage() {
               type="button"
               data-ocid="authorities.table_view.toggle"
               onClick={() => setViewMode("table")}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold font-body transition-smooth border ${
+              className={`px-4 py-2 rounded-lg typo-support font-semibold transition-smooth border ${
                 viewMode === "table"
                   ? "bg-cobalt text-white border-cobalt shadow-cobalt"
                   : "bg-white text-cobalt border-cobalt hover:bg-cobalt-subtle"
@@ -354,7 +334,6 @@ export default function AuthoritiesPage() {
             </button>
           </div>
 
-          {/* Grid view */}
           {viewMode === "grid" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {AUTHORITIES_DATA.committees.map((committee) => (
@@ -368,7 +347,6 @@ export default function AuthoritiesPage() {
             </div>
           )}
 
-          {/* Table view */}
           {viewMode === "table" && (
             <div
               style={{
@@ -385,26 +363,24 @@ export default function AuthoritiesPage() {
         </div>
       </section>
 
-      {/* ── SECTION 4: CONTACT BANNER ─────────────────────────────────────────── */}
+      {/* ── CONTACT BANNER ── */}
       <section
         data-ocid="authorities.contact"
         ref={contactSection.ref}
         className="bg-midnight py-16 relative overflow-hidden"
       >
-        {/* Decorative accent */}
         <div
           className="absolute top-0 left-0 w-full h-1"
-          style={{ background: "#1648C8" }}
+          style={{ background: "#1A237E" }}
           aria-hidden="true"
         />
         <div
           className="absolute -right-24 top-1/2 -translate-y-1/2 w-72 h-72 rounded-full opacity-5"
           style={{
-            background: "radial-gradient(circle, #1648C8 0%, transparent 70%)",
+            background: "radial-gradient(circle, #1A237E 0%, transparent 70%)",
           }}
           aria-hidden="true"
         />
-
         <div
           className="max-w-4xl mx-auto px-6 text-center"
           style={{
@@ -421,32 +397,28 @@ export default function AuthoritiesPage() {
             </span>
           </div>
           <h2
-            className="font-heading font-bold text-white mb-4"
-            style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", color: "white" }}
+            className="font-cinzel font-semibold text-white mb-4"
+            style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)" }}
           >
             Registrar's Office
           </h2>
-          <p className="font-body text-white/80 text-base mb-3 max-w-2xl mx-auto leading-relaxed">
+          <p className="typo-body text-white/80 mb-3 max-w-2xl mx-auto">
             For official queries regarding governance and committees, contact
             the Registrar's Office at COEP Technological University.
           </p>
-          <p className="font-body text-white/70 text-sm mb-6">
+          <p className="typo-support text-white/70 mb-6">
             📍 Wellesley Rd, Shivajinagar, Pune – 411 005, Maharashtra, India
           </p>
-
           <a
             data-ocid="authorities.contact_us.button"
             href="mailto:info@coeptech.ac.in"
-            className="inline-flex items-center gap-2 bg-gold text-midnight font-bold font-body
-              px-7 py-3 rounded-xl text-base shadow-gold transition-smooth
+            className="inline-flex items-center gap-2 typo-btn bg-gold text-midnight
+              px-7 py-3 rounded-xl shadow-gold transition-smooth
               hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-midnight"
           >
             ✉ Contact Us
           </a>
-
-          <p className="font-body text-white/50 text-xs mt-4">
-            info@coeptech.ac.in
-          </p>
+          <p className="typo-support text-white/50 mt-4">info@coeptech.ac.in</p>
         </div>
       </section>
     </div>
